@@ -155,12 +155,21 @@ const Index = () => {
 
       {/* Main content */}
       <div className="relative z-10 flex flex-col items-center justify-center min-h-screen p-6">
-        {/* App title */}
+        {/* Header with streak indicator */}
         <div className="text-center mb-8">
-          <h1 className="text-4xl font-bold text-white mb-2 drop-shadow-lg">
-            ChakraFlow
-          </h1>
+          <div className="flex items-center justify-center gap-4 mb-4">
+            <h1 className="text-4xl font-bold text-white drop-shadow-lg">
+              ChakraFlow
+            </h1>
+            <div className="flex items-center gap-1 bg-white/10 backdrop-blur-sm rounded-full px-3 py-1">
+              <span className="text-lg">🔥</span>
+              <span className="text-white font-semibold">{userProfile.currentStreak}</span>
+            </div>
+          </div>
           <p className="text-white/70">Guided chakra meditation</p>
+          <p className="text-white/50 text-sm mt-1">
+            {userProfile.totalMinutesMeditated} minutes • {userProfile.sessionsCompleted} sessions
+          </p>
         </div>
 
         {/* Meditation figure with chakras */}

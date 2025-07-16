@@ -133,6 +133,10 @@ export default {
 				'expand-chakra': {
 					'0%': { transform: 'scale(1)' },
 					'100%': { transform: 'scale(50)' }
+				},
+				'pulse-gentle': {
+					'0%, 100%': { opacity: '0.8', transform: 'scale(1)' },
+					'50%': { opacity: '1', transform: 'scale(1.05)' }
 				}
 			},
 			animation: {
@@ -143,7 +147,8 @@ export default {
 				'breath-in': 'breath-in 5s ease-in-out',
 				'breath-out': 'breath-out 5s ease-in-out',
 				'pulse-glow': 'pulse-glow 2s ease-in-out infinite',
-				'expand-chakra': 'expand-chakra 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards'
+				'expand-chakra': 'expand-chakra 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards',
+				'pulse-gentle': 'pulse-gentle 3s ease-in-out infinite'
 			}
 		}
 	},

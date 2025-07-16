@@ -41,10 +41,10 @@ export function MeditationSession({ chakra, duration, onComplete, onExit }: Medi
     return () => clearInterval(interval);
   }, [isPlaying, onComplete]);
 
-  // Vibration effect for inhale phase
+  // Enhanced vibration effect for inhale phase
   useEffect(() => {
     if (phase === 'inhale' && isPlaying && 'vibrate' in navigator) {
-      navigator.vibrate(100);
+      navigator.vibrate([100, 50, 100]); // Pattern for deeper awareness
     }
   }, [phase, isPlaying]);
 
