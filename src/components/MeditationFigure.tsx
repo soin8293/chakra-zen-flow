@@ -22,16 +22,13 @@ export function MeditationFigure({ onChakraClick, expandingChakraId }: Meditatio
     <div className="relative w-full h-full flex items-center justify-center">
       {/* Simple Meditation Figure Container */}
       <div className="relative w-48 h-64">
-        {/* Clean meditation figure icon */}
+        {/* Meditation figure from uploaded image */}
         <div className="absolute inset-0 flex items-center justify-center">
-          <svg
-            viewBox="0 0 100 100"
-            className="w-32 h-32 text-white/40 animate-pulse-gentle"
-            fill="currentColor"
-          >
-            {/* Simple meditation figure silhouette */}
-            <path d="M50 20c-5 0-9 4-9 9s4 9 9 9 9-4 9-9-4-9-9-9zm-8 25v20l-8 8v5h32v-5l-8-8V45c0-2-2-4-4-4h-8c-2 0-4 2-4 4zm-12 25c-3 0-5 2-5 5v8c0 3 2 5 5 5s5-2 5-5v-8c0-3-2-5-5-5zm40 0c-3 0-5 2-5 5v8c0 3 2 5 5 5s5-2 5-5v-8c0-3-2-5-5-5z"/>
-          </svg>
+          <img 
+            src="/lovable-uploads/68914da5-0095-4573-9463-0fe7454a8848.png"
+            alt="Meditation figure"
+            className="w-32 h-32 opacity-40 animate-pulse-gentle filter invert"
+          />
         </div>
 
         {/* Subtle spine energy line */}
