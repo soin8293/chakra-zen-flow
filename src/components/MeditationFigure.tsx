@@ -7,15 +7,15 @@ interface MeditationFigureProps {
 }
 
 export function MeditationFigure({ onChakraClick, expandingChakraId }: MeditationFigureProps) {
-  // Chakra positions aligned with the simple meditation figure
+  // Chakra positions aligned with the meditation figure image
   const chakraPositions = [
-    { x: 50, y: 88 }, // Root - base
-    { x: 50, y: 78 }, // Sacral - lower abdomen
-    { x: 50, y: 68 }, // Solar Plexus - upper abdomen
-    { x: 50, y: 58 }, // Heart - chest center
-    { x: 50, y: 48 }, // Throat - throat area
-    { x: 50, y: 38 }, // Third Eye - forehead
-    { x: 50, y: 28 }, // Crown - top of head
+    { x: 50, y: 85 }, // Root - base/pelvis
+    { x: 50, y: 75 }, // Sacral - lower abdomen  
+    { x: 50, y: 65 }, // Solar Plexus - upper abdomen
+    { x: 50, y: 55 }, // Heart - chest center
+    { x: 50, y: 45 }, // Throat - neck area
+    { x: 50, y: 35 }, // Third Eye - forehead
+    { x: 50, y: 25 }, // Crown - top of head
   ];
 
   return (
@@ -27,7 +27,7 @@ export function MeditationFigure({ onChakraClick, expandingChakraId }: Meditatio
           <img 
             src="/lovable-uploads/68914da5-0095-4573-9463-0fe7454a8848.png"
             alt="Meditation figure"
-            className="w-32 h-32 opacity-40 animate-pulse-gentle filter invert"
+            className="w-40 h-48 opacity-40 animate-pulse-gentle filter invert object-contain"
           />
         </div>
 
