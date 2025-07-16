@@ -10,8 +10,8 @@ export function MeditationFigure({ onChakraClick, expandingChakraId }: Meditatio
   // Dynamic chakra positioning based on anatomical proportions
   const imageHeight = 320; // h-80 in pixels
   const chakraPositions = chakras.map((_, index) => {
-    // Simple evenly distributed positioning from top to bottom
-    const anatomicalPositions = [0.70, 0.60, 0.50, 0.40, 0.30, 0.20, 0.10]; // Root to Crown
+    // All chakras centered in the middle of the screen
+    const anatomicalPositions = [0.50, 0.50, 0.50, 0.50, 0.50, 0.50, 0.50]; // Root to Crown
     return {
       x: 50, // Center horizontally
       y: anatomicalPositions[index] * 100 // Convert to percentage
