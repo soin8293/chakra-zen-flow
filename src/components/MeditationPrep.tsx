@@ -6,11 +6,12 @@ interface MeditationPrepProps {
   chakra: Chakra;
   onBack: () => void;
   onStart: (duration: number) => void;
+  onLearn?: () => void;
 }
 
 const durations = [1, 5, 10]; // minutes
 
-export function MeditationPrep({ chakra, onBack, onStart }: MeditationPrepProps) {
+export function MeditationPrep({ chakra, onBack, onStart, onLearn }: MeditationPrepProps) {
   return (
     <div className="min-h-screen bg-gradient-cosmic relative overflow-hidden">
       {/* Back button */}
@@ -62,6 +63,12 @@ export function MeditationPrep({ chakra, onBack, onStart }: MeditationPrepProps)
             ))}
           </div>
         </div>
+
+        {onLearn && (
+          <Button variant="outline" onClick={onLearn} className="mb-8">
+            Learn about this chakra
+          </Button>
+        )}
 
         {/* Chakra traits */}
         <div className="text-white/70 text-sm">

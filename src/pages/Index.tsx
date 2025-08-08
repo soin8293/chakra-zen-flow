@@ -24,6 +24,7 @@ const Index = () => {
   const [selectedChakra, setSelectedChakra] = useState<Chakra | null>(null);
   const [sessionDuration, setSessionDuration] = useState<number>(5);
   const [expandingChakraId, setExpandingChakraId] = useState<string | null>(null);
+  const [articleOrigin, setArticleOrigin] = useState<'prep' | 'info' | null>(null);
 
   // Mock user profile data
   const [userProfile] = useState<UserProfile>({
@@ -76,12 +77,20 @@ const Index = () => {
 
   const handleChakraSelect = (chakra: Chakra) => {
     setSelectedChakra(chakra);
+    setArticleOrigin('info');
     setCurrentScreen('chakra-article');
   };
 
   const handleBack = () => {
     if (currentScreen === 'chakra-article') {
-      setCurrentScreen('chakra-info');
+      if (articleOrigin === 'prep') {
+        setCurrentScreen('prep');
+      } else if (articleOrigin === 'info') {
+        setCurrentScreen('chakra-info');
+      } else {
+        setCurrentScreen('home');
+      }
+      setArticleOrigin(null);
     } else {
       setCurrentScreen('home');
     }
@@ -94,6 +103,7 @@ const Index = () => {
         chakra={selectedChakra}
         onBack={handleBackToHome}
         onStart={handleStartMeditation}
+        onLearn={() => { setArticleOrigin('prep'); setCurrentScreen('chakra-article'); }}
       />
     );
   }

@@ -2,6 +2,17 @@ import { useEffect, useState } from "react";
 import { Chakra } from "@/types/chakra";
 import { Button } from "./ui/button";
 import { Pause, Play, X } from "lucide-react";
+import { 
+  AlertDialog,
+  AlertDialogTrigger,
+  AlertDialogContent,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogCancel,
+  AlertDialogAction,
+} from "./ui/alert-dialog";
 
 interface MeditationSessionProps {
   chakra: Chakra;
@@ -77,14 +88,30 @@ export function MeditationSession({ chakra, duration, onComplete, onExit }: Medi
         >
           {isPlaying ? <Pause className="h-6 w-6" /> : <Play className="h-6 w-6" />}
         </Button>
-        <Button
-          variant="ghost"
-          size="icon"
-          className="text-white hover:bg-white/10"
-          onClick={onExit}
-        >
-          <X className="h-6 w-6" />
-        </Button>
+
+        <AlertDialog>
+          <AlertDialogTrigger asChild>
+            <Button
+              variant="ghost"
+              size="icon"
+              className="text-white hover:bg-white/10"
+            >
+              <X className="h-6 w-6" />
+            </Button>
+          </AlertDialogTrigger>
+          <AlertDialogContent>
+            <AlertDialogHeader>
+              <AlertDialogTitle>End session early?</AlertDialogTitle>
+              <AlertDialogDescription>
+                Your progress for this session won&apos;t be saved.
+              </AlertDialogDescription>
+            </AlertDialogHeader>
+            <AlertDialogFooter>
+              <AlertDialogCancel>Continue</AlertDialogCancel>
+              <AlertDialogAction onClick={onExit}>End session</AlertDialogAction>
+            </AlertDialogFooter>
+          </AlertDialogContent>
+        </AlertDialog>
       </div>
 
       {/* Main timer display */}
