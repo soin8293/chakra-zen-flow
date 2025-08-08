@@ -27,7 +27,7 @@ export function MeditationFigure({ onChakraClick, expandingChakraId }: Meditatio
           <img 
             src="/lovable-uploads/68914da5-0095-4573-9463-0fe7454a8848.png"
             alt="Meditation figure"
-            className="w-56 h-72 opacity-40 animate-pulse-gentle filter invert object-contain"
+            className="w-full h-full opacity-40 animate-pulse-gentle filter invert object-contain"
           />
         </div>
 
