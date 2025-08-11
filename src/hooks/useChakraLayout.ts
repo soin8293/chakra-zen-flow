@@ -64,10 +64,15 @@ function writeOverrides(next: Partial<Record<ChakraId, number>>) {
   }
 }
 
-export function useChakraLayout(containerSel = "[data-meditation-container]"): Return {
+export function useChakraLayout(
+  containerSel = "[data-meditation-container]",
+  imageSel = "[data-meditation-figure]"
+): Return {
   const [containerH, setContainerH] = useState<number>(0);
   const [containerW, setContainerW] = useState<number>(0);
   const containerRef = useRef<HTMLElement | null>(null);
+  const [imageTopRel, setImageTopRel] = useState<number | null>(null);
+  const [imageH, setImageH] = useState<number>(0);
 
   const debug = useMemo(() => {
     if (typeof window === "undefined") return false;
@@ -75,36 +80,54 @@ export function useChakraLayout(containerSel = "[data-meditation-container]"): R
     return q.has(QUERY_DEBUG_KEY);
   }, []);
 
-  // observe container size
+  // observe container + image size
   useEffect(() => {
     const el = document.querySelector(containerSel) as HTMLElement | null;
+    const img = document.querySelector(imageSel) as HTMLElement | null;
     containerRef.current = el ?? null;
     if (!el) return;
 
-    // initial
-    const rect = el.getBoundingClientRect();
-    setContainerH(rect.height);
-    setContainerW(rect.width);
-
-    const ro = new ResizeObserver((entries) => {
-      for (const entry of entries) {
-        const cr = entry.contentRect;
-        setContainerH(cr.height);
-        setContainerW(cr.width);
+    const update = () => {
+      const cRect = el.getBoundingClientRect();
+      setContainerH(cRect.height);
+      setContainerW(cRect.width);
+      if (img) {
+        const iRect = img.getBoundingClientRect();
+        setImageTopRel(iRect.top - cRect.top);
+        setImageH(iRect.height);
+      } else {
+        setImageTopRel(null);
+        setImageH(0);
       }
+    };
+
+    // initial
+    update();
+
+    const ro = new ResizeObserver(() => {
+      update();
     });
     ro.observe(el);
+    if (img) ro.observe(img);
     return () => ro.disconnect();
-  }, [containerSel]);
+  }, [containerSel, imageSel]);
 
   // compute spineRect from container height
   const spineRect: SpineRect = useMemo(() => {
     const H = containerH || 0;
     if (!H) return { topPx: 0, heightPx: 0 };
+
+    if (imageH > 0 && imageTopRel !== null) {
+      const spineH = clamp(imageH, 200, H);
+      const spineTop = clamp(imageTopRel, 0, H - spineH);
+      return { topPx: spineTop, heightPx: spineH };
+    }
+
+    // fallback: center within container
     const spineH = clamp(H * 0.70, 200, H);
     const spineTop = (H - spineH) / 2;
     return { topPx: spineTop, heightPx: spineH };
-  }, [containerH]);
+  }, [containerH, imageH, imageTopRel]);
 
   // resolve yNorm with optional debug overrides
   const yNorm: Record<ChakraId, number> = useMemo(() => {

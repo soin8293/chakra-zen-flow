@@ -72,6 +72,7 @@ export function MeditationFigure({ onChakraClick, expandingChakraId }: Meditatio
         {/* Layer 3: Responsive meditation figure */}
         <div className="absolute inset-0 flex items-center justify-center z-20">
           <img 
+            data-meditation-figure
             src="/lovable-uploads/367d80a7-5795-4dfa-a351-9d3588def8bd.png"
             alt="Meditation figure in lotus position"
             className="opacity-90 filter invert object-contain transition-all duration-300 w-full h-full"
