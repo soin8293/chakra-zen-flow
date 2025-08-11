@@ -1,0 +1,349 @@
+{
+  "version": "1.0",
+  "presets": ["calm", "balance", "energize"],
+  "chakras": [
+    {
+      "id": "root",
+      "name": "Muladhara",
+      "meditation_type": "grounding",
+      "intent": "stability and safety",
+      "levels": {
+        "beginner": {
+          "preset": "calm",
+          "phases": { "inhale": 4, "hold_top": 0, "exhale": 6, "hold_bottom": 0 },
+          "breath_ratio_label": "4-0-6-0",
+          "cycle_length_seconds": 10,
+          "recommended_cycles": { "5min": 30, "10min": 60, "15min": 90 },
+          "ui": {
+            "phase_fill_direction": { "inhale": "ltr", "exhale": "rtl" },
+            "count_cues": { "inhale_counts": 4, "exhale_counts": 6, "hold_top_counts": 0, "hold_bottom_counts": 0 }
+          },
+          "notes": "Longer exhale supports parasympathetic tone. Keep breath silent and comfortable.",
+          "contraindications": []
+        },
+        "intermediate": {
+          "preset": "balance",
+          "phases": { "inhale": 5, "hold_top": 0, "exhale": 6, "hold_bottom": 0 },
+          "breath_ratio_label": "5-0-6-0",
+          "cycle_length_seconds": 11,
+          "recommended_cycles": { "5min": 27, "10min": 54, "15min": 81 },
+          "ui": {
+            "phase_fill_direction": { "inhale": "ltr", "exhale": "rtl" },
+            "count_cues": { "inhale_counts": 5, "exhale_counts": 6, "hold_top_counts": 0, "hold_bottom_counts": 0 }
+          },
+          "notes": "Slight lengthening of exhale; relax pelvic floor and feet.",
+          "contraindications": []
+        },
+        "advanced": {
+          "preset": "calm",
+          "phases": { "inhale": 5, "hold_top": 1, "exhale": 7, "hold_bottom": 0 },
+          "breath_ratio_label": "5-1-7-0",
+          "cycle_length_seconds": 13,
+          "recommended_cycles": { "5min": 23, "10min": 46, "15min": 69 },
+          "ui": {
+            "phase_fill_direction": { "inhale": "ltr", "exhale": "rtl" },
+            "count_cues": { "inhale_counts": 5, "exhale_counts": 7, "hold_top_counts": 1, "hold_bottom_counts": 0 }
+          },
+          "notes": "Add brief top retention only if experienced. Back off if dizziness arises.",
+          "contraindications": ["avoid retentions during pregnancy", "use caution with uncontrolled hypertension"]
+        }
+      },
+      "justification": "Grounding practices emphasize longer exhalation to downregulate autonomic arousal while maintaining steady, comfortable pacing.",
+      "references": []
+    },
+    {
+      "id": "sacral",
+      "name": "Svadhisthana",
+      "meditation_type": "fluidity",
+      "intent": "creativity and ease",
+      "levels": {
+        "beginner": {
+          "preset": "balance",
+          "phases": { "inhale": 5, "hold_top": 0, "exhale": 5, "hold_bottom": 0 },
+          "breath_ratio_label": "5-0-5-0",
+          "cycle_length_seconds": 10,
+          "recommended_cycles": { "5min": 30, "10min": 60, "15min": 90 },
+          "ui": {
+            "phase_fill_direction": { "inhale": "ltr", "exhale": "rtl" },
+            "count_cues": { "inhale_counts": 5, "exhale_counts": 5, "hold_top_counts": 0, "hold_bottom_counts": 0 }
+          },
+          "notes": "Even pacing encourages smoothness and emotional ease.",
+          "contraindications": []
+        },
+        "intermediate": {
+          "preset": "calm",
+          "phases": { "inhale": 5, "hold_top": 0, "exhale": 6, "hold_bottom": 0 },
+          "breath_ratio_label": "5-0-6-0",
+          "cycle_length_seconds": 11,
+          "recommended_cycles": { "5min": 27, "10min": 54, "15min": 81 },
+          "ui": {
+            "phase_fill_direction": { "inhale": "ltr", "exhale": "rtl" },
+            "count_cues": { "inhale_counts": 5, "exhale_counts": 6, "hold_top_counts": 0, "hold_bottom_counts": 0 }
+          },
+          "notes": "Slightly longer exhale for softness; keep jaw and hips relaxed.",
+          "contraindications": []
+        },
+        "advanced": {
+          "preset": "energize",
+          "phases": { "inhale": 6, "hold_top": 0, "exhale": 6, "hold_bottom": 0 },
+          "breath_ratio_label": "6-0-6-0",
+          "cycle_length_seconds": 12,
+          "recommended_cycles": { "5min": 25, "10min": 50, "15min": 75 },
+          "ui": {
+            "phase_fill_direction": { "inhale": "ltr", "exhale": "rtl" },
+            "count_cues": { "inhale_counts": 6, "exhale_counts": 6, "hold_top_counts": 0, "hold_bottom_counts": 0 }
+          },
+          "notes": "Equal, slightly longer cycles can feel gently activating without strain.",
+          "contraindications": []
+        }
+      },
+      "justification": "Equal, smooth timing mirrors the sacral theme of flow, supporting emotional regulation without overactivation.",
+      "references": []
+    },
+    {
+      "id": "solar_plexus",
+      "name": "Manipura",
+      "meditation_type": "will and heat",
+      "intent": "confidence and focus",
+      "levels": {
+        "beginner": {
+          "preset": "balance",
+          "phases": { "inhale": 5, "hold_top": 0, "exhale": 6, "hold_bottom": 0 },
+          "breath_ratio_label": "5-0-6-0",
+          "cycle_length_seconds": 11,
+          "recommended_cycles": { "5min": 27, "10min": 54, "15min": 81 },
+          "ui": {
+            "phase_fill_direction": { "inhale": "ltr", "exhale": "rtl" },
+            "count_cues": { "inhale_counts": 5, "exhale_counts": 6, "hold_top_counts": 0, "hold_bottom_counts": 0 }
+          },
+          "notes": "Balanced pace with modestly longer exhale; avoid force or heat-building techniques.",
+          "contraindications": ["avoid aggressive or rapid breathing if new to practice"]
+        },
+        "intermediate": {
+          "preset": "energize",
+          "phases": { "inhale": 6, "hold_top": 0, "exhale": 6, "hold_bottom": 0 },
+          "breath_ratio_label": "6-0-6-0",
+          "cycle_length_seconds": 12,
+          "recommended_cycles": { "5min": 25, "10min": 50, "15min": 75 },
+          "ui": {
+            "phase_fill_direction": { "inhale": "ltr", "exhale": "rtl" },
+            "count_cues": { "inhale_counts": 6, "exhale_counts": 6, "hold_top_counts": 0, "hold_bottom_counts": 0 }
+          },
+          "notes": "Equal timing with attentive core engagement; keep breath quiet.",
+          "contraindications": []
+        },
+        "advanced": {
+          "preset": "energize",
+          "phases": { "inhale": 6, "hold_top": 1, "exhale": 7, "hold_bottom": 0 },
+          "breath_ratio_label": "6-1-7-0",
+          "cycle_length_seconds": 14,
+          "recommended_cycles": { "5min": 21, "10min": 42, "15min": 64 },
+          "ui": {
+            "phase_fill_direction": { "inhale": "ltr", "exhale": "rtl" },
+            "count_cues": { "inhale_counts": 6, "exhale_counts": 7, "hold_top_counts": 1, "hold_bottom_counts": 0 }
+          },
+          "notes": "Brief top retention can enhance focus; stay submaximal and skip if any pressure or anxiety appears.",
+          "contraindications": ["avoid retentions during pregnancy", "caution with hypertension or arrhythmia"]
+        }
+      },
+      "justification": "Manipura benefits from steady, intentional pacing that cultivates alertness without tipping into sympathetic overdrive.",
+      "references": []
+    },
+    {
+      "id": "heart",
+      "name": "Anahata",
+      "meditation_type": "coherence",
+      "intent": "connection and compassion",
+      "levels": {
+        "beginner": {
+          "preset": "balance",
+          "phases": { "inhale": 5, "hold_top": 0, "exhale": 5, "hold_bottom": 0 },
+          "breath_ratio_label": "5-0-5-0",
+          "cycle_length_seconds": 10,
+          "recommended_cycles": { "5min": 30, "10min": 60, "15min": 90 },
+          "ui": {
+            "phase_fill_direction": { "inhale": "ltr", "exhale": "rtl" },
+            "count_cues": { "inhale_counts": 5, "exhale_counts": 5, "hold_top_counts": 0, "hold_bottom_counts": 0 }
+          },
+          "notes": "Even, gentle pacing associated with HRV coherence.",
+          "contraindications": []
+        },
+        "intermediate": {
+          "preset": "balance",
+          "phases": { "inhale": 6, "hold_top": 0, "exhale": 6, "hold_bottom": 0 },
+          "breath_ratio_label": "6-0-6-0",
+          "cycle_length_seconds": 12,
+          "recommended_cycles": { "5min": 25, "10min": 50, "15min": 75 },
+          "ui": {
+            "phase_fill_direction": { "inhale": "ltr", "exhale": "rtl" },
+            "count_cues": { "inhale_counts": 6, "exhale_counts": 6, "hold_top_counts": 0, "hold_bottom_counts": 0 }
+          },
+          "notes": "Stay relaxed around the chest and shoulders.",
+          "contraindications": []
+        },
+        "advanced": {
+          "preset": "calm",
+          "phases": { "inhale": 6, "hold_top": 1, "exhale": 6, "hold_bottom": 0 },
+          "breath_ratio_label": "6-1-6-0",
+          "cycle_length_seconds": 13,
+          "recommended_cycles": { "5min": 23, "10min": 46, "15min": 69 },
+          "ui": {
+            "phase_fill_direction": { "inhale": "ltr", "exhale": "rtl" },
+            "count_cues": { "inhale_counts": 6, "exhale_counts": 6, "hold_top_counts": 1, "hold_bottom_counts": 0 }
+          },
+          "notes": "Minimal top hold can deepen felt sense; skip holds if lightheaded.",
+          "contraindications": ["avoid retentions during pregnancy", "use caution with cardiovascular conditions"]
+        }
+      },
+      "justification": "Heart-centered work aligns with coherent, even breathing around 5–6 seconds per phase to support HRV and calm attention.",
+      "references": []
+    },
+    {
+      "id": "throat",
+      "name": "Vishuddha",
+      "meditation_type": "resonance",
+      "intent": "clarity and expression",
+      "levels": {
+        "beginner": {
+          "preset": "balance",
+          "phases": { "inhale": 5, "hold_top": 0, "exhale": 5, "hold_bottom": 0 },
+          "breath_ratio_label": "5-0-5-0",
+          "cycle_length_seconds": 10,
+          "recommended_cycles": { "5min": 30, "10min": 60, "15min": 90 },
+          "ui": {
+            "phase_fill_direction": { "inhale": "ltr", "exhale": "rtl" },
+            "count_cues": { "inhale_counts": 5, "exhale_counts": 5, "hold_top_counts": 0, "hold_bottom_counts": 0 }
+          },
+          "notes": "Equal pacing; optional gentle ujjayi (no strain) can add resonance.",
+          "contraindications": ["avoid throat constriction if sore throat or respiratory infection"]
+        },
+        "intermediate": {
+          "preset": "balance",
+          "phases": { "inhale": 6, "hold_top": 0, "exhale": 6, "hold_bottom": 0 },
+          "breath_ratio_label": "6-0-6-0",
+          "cycle_length_seconds": 12,
+          "recommended_cycles": { "5min": 25, "10min": 50, "15min": 75 },
+          "ui": {
+            "phase_fill_direction": { "inhale": "ltr", "exhale": "rtl" },
+            "count_cues": { "inhale_counts": 6, "exhale_counts": 6, "hold_top_counts": 0, "hold_bottom_counts": 0 }
+          },
+          "notes": "Maintain smooth, audible-but-soft breath if using ujjayi.",
+          "contraindications": []
+        },
+        "advanced": {
+          "preset": "balance",
+          "phases": { "inhale": 6, "hold_top": 0, "exhale": 6, "hold_bottom": 1 },
+          "breath_ratio_label": "6-0-6-1",
+          "cycle_length_seconds": 13,
+          "recommended_cycles": { "5min": 23, "10min": 46, "15min": 69 },
+          "ui": {
+            "phase_fill_direction": { "inhale": "ltr", "exhale": "rtl" },
+            "count_cues": { "inhale_counts": 6, "exhale_counts": 6, "hold_top_counts": 0, "hold_bottom_counts": 1 }
+          },
+          "notes": "Brief, gentle bottom pause to feel resonance settle; keep it effortless.",
+          "contraindications": ["skip holds if anxious or breathless"]
+        }
+      },
+      "justification": "Vishuddha practices favor steady, resonant pacing; small pauses can emphasize vocal tract relaxation without breath strain.",
+      "references": []
+    },
+    {
+      "id": "third_eye",
+      "name": "Ajna",
+      "meditation_type": "focus",
+      "intent": "insight and concentration",
+      "levels": {
+        "beginner": {
+          "preset": "balance",
+          "phases": { "inhale": 4, "hold_top": 1, "exhale": 4, "hold_bottom": 1 },
+          "breath_ratio_label": "4-1-4-1",
+          "cycle_length_seconds": 10,
+          "recommended_cycles": { "5min": 30, "10min": 60, "15min": 90 },
+          "ui": {
+            "phase_fill_direction": { "inhale": "ltr", "exhale": "rtl" },
+            "count_cues": { "inhale_counts": 4, "exhale_counts": 4, "hold_top_counts": 1, "hold_bottom_counts": 1 }
+          },
+          "notes": "Light box-style timing for attentional steadiness; holds are minimal and optional.",
+          "contraindications": ["reduce or remove holds if dizziness or anxiety"]
+        },
+        "intermediate": {
+          "preset": "balance",
+          "phases": { "inhale": 5, "hold_top": 1, "exhale": 5, "hold_bottom": 1 },
+          "breath_ratio_label": "5-1-5-1",
+          "cycle_length_seconds": 12,
+          "recommended_cycles": { "5min": 25, "10min": 50, "15min": 75 },
+          "ui": {
+            "phase_fill_direction": { "inhale": "ltr", "exhale": "rtl" },
+            "count_cues": { "inhale_counts": 5, "exhale_counts": 5, "hold_top_counts": 1, "hold_bottom_counts": 1 }
+          },
+          "notes": "Maintain smooth transitions; micro-holds remain optional.",
+          "contraindications": ["avoid retentions during pregnancy", "use caution with cardiovascular issues"]
+        },
+        "advanced": {
+          "preset": "balance",
+          "phases": { "inhale": 5, "hold_top": 2, "exhale": 5, "hold_bottom": 2 },
+          "breath_ratio_label": "5-2-5-2",
+          "cycle_length_seconds": 14,
+          "recommended_cycles": { "5min": 21, "10min": 42, "15min": 64 },
+          "ui": {
+            "phase_fill_direction": { "inhale": "ltr", "exhale": "rtl" },
+            "count_cues": { "inhale_counts": 5, "exhale_counts": 5, "hold_top_counts": 2, "hold_bottom_counts": 2 }
+          },
+          "notes": "Classic light box breathing; keep holds short and comfortable.",
+          "contraindications": ["avoid longer retentions with hypertension, glaucoma, or if you feel air hunger"]
+        }
+      },
+      "justification": "Ajna-focused practices often use gentle box-like rhythms to stabilize attention without aggressive retentions.",
+      "references": []
+    },
+    {
+      "id": "crown",
+      "name": "Sahasrara",
+      "meditation_type": "stillness",
+      "intent": "spacious awareness",
+      "levels": {
+        "beginner": {
+          "preset": "balance",
+          "phases": { "inhale": 5, "hold_top": 0, "exhale": 5, "hold_bottom": 0 },
+          "breath_ratio_label": "5-0-5-0",
+          "cycle_length_seconds": 10,
+          "recommended_cycles": { "5min": 30, "10min": 60, "15min": 90 },
+          "ui": {
+            "phase_fill_direction": { "inhale": "ltr", "exhale": "rtl" },
+            "count_cues": { "inhale_counts": 5, "exhale_counts": 5, "hold_top_counts": 0, "hold_bottom_counts": 0 }
+          },
+          "notes": "Gentle equal pacing; rest attention lightly at the crown.",
+          "contraindications": []
+        },
+        "intermediate": {
+          "preset": "calm",
+          "phases": { "inhale": 5, "hold_top": 0, "exhale": 6, "hold_bottom": 0 },
+          "breath_ratio_label": "5-0-6-0",
+          "cycle_length_seconds": 11,
+          "recommended_cycles": { "5min": 27, "10min": 54, "15min": 81 },
+          "ui": {
+            "phase_fill_direction": { "inhale": "ltr", "exhale": "rtl" },
+            "count_cues": { "inhale_counts": 5, "exhale_counts": 6, "hold_top_counts": 0, "hold_bottom_counts": 0 }
+          },
+          "notes": "Slightly longer exhale softens effort; keep face and scalp relaxed.",
+          "contraindications": []
+        },
+        "advanced": {
+          "preset": "balance",
+          "phases": { "inhale": 6, "hold_top": 0, "exhale": 6, "hold_bottom": 0 },
+          "breath_ratio_label": "6-0-6-0",
+          "cycle_length_seconds": 12,
+          "recommended_cycles": { "5min": 25, "10min": 50, "15min": 75 },
+          "ui": {
+            "phase_fill_direction": { "inhale": "ltr", "exhale": "rtl" },
+            "count_cues": { "inhale_counts": 6, "exhale_counts": 6, "hold_top_counts": 0, "hold_bottom_counts": 0 }
+          },
+          "notes": "Equal, unforced rhythm to emphasize spaciousness. No retentions.",
+          "contraindications": []
+        }
+      },
+      "justification": "Crown practices emphasize stillness and equanimity; equal or gently lengthened exhale supports quieting without strain.",
+      "references": []
+    }
+  ]
+}

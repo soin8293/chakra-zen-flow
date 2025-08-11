@@ -22,9 +22,10 @@ type AppScreen =
 const Index = () => {
   const [currentScreen, setCurrentScreen] = useState<AppScreen>('home');
   const [selectedChakra, setSelectedChakra] = useState<Chakra | null>(null);
-  const [sessionDuration, setSessionDuration] = useState<number>(5);
-  const [expandingChakraId, setExpandingChakraId] = useState<string | null>(null);
-  const [articleOrigin, setArticleOrigin] = useState<'prep' | 'info' | null>(null);
+const [sessionDuration, setSessionDuration] = useState<number>(5);
+const [sessionConfig, setSessionConfig] = useState<{ level: 'beginner'|'intermediate'|'advanced'; presetOverride: 'spec'|'calm'|'balance'|'energize'; includeHolds: boolean; }>({ level: 'beginner', presetOverride: 'balance', includeHolds: false });
+const [expandingChakraId, setExpandingChakraId] = useState<string | null>(null);
+const [articleOrigin, setArticleOrigin] = useState<'prep' | 'info' | null>(null);
 
   // Mock user profile data
   const [userProfile] = useState<UserProfile>({
@@ -49,10 +50,11 @@ const Index = () => {
     }
   };
 
-  const handleStartMeditation = (duration: number) => {
-    setSessionDuration(duration);
-    setCurrentScreen('session');
-  };
+const handleStartMeditation = (opts: { duration: number; level: 'beginner'|'intermediate'|'advanced'; presetOverride: 'spec'|'calm'|'balance'|'energize'; includeHolds: boolean; }) => {
+  setSessionDuration(opts.duration);
+  setSessionConfig({ level: opts.level, presetOverride: opts.presetOverride, includeHolds: opts.includeHolds });
+  setCurrentScreen('session');
+};
 
   const handleSessionComplete = () => {
     setCurrentScreen('complete');
@@ -96,28 +98,31 @@ const Index = () => {
     }
   };
 
-  // Render current screen
-  if (currentScreen === 'prep' && selectedChakra) {
-    return (
-      <MeditationPrep
-        chakra={selectedChakra}
-        onBack={handleBackToHome}
-        onStart={handleStartMeditation}
-        onLearn={() => { setArticleOrigin('prep'); setCurrentScreen('chakra-article'); }}
-      />
-    );
-  }
+// Render current screen
+if (currentScreen === 'prep' && selectedChakra) {
+  return (
+    <MeditationPrep
+      chakra={selectedChakra}
+      onBack={handleBackToHome}
+      onStart={handleStartMeditation}
+      onLearn={() => { setArticleOrigin('prep'); setCurrentScreen('chakra-article'); }}
+    />
+  );
+}
 
-  if (currentScreen === 'session' && selectedChakra) {
-    return (
-      <MeditationSession
-        chakra={selectedChakra}
-        duration={sessionDuration}
-        onComplete={handleSessionComplete}
-        onExit={handleBackToHome}
-      />
-    );
-  }
+if (currentScreen === 'session' && selectedChakra) {
+  return (
+    <MeditationSession
+      chakra={selectedChakra}
+      duration={sessionDuration}
+      level={sessionConfig.level}
+      presetOverride={sessionConfig.presetOverride}
+      includeHolds={sessionConfig.includeHolds}
+      onComplete={handleSessionComplete}
+      onExit={handleBackToHome}
+    />
+  );
+}
 
   if (currentScreen === 'complete' && selectedChakra) {
     return (

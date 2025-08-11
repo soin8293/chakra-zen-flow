@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { Chakra } from "@/types/chakra";
 import { Button } from "./ui/button";
+import { useBreathEngine } from "@/hooks/useBreathEngine";
 import { Pause, Play, X } from "lucide-react";
 import { 
   AlertDialog,
@@ -17,45 +18,27 @@ import {
 interface MeditationSessionProps {
   chakra: Chakra;
   duration: number; // in minutes
+  level?: 'beginner' | 'intermediate' | 'advanced';
+  presetOverride?: 'spec' | 'calm' | 'balance' | 'energize';
+  includeHolds?: boolean;
   onComplete: () => void;
   onExit: () => void;
 }
 
-export function MeditationSession({ chakra, duration, onComplete, onExit }: MeditationSessionProps) {
-  const [timeRemaining, setTimeRemaining] = useState(duration * 60); // Convert to seconds
-  const [isPlaying, setIsPlaying] = useState(true);
-  const [phase, setPhase] = useState<'inhale' | 'exhale'>('inhale');
-  const [phaseTime, setPhaseTime] = useState(0);
+export function MeditationSession({ chakra, duration, onComplete, onExit, level, presetOverride, includeHolds }: MeditationSessionProps) {
+  const { phase, progress, direction, isPlaying, remaining, toggle } = useBreathEngine({
+    chakraAppId: chakra.id,
+    level: level ?? 'beginner',
+    presetOverride: presetOverride ?? 'balance',
+    includeHolds: includeHolds ?? false,
+    minutes: duration,
+    onComplete,
+  });
 
-  useEffect(() => {
-    if (!isPlaying) return;
-
-    const interval = setInterval(() => {
-      setTimeRemaining(prev => {
-        if (prev <= 1) {
-          onComplete();
-          return 0;
-        }
-        return prev - 1;
-      });
-
-      setPhaseTime(prev => {
-        const newPhaseTime = prev + 1;
-        if (newPhaseTime >= 5) { // 5 seconds per phase
-          setPhase(current => current === 'inhale' ? 'exhale' : 'inhale');
-          return 0;
-        }
-        return newPhaseTime;
-      });
-    }, 1000);
-
-    return () => clearInterval(interval);
-  }, [isPlaying, onComplete]);
-
-  // Enhanced vibration effect for inhale phase
+  // Haptic tick on inhale
   useEffect(() => {
     if (phase === 'inhale' && isPlaying && 'vibrate' in navigator) {
-      navigator.vibrate([100, 50, 100]); // Pattern for deeper awareness
+      navigator.vibrate([100]);
     }
   }, [phase, isPlaying]);
 
@@ -66,10 +49,12 @@ export function MeditationSession({ chakra, duration, onComplete, onExit }: Medi
   };
 
   const togglePlayPause = () => {
-    setIsPlaying(!isPlaying);
+    toggle();
   };
 
-  return (
+  const progressWidth = (direction === 'ltr' ? progress : 1 - progress) * 100;
+
+return (
     <div 
       className="min-h-screen flex flex-col items-center justify-center relative transition-all duration-[5s] ease-in-out"
       style={{
@@ -80,7 +65,7 @@ export function MeditationSession({ chakra, duration, onComplete, onExit }: Medi
     >
       {/* Control buttons - fade in on hover/touch */}
       <div className="absolute top-4 right-4 flex gap-2 opacity-20 hover:opacity-100 transition-opacity">
-        <Button
+<Button
           variant="ghost"
           size="icon"
           className="text-white hover:bg-white/10"
@@ -115,22 +100,22 @@ export function MeditationSession({ chakra, duration, onComplete, onExit }: Medi
       </div>
 
       {/* Main timer display */}
-      <div className="text-center">
-        <div 
+<div className="text-center">
+<div 
           className="text-8xl font-bold text-white mb-4 transition-all duration-1000"
           style={{
             textShadow: phase === 'inhale' ? '0 0 30px rgba(255,255,255,0.5)' : 'none'
           }}
         >
-          {formatTime(timeRemaining)}
+          {formatTime(remaining)}
         </div>
         
         <div className="text-2xl text-white/80 mb-8">
-          {phase === 'inhale' ? 'Breathe In' : 'Breathe Out'}
+          {phase.includes('hold') ? 'Hold' : (phase === 'inhale' ? 'Breathe In' : 'Breathe Out')}
         </div>
 
         {/* Breathing indicator */}
-        <div 
+<div 
           className="w-24 h-24 rounded-full border-4 border-white/50 mx-auto transition-all duration-[5s] ease-in-out"
           style={{
             transform: phase === 'inhale' ? 'scale(1.5)' : 'scale(1)',
@@ -142,9 +127,9 @@ export function MeditationSession({ chakra, duration, onComplete, onExit }: Medi
       {/* Phase progress indicator */}
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
         <div className="w-40 h-2 bg-white/20 rounded-full overflow-hidden">
-          <div 
-            className="h-full bg-white transition-all duration-1000 ease-linear"
-            style={{ width: `${(phase === 'inhale' ? (phaseTime / 5) : (1 - phaseTime / 5)) * 100}%` }}
+<div 
+            className="h-full bg-white transition-all ease-linear"
+            style={{ width: `${progressWidth}%` }}
           />
         </div>
       </div>
