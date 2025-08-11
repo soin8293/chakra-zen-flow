@@ -144,7 +144,7 @@ export function MeditationSession({ chakra, duration, onComplete, onExit }: Medi
         <div className="w-40 h-2 bg-white/20 rounded-full overflow-hidden">
           <div 
             className="h-full bg-white transition-all duration-1000 ease-linear"
-            style={{ width: `${(phaseTime / 5) * 100}%` }}
+            style={{ width: `${(phase === 'inhale' ? (phaseTime / 5) : (1 - phaseTime / 5)) * 100}%` }}
           />
         </div>
       </div>
