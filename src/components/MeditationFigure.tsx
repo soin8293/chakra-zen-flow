@@ -9,6 +9,7 @@ interface MeditationFigureProps {
 
 export function MeditationFigure({ onChakraClick, expandingChakraId }: MeditationFigureProps) {
   const { positions, spineStyle, spineRect, debug, setYNorm } = useChakraLayout();
+  const scaleFactor = Math.min(Math.max(spineRect.heightPx / 560, 0.85), 1.25);
 
   return (
     <div className="relative w-full h-full flex items-center justify-center min-h-[400px]">
@@ -65,12 +66,13 @@ export function MeditationFigure({ onChakraClick, expandingChakraId }: Meditatio
               hsl(var(--chakra-solar) / 0.4),
               hsl(var(--chakra-sacral) / 0.4),
               hsl(var(--chakra-root) / 0.4)
-            )`
+            )`,
+            borderRadius: 9999
           }}
         />
 
         {/* Layer 3: Responsive meditation figure */}
-        <div className="absolute inset-0 flex items-center justify-center z-20">
+        <div data-spine-wrapper className="absolute inset-0 flex items-center justify-center z-20">
           <img 
             data-meditation-figure
             src="/lovable-uploads/367d80a7-5795-4dfa-a351-9d3588def8bd.png"
@@ -90,10 +92,10 @@ export function MeditationFigure({ onChakraClick, expandingChakraId }: Meditatio
               <ChakraButton
                 key={chakra.id}
                 chakra={chakra}
-                position={{ x: pos.xPercent, y: pos.yPercent, scale: 1 }}
+                position={{ x: pos.xPercent, y: pos.yPercent, scale: scaleFactor }}
                 onClick={() => onChakraClick(chakra.id)}
                 isExpanding={expandingChakraId === chakra.id}
-                scale={1}
+                scale={scaleFactor}
               />
             );
           })}
@@ -119,6 +121,17 @@ export function MeditationFigure({ onChakraClick, expandingChakraId }: Meditatio
         {/* Debug overlay for calibration */}
         {debug && spineRect.heightPx > 0 && (
           <div className="absolute inset-0 pointer-events-none text-[10px] text-white/70 z-40">
+            <div
+              className="absolute border border-white/30"
+              style={{
+                top: spineRect.topPx,
+                left: '50%',
+                height: spineRect.heightPx,
+                width: Number(spineStyle.width) + 8,
+                transform: 'translateX(-50%)',
+                borderRadius: 8
+              }}
+            />
             {[0, 0.25, 0.5, 0.75, 1].map((t) => (
               <div
                 key={t}

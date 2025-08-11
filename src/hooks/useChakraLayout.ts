@@ -34,6 +34,23 @@ export const DEFAULT_Y_NORM: Record<ChakraId, number> = {
   root: 0.95,
 };
 
+// spine pad overrides
+const PADS_KEY = "chakra.spinePads";
+type SpinePads = { top: number; bottom: number };
+function readPadOverrides(): SpinePads {
+  try {
+    const raw = localStorage.getItem(PADS_KEY);
+    if (!raw) return { top: 0, bottom: 0 };
+    const obj = JSON.parse(raw);
+    const top = typeof obj?.top === "number" ? obj.top : 0;
+    const bottom = typeof obj?.bottom === "number" ? obj.bottom : 0;
+    const clamp01 = (v: number) => Math.max(0, Math.min(0.3, v));
+    return { top: clamp01(top), bottom: clamp01(bottom) };
+  } catch {
+    return { top: 0, bottom: 0 };
+  }
+}
+
 // clamp helper
 const clamp = (v: number, lo: number, hi: number) => Math.max(lo, Math.min(hi, v));
 
@@ -80,10 +97,11 @@ export function useChakraLayout(
     return q.has(QUERY_DEBUG_KEY);
   }, []);
 
-  // observe container + image size
+  // observe container + image size (with image load guard and wrapper preference)
   useEffect(() => {
     const el = document.querySelector(containerSel) as HTMLElement | null;
-    const img = document.querySelector(imageSel) as HTMLElement | null;
+    const wrapper = document.querySelector('[data-spine-wrapper]') as HTMLElement | null;
+    const img = document.querySelector(imageSel) as HTMLImageElement | null;
     containerRef.current = el ?? null;
     if (!el) return;
 
@@ -91,8 +109,10 @@ export function useChakraLayout(
       const cRect = el.getBoundingClientRect();
       setContainerH(cRect.height);
       setContainerW(cRect.width);
-      if (img) {
-        const iRect = img.getBoundingClientRect();
+
+      const measureEl = (wrapper ?? img) as HTMLElement | null;
+      if (measureEl) {
+        const iRect = measureEl.getBoundingClientRect();
         setImageTopRel(iRect.top - cRect.top);
         setImageH(iRect.height);
       } else {
@@ -101,15 +121,21 @@ export function useChakraLayout(
       }
     };
 
-    // initial
+    // initial and on image load
+    if (img && !img.complete) {
+      img.addEventListener('load', update, { once: true });
+    }
     update();
 
-    const ro = new ResizeObserver(() => {
-      update();
-    });
+    const ro = new ResizeObserver(() => update());
     ro.observe(el);
-    if (img) ro.observe(img);
-    return () => ro.disconnect();
+    if (wrapper) ro.observe(wrapper);
+    else if (img) ro.observe(img);
+
+    return () => {
+      ro.disconnect();
+      if (img) img.removeEventListener('load', update as any);
+    };
   }, [containerSel, imageSel]);
 
   // compute spineRect from container height
@@ -134,6 +160,12 @@ export function useChakraLayout(
     if (!debug) return DEFAULT_Y_NORM;
     const overrides = readOverrides();
     return { ...DEFAULT_Y_NORM, ...overrides } as Record<ChakraId, number>;
+  }, [debug]);
+
+  const pads = useMemo(() => {
+    const base: SpinePads = { top: 0, bottom: 0 };
+    if (!debug) return base;
+    return { ...base, ...readPadOverrides() };
   }, [debug]);
 
   // compute positions (%)
