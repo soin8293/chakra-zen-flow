@@ -22,12 +22,19 @@ export function MeditationFigure({ onChakraClick, expandingChakraId }: Meditatio
     <div className="relative w-full h-full flex items-center justify-center">
       {/* Meditation Figure Container - Much Larger */}
       <div className="relative w-64 h-80">
-        {/* Meditation figure from uploaded image */}
+        {/* Glowing light background */}
         <div className="absolute inset-0 flex items-center justify-center">
+          <div className="w-48 h-48 rounded-full bg-white/10 blur-2xl animate-pulse" />
+          <div className="absolute w-32 h-32 rounded-full bg-white/20 blur-xl animate-pulse" style={{ animationDelay: '0.5s' }} />
+          <div className="absolute w-16 h-16 rounded-full bg-white/30 blur-lg animate-pulse" style={{ animationDelay: '1s' }} />
+        </div>
+
+        {/* Meditation figure from uploaded image */}
+        <div className="absolute inset-0 flex items-center justify-center z-10">
           <img 
-            src="/lovable-uploads/68914da5-0095-4573-9463-0fe7454a8848.png"
+            src="/lovable-uploads/367d80a7-5795-4dfa-a351-9d3588def8bd.png"
             alt="Meditation figure"
-            className="w-full h-full opacity-40 animate-pulse-gentle filter invert object-contain"
+            className="w-48 h-48 opacity-90 filter invert object-contain"
           />
         </div>
 
