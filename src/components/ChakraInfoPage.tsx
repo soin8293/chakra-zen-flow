@@ -88,6 +88,52 @@ export function ChakraInfoPage({ onBack, onChakraSelect, onArticleSelect, onBook
       </div>
 
       <div className="max-w-4xl mx-auto p-6">
+        {/* Individual Chakras */}
+        <div className="mb-8">
+          <h2 className="text-lg font-semibold text-foreground mb-4">Individual Chakras</h2>
+          <div className="space-y-3">
+            {chakras.map((chakra) => (
+              <button
+                key={chakra.id}
+                onClick={() => onChakraSelect(chakra)}
+                className="w-full bg-card rounded-2xl p-4 text-left hover:bg-muted/50 transition-colors group"
+              >
+                <div className="flex items-center gap-4">
+                  {/* Chakra circle */}
+                  <div
+                    className="w-12 h-12 rounded-full flex items-center justify-center shadow-lg"
+                    style={{
+                      backgroundColor: `hsl(var(--${chakra.color}))`,
+                      boxShadow: `0 0 20px hsl(var(--${chakra.color}) / 0.3)`
+                    }}
+                  >
+                    <span className="text-white font-bold">{chakra.position}</span>
+                  </div>
+
+                  {/* Chakra info */}
+                  <div className="flex-1">
+                    <h3 className="font-semibold text-card-foreground group-hover:text-primary transition-colors">
+                      {chakra.name}
+                    </h3>
+                    <p className="text-sm text-muted-foreground">{chakra.description}</p>
+                    <div className="flex items-center gap-2 mt-1">
+                      <span className="text-xs bg-muted px-2 py-1 rounded-full text-muted-foreground">
+                        {chakra.element}
+                      </span>
+                      <span className="text-xs text-muted-foreground">
+                        {chakra.location}
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Arrow */}
+                  <ChevronRight className="h-5 w-5 text-muted-foreground group-hover:text-primary transition-colors" />
+                </div>
+              </button>
+            ))}
+          </div>
+        </div>
+
         {/* Search */}
         <div className="relative mb-6">
           <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
@@ -184,51 +230,6 @@ export function ChakraInfoPage({ onBack, onChakraSelect, onArticleSelect, onBook
               ))}
             </div>
 
-            {/* Original Chakra Cards */}
-            <div className="border-t border-border/50 pt-6">
-              <h2 className="text-lg font-semibold text-foreground mb-4">Individual Chakras</h2>
-              <div className="space-y-3">
-                {chakras.map((chakra) => (
-                  <button
-                    key={chakra.id}
-                    onClick={() => onChakraSelect(chakra)}
-                    className="w-full bg-card rounded-2xl p-4 text-left hover:bg-muted/50 transition-colors group"
-                  >
-                    <div className="flex items-center gap-4">
-                      {/* Chakra circle */}
-                      <div
-                        className="w-12 h-12 rounded-full flex items-center justify-center shadow-lg"
-                        style={{
-                          backgroundColor: `hsl(var(--${chakra.color}))`,
-                          boxShadow: `0 0 20px hsl(var(--${chakra.color}) / 0.3)`
-                        }}
-                      >
-                        <span className="text-white font-bold">{chakra.position}</span>
-                      </div>
-
-                      {/* Chakra info */}
-                      <div className="flex-1">
-                        <h3 className="font-semibold text-card-foreground group-hover:text-primary transition-colors">
-                          {chakra.name}
-                        </h3>
-                        <p className="text-sm text-muted-foreground">{chakra.description}</p>
-                        <div className="flex items-center gap-2 mt-1">
-                          <span className="text-xs bg-muted px-2 py-1 rounded-full text-muted-foreground">
-                            {chakra.element}
-                          </span>
-                          <span className="text-xs text-muted-foreground">
-                            {chakra.location}
-                          </span>
-                        </div>
-                      </div>
-
-                      {/* Arrow */}
-                      <ChevronRight className="h-5 w-5 text-muted-foreground group-hover:text-primary transition-colors" />
-                    </div>
-                  </button>
-                ))}
-              </div>
-            </div>
           </div>
         </Tabs>
       </div>
