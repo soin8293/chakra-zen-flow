@@ -65,7 +65,7 @@ const chakraDetails = {
     emotionalSigns: ['Inability to express', 'Fear of judgment', 'Lack of authenticity', 'Shyness'],
     balancedSigns: ['Clear communication', 'Authentic expression', 'Good listening', 'Creative voice']
   },
-  third_eye: {
+  thirdEye: {
     keywords: ['intuition', 'wisdom', 'insight', 'imagination', 'psychic abilities'],
     practices: ['meditation', 'visualization', 'dream work', 'third eye activation'],
     crystals: ['Amethyst', 'Lapis Lazuli', 'Fluorite', 'Clear Quartz'],
@@ -93,6 +93,12 @@ export function ChakraArticle({ chakra, onBack, onArticleSelect }: ChakraArticle
   const { addBookmark, removeBookmark, isBookmarked } = useBookmarks();
 
   const details = chakraDetails[chakra.id as keyof typeof chakraDetails];
+  
+  // Safety check to prevent undefined errors
+  if (!details) {
+    console.error(`Chakra details not found for chakra ID: ${chakra.id}`);
+    return <div>Error: Chakra details not found</div>;
+  }
   
   // Get related articles for this chakra
   const relatedArticles = articles.filter(article => 
