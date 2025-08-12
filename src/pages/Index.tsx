@@ -200,6 +200,7 @@ if (currentScreen === 'session' && selectedChakra) {
       <ChakraArticle
         chakra={selectedChakra}
         onBack={handleBack}
+        onArticleSelect={handleArticleSelect}
       />
     );
   }

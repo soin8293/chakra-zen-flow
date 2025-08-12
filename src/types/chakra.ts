@@ -1,6 +1,7 @@
 export interface Chakra {
   id: string;
   name: string;
+  sanskritName: string;
   color: string;
   position: number;
   symbol: string;
@@ -16,6 +17,7 @@ export const chakras: Chakra[] = [
   {
     id: 'root',
     name: 'Root Chakra',
+    sanskritName: 'Muladhara',
     color: 'chakra-root',
     position: 1,
     symbol: '🔴',
@@ -29,6 +31,7 @@ export const chakras: Chakra[] = [
   {
     id: 'sacral',
     name: 'Sacral Chakra',
+    sanskritName: 'Svadhisthana',
     color: 'chakra-sacral',
     position: 2,
     symbol: '🟠',
@@ -42,6 +45,7 @@ export const chakras: Chakra[] = [
   {
     id: 'solar',
     name: 'Solar Plexus Chakra',
+    sanskritName: 'Manipura',
     color: 'chakra-solar',
     position: 3,
     symbol: '🟡',
@@ -55,6 +59,7 @@ export const chakras: Chakra[] = [
   {
     id: 'heart',
     name: 'Heart Chakra',
+    sanskritName: 'Anahata',
     color: 'chakra-heart',
     position: 4,
     symbol: '💚',
@@ -68,6 +73,7 @@ export const chakras: Chakra[] = [
   {
     id: 'throat',
     name: 'Throat Chakra',
+    sanskritName: 'Vishuddha',
     color: 'chakra-throat',
     position: 5,
     symbol: '🔵',
@@ -81,6 +87,7 @@ export const chakras: Chakra[] = [
   {
     id: 'thirdEye',
     name: 'Third Eye Chakra',
+    sanskritName: 'Ajna',
     color: 'chakra-third-eye',
     position: 6,
     symbol: '🟣',
@@ -94,6 +101,7 @@ export const chakras: Chakra[] = [
   {
     id: 'crown',
     name: 'Crown Chakra',
+    sanskritName: 'Sahasrara',
     color: 'chakra-crown',
     position: 7,
     symbol: '🟣',
