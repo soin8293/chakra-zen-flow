@@ -2,10 +2,10 @@ import { useEffect, useMemo, useRef, useState } from "react";
 
 export type ChakraId =
   | "crown"
-  | "third_eye"
+  | "thirdEye"
   | "throat"
   | "heart"
-  | "solar_plexus"
+  | "solar"
   | "sacral"
   | "root";
 
@@ -26,10 +26,10 @@ const QUERY_DEBUG_KEY = "layout";
 
 export const DEFAULT_Y_NORM: Record<ChakraId, number> = {
   crown: 0.03,
-  third_eye: 0.17,
+  thirdEye: 0.17,
   throat: 0.30,
   heart: 0.48,
-  solar_plexus: 0.63,
+  solar: 0.63,
   sacral: 0.80,
   root: 0.95,
 };
