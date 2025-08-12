@@ -24,15 +24,28 @@ type Return = {
 const STORAGE_KEY = "chakra.yNorm";
 const QUERY_DEBUG_KEY = "layout";
 
-export const DEFAULT_Y_NORM: Record<ChakraId, number> = {
-  crown: 0.20,
-  thirdEye: 0.22,
-  throat: 0.24,
-  heart: 0.26,
-  solar: 0.28,
-  sacral: 0.30,
-  root: 0.32,
+// Dynamic chakra positioning configuration
+const CHAKRA_CONFIG = {
+  spacingRatio: 0.02, // 2% spacing between chakras
+  startRatio: 0.20,   // Start position ratio within figure
+  count: 7,           // Total number of chakras
 };
+
+// Calculate dynamic positions based on figure dimensions
+function calculateChakraPositions(): Record<ChakraId, number> {
+  const { spacingRatio, startRatio, count } = CHAKRA_CONFIG;
+  const chakraIds: ChakraId[] = ["crown", "thirdEye", "throat", "heart", "solar", "sacral", "root"];
+  
+  const positions: Record<ChakraId, number> = {} as Record<ChakraId, number>;
+  
+  chakraIds.forEach((id, index) => {
+    positions[id] = startRatio + (index * spacingRatio);
+  });
+  
+  return positions;
+}
+
+export const DEFAULT_Y_NORM: Record<ChakraId, number> = calculateChakraPositions();
 
 // spine pad overrides
 const PADS_KEY = "chakra.spinePads";
