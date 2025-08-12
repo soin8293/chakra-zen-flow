@@ -15,10 +15,13 @@ export function MeditationFigure({ onChakraClick, expandingChakraId }: Meditatio
     <div className="relative w-full h-full flex items-center justify-center min-h-[400px]">
       {/* Responsive Meditation Figure Container */}
       <div 
-        className="relative transition-all duration-300 ease-out w-full h-full max-w-2xl max-h-[95vh]"
+        className="relative transition-all duration-300 ease-out w-full h-full"
         data-meditation-container
         style={{
-          aspectRatio: '4/5'
+          minWidth: '800px',
+          minHeight: '1000px',
+          maxWidth: '1200px',
+          maxHeight: '100vh'
         }}
       >
         {/* Layer 1: Multi-layer glowing background effects */}
