@@ -26,7 +26,7 @@ const QUERY_DEBUG_KEY = "layout";
 
 // Dynamic chakra positioning configuration
 const CHAKRA_CONFIG = {
-  spacingRatio: 0.02, // 2% spacing between chakras
+  spacingRatio: 0.04, // 4% spacing between chakras
   startRatio: 0.20,   // Start position ratio within figure
   count: 7,           // Total number of chakras
 };
