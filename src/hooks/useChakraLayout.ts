@@ -29,6 +29,7 @@ const CHAKRA_CONFIG = {
   spacingRatio: 0.04, // 4% spacing between chakras
   startRatio: 0.12,   // Start position ratio within figure
   count: 7,           // Total number of chakras
+  horizontalOffset: -2.5, // Offset from center (negative = left)
 };
 
 // Calculate dynamic positions based on figure dimensions
@@ -188,7 +189,7 @@ export function useChakraLayout(
     const out: Pos[] = ids.map((id) => {
       const yPx = spineRect.topPx + yNorm[id] * spineRect.heightPx;
       const yPercent = (yPx / containerH) * 100;
-      return { id, xPercent: 50, yPercent };
+      return { id, xPercent: 50 + CHAKRA_CONFIG.horizontalOffset, yPercent };
     });
     return out;
   }, [containerH, spineRect, yNorm]);
