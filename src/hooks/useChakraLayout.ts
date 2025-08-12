@@ -25,13 +25,13 @@ const STORAGE_KEY = "chakra.yNorm";
 const QUERY_DEBUG_KEY = "layout";
 
 export const DEFAULT_Y_NORM: Record<ChakraId, number> = {
-  crown: 0.10,
+  crown: 0.20,
   thirdEye: 0.22,
-  throat: 0.34,
-  heart: 0.46,
-  solar: 0.58,
-  sacral: 0.70,
-  root: 0.82,
+  throat: 0.24,
+  heart: 0.26,
+  solar: 0.28,
+  sacral: 0.30,
+  root: 0.32,
 };
 
 // spine pad overrides
