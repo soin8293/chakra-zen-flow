@@ -120,4 +120,55 @@ export interface UserProfile {
   longestStreak: number;
   favoritChakra: string;
   sessionsCompleted: number;
+  bookmarks: string[]; // Array of article IDs
+  readingHistory: string[]; // Array of article IDs
+}
+
+export interface Article {
+  id: string;
+  title: string;
+  category: ArticleCategory;
+  content: ArticleSection[];
+  readTime: number; // in minutes
+  difficulty: 'beginner' | 'intermediate' | 'advanced';
+  relatedTopics: string[]; // Array of article IDs
+  tags: string[];
+  lastUpdated: string;
+  featured?: boolean;
+}
+
+export interface ArticleSection {
+  id: string;
+  title: string;
+  content: string;
+  hyperlinks?: HyperLink[];
+}
+
+export interface HyperLink {
+  text: string;
+  targetId: string; // Article ID for mini-article
+  type: 'article' | 'mini-article';
+}
+
+export interface MiniArticle {
+  id: string;
+  title: string;
+  content: string;
+  relatedArticles: string[]; // Full article IDs
+}
+
+export type ArticleCategory = 
+  | 'core-concepts'
+  | 'practices' 
+  | 'science'
+  | 'healing'
+  | 'history'
+  | 'psychology'
+  | 'techniques';
+
+export interface Bookmark {
+  articleId: string;
+  dateBookmarked: string;
+  category: 'to-read' | 'favorites' | 'recently-viewed';
+  notes?: string;
 }

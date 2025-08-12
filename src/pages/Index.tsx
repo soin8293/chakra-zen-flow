@@ -9,6 +9,8 @@ import { BottomSheet } from "@/components/BottomSheet";
 import { ProfilePage } from "@/components/ProfilePage";
 import { ChakraInfoPage } from "@/components/ChakraInfoPage";
 import { ChakraArticle } from "@/components/ChakraArticle";
+import { ArticlePage } from "@/components/ArticlePage";
+import { BookmarksPage } from "@/components/BookmarksPage";
 
 type AppScreen = 
   | 'home' 
@@ -17,7 +19,9 @@ type AppScreen =
   | 'complete' 
   | 'profile' 
   | 'chakra-info' 
-  | 'chakra-article';
+  | 'chakra-article'
+  | 'article'
+  | 'bookmarks';
 
 const Index = () => {
   const [currentScreen, setCurrentScreen] = useState<AppScreen>('home');
@@ -26,6 +30,7 @@ const [sessionDuration, setSessionDuration] = useState<number>(5);
 const [sessionConfig, setSessionConfig] = useState<{ level: 'beginner'|'intermediate'|'advanced'; presetOverride: 'spec'|'calm'|'balance'|'energize'; includeHolds: boolean; }>({ level: 'beginner', presetOverride: 'balance', includeHolds: false });
 const [expandingChakraId, setExpandingChakraId] = useState<string | null>(null);
 const [articleOrigin, setArticleOrigin] = useState<'prep' | 'info' | null>(null);
+const [currentArticleId, setCurrentArticleId] = useState<string | null>(null);
 
   // Mock user profile data
   const [userProfile] = useState<UserProfile>({
@@ -33,7 +38,9 @@ const [articleOrigin, setArticleOrigin] = useState<'prep' | 'info' | null>(null)
     currentStreak: 5,
     longestStreak: 12,
     favoritChakra: 'heart',
-    sessionsCompleted: 23
+    sessionsCompleted: 23,
+    bookmarks: [],
+    readingHistory: []
   });
 
   const handleChakraClick = (chakraId: string) => {
@@ -83,6 +90,15 @@ const handleStartMeditation = (opts: { duration: number; level: 'beginner'|'inte
     setCurrentScreen('chakra-article');
   };
 
+  const handleArticleSelect = (articleId: string) => {
+    setCurrentArticleId(articleId);
+    setCurrentScreen('article');
+  };
+
+  const handleBookmarksClick = () => {
+    setCurrentScreen('bookmarks');
+  };
+
   const handleBack = () => {
     if (currentScreen === 'chakra-article') {
       if (articleOrigin === 'prep') {
@@ -93,6 +109,11 @@ const handleStartMeditation = (opts: { duration: number; level: 'beginner'|'inte
         setCurrentScreen('home');
       }
       setArticleOrigin(null);
+    } else if (currentScreen === 'article') {
+      setCurrentScreen('chakra-info');
+      setCurrentArticleId(null);
+    } else if (currentScreen === 'bookmarks') {
+      setCurrentScreen('chakra-info');
     } else {
       setCurrentScreen('home');
     }
@@ -149,6 +170,27 @@ if (currentScreen === 'session' && selectedChakra) {
       <ChakraInfoPage
         onBack={handleBackToHome}
         onChakraSelect={handleChakraSelect}
+        onArticleSelect={handleArticleSelect}
+        onBookmarksClick={handleBookmarksClick}
+      />
+    );
+  }
+
+  if (currentScreen === 'article' && currentArticleId) {
+    return (
+      <ArticlePage
+        articleId={currentArticleId}
+        onBack={handleBack}
+        onNavigateToArticle={handleArticleSelect}
+      />
+    );
+  }
+
+  if (currentScreen === 'bookmarks') {
+    return (
+      <BookmarksPage
+        onBack={handleBack}
+        onNavigateToArticle={handleArticleSelect}
       />
     );
   }
