@@ -1,5 +1,7 @@
+import { useEffect } from "react";
 import { Chakra } from "@/types/chakra";
 import { Button } from "./ui/button";
+import { useHapticFeedback } from "@/hooks/useHapticFeedback";
 
 interface SessionCompleteProps {
   chakra: Chakra;
@@ -9,6 +11,13 @@ interface SessionCompleteProps {
 }
 
 export function SessionComplete({ chakra, duration, onRestart, onBackToHome }: SessionCompleteProps) {
+  const { vibrate } = useHapticFeedback();
+
+  // Success vibration on mount
+  useEffect(() => {
+    vibrate('success');
+  }, [vibrate]);
+
   return (
     <div className="min-h-screen bg-gradient-cosmic flex flex-col items-center justify-center p-6 text-center">
       {/* Success animation */}

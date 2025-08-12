@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { Chakra } from "@/types/chakra";
 import { Button } from "./ui/button";
 import { useBreathEngine } from "@/hooks/useBreathEngine";
+import { useHapticFeedback } from "@/hooks/useHapticFeedback";
 import { Pause, Play, X } from "lucide-react";
 import { 
   AlertDialog,
@@ -35,12 +36,20 @@ export function MeditationSession({ chakra, duration, onComplete, onExit, level,
     onComplete,
   });
 
-  // Haptic tick on inhale
+  const { vibrate, isSupported } = useHapticFeedback();
+
+  // Enhanced haptic feedback for breathing phases
   useEffect(() => {
-    if (phase === 'inhale' && isPlaying && 'vibrate' in navigator) {
-      navigator.vibrate([100]);
+    if (!isPlaying || !isSupported) return;
+
+    if (phase === 'inhale') {
+      vibrate('medium');
+    } else if (phase === 'exhale') {
+      vibrate('light');
+    } else if (phase.includes('hold')) {
+      vibrate('light');
     }
-  }, [phase, isPlaying]);
+  }, [phase, isPlaying, vibrate, isSupported]);
 
   const formatTime = (seconds: number) => {
     const mins = Math.floor(seconds / 60);
