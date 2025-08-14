@@ -378,6 +378,257 @@ export const articles: Article[] = [
     relatedTopics: ['crystal-healing', 'mineral-therapy', 'stone-medicine'],
     tags: ['crystals', 'gemstones', 'healing', 'energy work'],
     lastUpdated: '2024-01-06'
+  },
+  
+  // Energy Healing & Therapy Methods
+  {
+    id: 'energy-healing-methods',
+    title: 'Modern Energy Healing Techniques',
+    category: 'healing',
+    content: [
+      {
+        id: 'reiki-basics',
+        title: 'Reiki and Universal Life Energy',
+        content: 'Reiki is a Japanese healing technique that channels universal life energy through the hands of a practitioner. This gentle, non-invasive method works by clearing energy blockages and restoring the natural flow of life force throughout the recipient\'s energy system.',
+        hyperlinks: [
+          { text: 'universal life energy', targetId: 'rei-ki-meaning', type: 'mini-article' },
+          { text: 'energy blockages', targetId: 'energy-stagnation', type: 'mini-article' }
+        ]
+      },
+      {
+        id: 'therapeutic-touch',
+        title: 'Therapeutic Touch and Pranic Healing',
+        content: 'Therapeutic Touch and Pranic Healing are evidence-based energy healing modalities used in hospitals and healthcare settings. These techniques work by assessing and manipulating the human energy field to promote healing and reduce pain.',
+        hyperlinks: [
+          { text: 'pranic healing', targetId: 'prana-therapy', type: 'mini-article' },
+          { text: 'evidence-based', targetId: 'healing-research', type: 'mini-article' }
+        ]
+      },
+      {
+        id: 'quantum-healing',
+        title: 'Quantum Field Healing Approaches',
+        content: 'Quantum healing approaches work with the concept that consciousness can influence matter at the quantum level. Practitioners use intention, visualization, and energy field manipulation to facilitate healing and transformation.',
+        hyperlinks: [
+          { text: 'quantum field', targetId: 'zero-point-field', type: 'mini-article' },
+          { text: 'consciousness healing', targetId: 'mind-matter', type: 'mini-article' }
+        ]
+      }
+    ],
+    readTime: 13,
+    difficulty: 'intermediate',
+    relatedTopics: ['biofield-science', 'crystal-healing', 'energy-anatomy'],
+    tags: ['healing', 'energy therapy', 'reiki', 'quantum'],
+    lastUpdated: '2024-01-16'
+  },
+  {
+    id: 'color-therapy',
+    title: 'Chromotherapy: Healing with Light and Color',
+    category: 'healing',
+    content: [
+      {
+        id: 'color-science',
+        title: 'The Science of Color and Frequency',
+        content: 'Each color vibrates at a specific frequency that affects our nervous system, hormones, and cellular processes. Red light stimulates circulation, blue calms inflammation, green promotes balance, and violet enhances spiritual awareness.',
+        hyperlinks: [
+          { text: 'light frequency', targetId: 'photon-therapy', type: 'mini-article' },
+          { text: 'cellular processes', targetId: 'light-biology', type: 'mini-article' }
+        ]
+      },
+      {
+        id: 'chakra-colors',
+        title: 'Chakra Color Associations',
+        content: 'Each chakra resonates with specific colors that can be used therapeutically. Visualizing, wearing, or surrounding yourself with these colors can help balance the corresponding energy center and address related physical or emotional issues.',
+        hyperlinks: [
+          { text: 'color visualization', targetId: 'chromatic-meditation', type: 'mini-article' },
+          { text: 'color psychology', targetId: 'color-emotions', type: 'mini-article' }
+        ]
+      }
+    ],
+    readTime: 9,
+    difficulty: 'beginner',
+    relatedTopics: ['aura-layers', 'light-therapy', 'chakra-visualization'],
+    tags: ['color', 'light', 'therapy', 'frequency'],
+    lastUpdated: '2024-01-17'
+  },
+  {
+    id: 'chakra-nutrition',
+    title: 'Nutritional Support for Each Chakra',
+    category: 'healing',
+    content: [
+      {
+        id: 'food-energy',
+        title: 'How Food Affects Your Energy Centers',
+        content: 'Different foods carry specific vibrational qualities that can support or deplete our chakras. Root vegetables ground the Root Chakra, orange foods energize the Sacral Chakra, yellow foods boost Solar Plexus confidence, and so on.',
+        hyperlinks: [
+          { text: 'food vibrations', targetId: 'nutritional-frequency', type: 'mini-article' },
+          { text: 'energetic nutrition', targetId: 'food-consciousness', type: 'mini-article' }
+        ]
+      },
+      {
+        id: 'chakra-diet',
+        title: 'Color-Coordinated Chakra Nutrition',
+        content: 'Red foods (beets, tomatoes, red peppers) for Root Chakra. Orange foods (carrots, oranges, sweet potatoes) for Sacral. Yellow foods (bananas, corn, squash) for Solar Plexus. Green foods (leafy greens, broccoli) for Heart. Blue/purple foods (blueberries, eggplant) for Throat/Third Eye. Light foods (coconut water, herbal teas) for Crown.',
+        hyperlinks: [
+          { text: 'mindful eating', targetId: 'conscious-consumption', type: 'mini-article' },
+          { text: 'alkaline foods', targetId: 'ph-balance', type: 'mini-article' }
+        ]
+      }
+    ],
+    readTime: 8,
+    difficulty: 'beginner',
+    relatedTopics: ['holistic-wellness', 'ayurveda-chakras', 'detox-cleansing'],
+    tags: ['nutrition', 'food', 'diet', 'wellness'],
+    lastUpdated: '2024-01-18'
+  },
+  {
+    id: 'yoga-chakras',
+    title: 'Yoga Poses for Chakra Activation',
+    category: 'practices',
+    content: [
+      {
+        id: 'asana-energy',
+        title: 'How Yoga Poses Affect Energy Flow',
+        content: 'Each yoga pose (asana) creates specific energy patterns in the body. Forward folds calm the nervous system and activate lower chakras, backbends open the heart and throat, twists cleanse the solar plexus, and inversions activate upper chakras.',
+        hyperlinks: [
+          { text: 'asana practice', targetId: 'yoga-philosophy', type: 'mini-article' },
+          { text: 'energy patterns', targetId: 'pranic-flow', type: 'mini-article' }
+        ]
+      },
+      {
+        id: 'chakra-sequences',
+        title: 'Yoga Sequences for Each Chakra',
+        content: 'Root: Mountain Pose, Warrior I, Child\'s Pose. Sacral: Hip circles, Goddess Pose, Bound Angle. Solar Plexus: Boat Pose, Warrior III, Twists. Heart: Camel, Fish, Backbends. Throat: Fish, Shoulder Stand, Lion\'s Breath. Third Eye: Child\'s Pose, Meditation Seat. Crown: Headstand, Lotus, Savasana.',
+        hyperlinks: [
+          { text: 'vinyasa flow', targetId: 'flowing-sequences', type: 'mini-article' },
+          { text: 'yoga therapy', targetId: 'therapeutic-yoga', type: 'mini-article' }
+        ]
+      }
+    ],
+    readTime: 12,
+    difficulty: 'intermediate',
+    relatedTopics: ['chakra-meditation-guide', 'physical-alignment', 'energy-anatomy'],
+    tags: ['yoga', 'asanas', 'poses', 'movement'],
+    lastUpdated: '2024-01-19'
+  },
+  {
+    id: 'essential-oils-chakras',
+    title: 'Aromatherapy for Chakra Balancing',
+    category: 'healing',
+    content: [
+      {
+        id: 'scent-energy',
+        title: 'How Aromas Affect Energy Centers',
+        content: 'Essential oils work directly on the limbic system, which processes emotions and memories. Each oil has a unique vibrational signature that can help balance specific chakras, clear blockages, and enhance meditation practices.',
+        hyperlinks: [
+          { text: 'limbic system', targetId: 'smell-brain', type: 'mini-article' },
+          { text: 'oil vibrations', targetId: 'aromatic-frequency', type: 'mini-article' }
+        ]
+      },
+      {
+        id: 'chakra-oils',
+        title: 'Essential Oils for Each Energy Center',
+        content: 'Root: Cedarwood, Patchouli, Vetiver. Sacral: Sweet Orange, Ylang-Ylang, Sandalwood. Solar Plexus: Lemon, Ginger, Peppermint. Heart: Rose, Geranium, Bergamot. Throat: Eucalyptus, Chamomile, Tea Tree. Third Eye: Lavender, Frankincense, Clary Sage. Crown: Lotus, Neroli, Myrrh.',
+        hyperlinks: [
+          { text: 'oil blending', targetId: 'aromatherapy-recipes', type: 'mini-article' },
+          { text: 'application methods', targetId: 'oil-usage', type: 'mini-article' }
+        ]
+      }
+    ],
+    readTime: 10,
+    difficulty: 'beginner',
+    relatedTopics: ['sensory-healing', 'plant-medicine', 'holistic-wellness'],
+    tags: ['aromatherapy', 'essential oils', 'scent', 'healing'],
+    lastUpdated: '2024-01-20'
+  },
+  {
+    id: 'chakra-psychology',
+    title: 'Psychological Aspects of Chakra Imbalances',
+    category: 'healing',
+    content: [
+      {
+        id: 'emotional-centers',
+        title: 'Chakras as Emotional Processing Centers',
+        content: 'Each chakra governs specific emotional and psychological themes. Understanding these connections helps identify which energy centers need attention when dealing with recurring emotional patterns, fears, or behavioral challenges.',
+        hyperlinks: [
+          { text: 'emotional patterns', targetId: 'chakra-trauma', type: 'mini-article' },
+          { text: 'behavioral healing', targetId: 'energy-psychology', type: 'mini-article' }
+        ]
+      },
+      {
+        id: 'psychological-healing',
+        title: 'Integrating Chakra Work with Therapy',
+        content: 'Modern therapists increasingly integrate chakra concepts with traditional psychological approaches. This holistic method addresses both mental/emotional symptoms and underlying energetic imbalances for more comprehensive healing.',
+        hyperlinks: [
+          { text: 'somatic therapy', targetId: 'body-therapy', type: 'mini-article' },
+          { text: 'transpersonal psychology', targetId: 'spiritual-psychology', type: 'mini-article' }
+        ]
+      }
+    ],
+    readTime: 11,
+    difficulty: 'intermediate',
+    relatedTopics: ['trauma-healing', 'mind-body-connection', 'holistic-therapy'],
+    tags: ['psychology', 'emotions', 'therapy', 'mental health'],
+    lastUpdated: '2024-01-21'
+  },
+  {
+    id: 'chakra-relationships',
+    title: 'Chakras and Interpersonal Connections',
+    category: 'healing',
+    content: [
+      {
+        id: 'energy-exchange',
+        title: 'Energy Exchange in Relationships',
+        content: 'Relationships involve constant energy exchange between people. Understanding chakra interactions helps create healthier boundaries, improve communication, and recognize when relationships are energetically draining or nourishing.',
+        hyperlinks: [
+          { text: 'energy boundaries', targetId: 'psychic-protection', type: 'mini-article' },
+          { text: 'energy vampires', targetId: 'draining-relationships', type: 'mini-article' }
+        ]
+      },
+      {
+        id: 'relationship-chakras',
+        title: 'Chakras and Relationship Patterns',
+        content: 'Each chakra influences different aspects of relationships. Root Chakra affects trust and security, Sacral governs intimacy and creativity, Heart Chakra manages love and compassion, while Throat Chakra influences communication and truth-telling.',
+        hyperlinks: [
+          { text: 'trust issues', targetId: 'root-relationships', type: 'mini-article' },
+          { text: 'communication patterns', targetId: 'throat-expression', type: 'mini-article' }
+        ]
+      }
+    ],
+    readTime: 10,
+    difficulty: 'intermediate',
+    relatedTopics: ['heart-chakra-healing', 'emotional-intelligence', 'boundary-setting'],
+    tags: ['relationships', 'communication', 'boundaries', 'love'],
+    lastUpdated: '2024-01-22'
+  },
+  {
+    id: 'seasonal-chakra-work',
+    title: 'Seasonal Chakra Balancing',
+    category: 'practices',
+    content: [
+      {
+        id: 'seasonal-energy',
+        title: 'How Seasons Affect Our Energy Centers',
+        content: 'Each season carries different energetic qualities that naturally affect our chakras. Spring activates growth and creativity (Sacral), Summer energizes expression and joy (Solar Plexus/Heart), Autumn promotes grounding and reflection (Root), Winter encourages inner wisdom (Third Eye/Crown).',
+        hyperlinks: [
+          { text: 'natural rhythms', targetId: 'circadian-energy', type: 'mini-article' },
+          { text: 'seasonal affective', targetId: 'weather-moods', type: 'mini-article' }
+        ]
+      },
+      {
+        id: 'seasonal-practices',
+        title: 'Chakra Practices for Each Season',
+        content: 'Spring: Focus on Sacral Chakra creativity and new beginnings. Summer: Activate Solar Plexus confidence and Heart joy. Autumn: Ground with Root Chakra practices and release old patterns. Winter: Deepen Third Eye intuition and Crown connection through meditation.',
+        hyperlinks: [
+          { text: 'seasonal rituals', targetId: 'nature-ceremonies', type: 'mini-article' },
+          { text: 'earth connection', targetId: 'grounding-practices', type: 'mini-article' }
+        ]
+      }
+    ],
+    readTime: 9,
+    difficulty: 'beginner',
+    relatedTopics: ['nature-connection', 'ritual-practices', 'cyclical-living'],
+    tags: ['seasons', 'nature', 'cycles', 'grounding'],
+    lastUpdated: '2024-01-23'
   }
 ];
 
@@ -627,5 +878,210 @@ export const miniArticles: MiniArticle[] = [
     title: 'Kirlian Photography and Energy Imaging',
     content: 'Kirlian photography and modern GDV (Gas Discharge Visualization) capture the corona discharge around living objects. These images reveal energy patterns that change with health, emotions, and consciousness states, providing visual evidence of biofields.',
     relatedArticles: ['energy-photography', 'aura-visualization']
+  },
+  // New comprehensive mini-articles for expanded hyperlinks
+  {
+    id: 'rei-ki-meaning',
+    title: 'Rei-Ki: Universal Life Energy',
+    content: 'Rei means "universal" and Ki means "life energy" in Japanese. Reiki practitioners channel this universal healing energy through their hands to promote balance, relaxation, and natural healing processes in recipients.',
+    relatedArticles: ['universal-energy', 'hands-on-healing', 'japanese-healing']
+  },
+  {
+    id: 'energy-stagnation',
+    title: 'Energy Blockages and Stagnation',
+    content: 'Energy blockages occur when life force becomes stuck or stagnant in specific areas due to physical tension, emotional trauma, or mental stress. These blockages can manifest as pain, illness, or emotional imbalances.',
+    relatedArticles: ['energy-flow', 'trauma-release', 'healing-blockages']
+  },
+  {
+    id: 'prana-therapy',
+    title: 'Pranic Healing Techniques',
+    content: 'Pranic healing uses specific hand movements to cleanse, energize, and balance the energy body. Practitioners scan for energy imbalances, remove diseased energy, and project fresh prana to affected areas.',
+    relatedArticles: ['energy-scanning', 'hands-on-healing', 'aura-cleansing']
+  },
+  {
+    id: 'healing-research',
+    title: 'Evidence-Based Energy Healing',
+    content: 'Scientific studies on energy healing show measurable effects including reduced pain, improved wound healing, decreased anxiety, and positive changes in biomarkers. Research continues to explore mechanisms behind these effects.',
+    relatedArticles: ['clinical-studies', 'healing-validation', 'scientific-evidence']
+  },
+  {
+    id: 'zero-point-field',
+    title: 'Quantum Zero Point Field',
+    content: 'The zero-point field is a quantum field of energy that exists in empty space. Some theories suggest consciousness can access this field to influence healing and manifestation through quantum entanglement.',
+    relatedArticles: ['quantum-healing', 'consciousness-field', 'energy-physics']
+  },
+  {
+    id: 'mind-matter',
+    title: 'Consciousness and Matter Interaction',
+    content: 'Quantum physics suggests that consciousness may influence physical reality at the quantum level. This principle underlies many healing modalities that use intention and visualization to promote healing.',
+    relatedArticles: ['quantum-consciousness', 'intention-healing', 'observer-effect']
+  },
+  {
+    id: 'photon-therapy',
+    title: 'Light and Photon Therapy',
+    content: 'Photon therapy uses specific light frequencies to stimulate cellular processes. Different wavelengths penetrate to different depths and trigger various healing responses, from increased circulation to enhanced cellular energy production.',
+    relatedArticles: ['light-medicine', 'cellular-healing', 'frequency-therapy']
+  },
+  {
+    id: 'light-biology',
+    title: 'Photobiology and Cellular Response',
+    content: 'Cells respond to light at the molecular level through photoreceptors and chromophores. This biological response explains how light therapy and color visualization can create measurable physiological changes.',
+    relatedArticles: ['cellular-communication', 'light-sensitivity', 'biological-rhythms']
+  },
+  {
+    id: 'chromatic-meditation',
+    title: 'Color Visualization Meditation',
+    content: 'Color visualization meditation involves focusing on specific colors to influence mood, energy, and consciousness. Each color creates different psychological and physiological effects through both neurological and energetic pathways.',
+    relatedArticles: ['visual-meditation', 'color-consciousness', 'healing-imagery']
+  },
+  {
+    id: 'color-emotions',
+    title: 'Color Psychology and Emotions',
+    content: 'Colors directly affect our emotional and mental states through both evolutionary associations and cultural conditioning. Understanding these connections helps in using color therapeutically for healing and personal development.',
+    relatedArticles: ['emotional-healing', 'psychological-effects', 'mood-enhancement']
+  },
+  {
+    id: 'nutritional-frequency',
+    title: 'Food Vibrational Frequencies',
+    content: 'Fresh, whole foods carry higher vibrational frequencies than processed foods. Raw fruits and vegetables maintain life force energy that can enhance our own energy field and support chakra function.',
+    relatedArticles: ['living-foods', 'energy-nutrition', 'vibrational-eating']
+  },
+  {
+    id: 'food-consciousness',
+    title: 'Conscious Food Consumption',
+    content: 'The consciousness and intention behind food preparation and consumption affects its energetic quality. Blessing food, eating mindfully, and choosing foods grown with love enhances their healing properties.',
+    relatedArticles: ['mindful-eating', 'food-blessing', 'intentional-nutrition']
+  },
+  {
+    id: 'conscious-consumption',
+    title: 'Mindful Eating Practices',
+    content: 'Mindful eating involves full awareness of food choices, preparation, and consumption. This practice enhances digestion, increases satisfaction, and helps align food choices with energy needs and spiritual goals.',
+    relatedArticles: ['eating-meditation', 'digestive-health', 'food-awareness']
+  },
+  {
+    id: 'ph-balance',
+    title: 'Alkaline Foods and pH Balance',
+    content: 'An alkaline diet (high in vegetables, fruits, and minerals) supports optimal pH balance in the body. This balance enhances energy flow, supports detoxification, and creates an environment where chakras can function optimally.',
+    relatedArticles: ['acid-alkaline', 'mineral-balance', 'body-chemistry']
+  },
+  {
+    id: 'yoga-philosophy',
+    title: 'Philosophy of Yoga Practice',
+    content: 'Yoga philosophy views the body as a vehicle for spiritual development. Asanas (poses) prepare the body for meditation by releasing physical tension, balancing energy, and creating stability for higher practices.',
+    relatedArticles: ['eight-limbs', 'spiritual-practice', 'body-wisdom']
+  },
+  {
+    id: 'pranic-flow',
+    title: 'Prana Flow in Yoga',
+    content: 'Yoga poses direct prana flow throughout the body in specific patterns. Understanding these energy movements helps practitioners choose appropriate poses for balancing particular chakras or addressing energy imbalances.',
+    relatedArticles: ['energy-direction', 'asana-effects', 'yogic-breathing']
+  },
+  {
+    id: 'flowing-sequences',
+    title: 'Vinyasa Flow Practice',
+    content: 'Vinyasa flow links poses with breath in continuous movement. This flowing practice builds heat, circulates energy, and creates a moving meditation that harmonizes body, breath, and awareness.',
+    relatedArticles: ['breath-movement', 'dynamic-meditation', 'energy-circulation']
+  },
+  {
+    id: 'therapeutic-yoga',
+    title: 'Yoga Therapy Applications',
+    content: 'Yoga therapy adapts traditional yoga practices for specific healing goals. Therapeutic approaches consider individual limitations and use modified poses, breath work, and meditation to address health concerns.',
+    relatedArticles: ['healing-yoga', 'adaptive-practice', 'medical-yoga']
+  },
+  {
+    id: 'smell-brain',
+    title: 'Olfactory System and Brain',
+    content: 'The sense of smell connects directly to the limbic system, bypassing conscious thought to immediately affect emotions and memories. This direct pathway explains why aromatherapy can create rapid mood and energy changes.',
+    relatedArticles: ['scent-memory', 'emotional-processing', 'brain-chemistry']
+  },
+  {
+    id: 'aromatic-frequency',
+    title: 'Essential Oil Vibrational Signatures',
+    content: 'Each essential oil has a unique molecular structure that creates specific vibrational frequencies. These frequencies interact with our energy field and nervous system to promote healing, balance, and wellbeing.',
+    relatedArticles: ['molecular-healing', 'plant-energy', 'aromatic-medicine']
+  },
+  {
+    id: 'aromatherapy-recipes',
+    title: 'Essential Oil Blending',
+    content: 'Blending essential oils creates synergistic effects where the combination is more powerful than individual oils. Understanding oil families and properties helps create effective blends for specific chakras and healing goals.',
+    relatedArticles: ['oil-synergy', 'blending-ratios', 'custom-formulas']
+  },
+  {
+    id: 'oil-usage',
+    title: 'Essential Oil Application Methods',
+    content: 'Essential oils can be used through inhalation, topical application (diluted), or diffusion. Each method creates different effects and absorption rates, allowing for versatile therapeutic applications.',
+    relatedArticles: ['safe-usage', 'dilution-ratios', 'absorption-methods']
+  },
+  {
+    id: 'chakra-trauma',
+    title: 'Chakra Trauma and Emotional Patterns',
+    content: 'Traumatic experiences often lodge in specific chakras based on their nature. Understanding these connections helps identify which energy centers need healing to address recurring emotional or behavioral patterns.',
+    relatedArticles: ['trauma-release', 'emotional-healing', 'energy-therapy']
+  },
+  {
+    id: 'energy-psychology',
+    title: 'Energy Psychology Approaches',
+    content: 'Energy psychology combines traditional therapeutic methods with energy healing techniques. This integrated approach addresses both psychological symptoms and underlying energy imbalances for comprehensive healing.',
+    relatedArticles: ['holistic-therapy', 'mind-body-healing', 'integrative-psychology']
+  },
+  {
+    id: 'body-therapy',
+    title: 'Somatic and Body-Based Therapy',
+    content: 'Somatic therapy recognizes that trauma and emotions are stored in the body. These approaches use body awareness, movement, and touch to release held patterns and restore natural energy flow.',
+    relatedArticles: ['body-awareness', 'trauma-release', 'embodiment-practices']
+  },
+  {
+    id: 'spiritual-psychology',
+    title: 'Transpersonal Psychology',
+    content: 'Transpersonal psychology integrates spiritual experiences and practices with psychological healing. This approach recognizes the role of consciousness, meaning, and transcendent experiences in mental health.',
+    relatedArticles: ['consciousness-healing', 'spiritual-integration', 'holistic-psychology']
+  },
+  {
+    id: 'psychic-protection',
+    title: 'Energy Boundaries and Protection',
+    content: 'Energy boundaries protect us from absorbing others\' negative emotions or energy. Techniques include visualization of protective light, grounding practices, clearing rituals, and learning to distinguish between our energy and others\'.',
+    relatedArticles: ['boundary-setting', 'energy-hygiene', 'psychic-defense']
+  },
+  {
+    id: 'draining-relationships',
+    title: 'Energy Vampires and Draining Relationships',
+    content: 'Some relationships consistently drain our energy through excessive neediness, drama, or negativity. Recognizing these patterns helps establish healthy boundaries and protect our energy while maintaining compassion.',
+    relatedArticles: ['toxic-relationships', 'energy-boundaries', 'relationship-healing']
+  },
+  {
+    id: 'root-relationships',
+    title: 'Root Chakra and Trust Issues',
+    content: 'Root Chakra imbalances often manifest as trust issues, fear of abandonment, or difficulty with commitment. Healing involves addressing childhood wounds, building self-security, and learning to trust gradually.',
+    relatedArticles: ['trust-building', 'security-healing', 'childhood-trauma']
+  },
+  {
+    id: 'throat-expression',
+    title: 'Throat Chakra and Communication',
+    content: 'Throat Chakra governs authentic self-expression, truth-telling, and clear communication. Imbalances may show as difficulty speaking up, fear of judgment, or inability to express feelings and needs.',
+    relatedArticles: ['authentic-expression', 'communication-healing', 'voice-empowerment']
+  },
+  {
+    id: 'circadian-energy',
+    title: 'Natural Rhythms and Energy Cycles',
+    content: 'Our energy naturally fluctuates with daily and seasonal cycles. Understanding these rhythms helps optimize meditation practice, work schedules, and healing activities for maximum effectiveness.',
+    relatedArticles: ['biological-rhythms', 'energy-optimization', 'natural-living']
+  },
+  {
+    id: 'weather-moods',
+    title: 'Seasonal Affective Patterns',
+    content: 'Weather and seasonal changes affect our energy and mood through light exposure, barometric pressure, and natural rhythms. Awareness helps us adapt practices and expectations to work with these cycles.',
+    relatedArticles: ['light-therapy', 'seasonal-depression', 'weather-sensitivity']
+  },
+  {
+    id: 'nature-ceremonies',
+    title: 'Seasonal Rituals and Ceremonies',
+    content: 'Seasonal ceremonies honor natural transitions and help align our energy with earth\'s cycles. These practices might include solstice meditations, equinox balancing rituals, or monthly moon ceremonies.',
+    relatedArticles: ['ritual-practices', 'earth-connection', 'ceremonial-healing']
+  },
+  {
+    id: 'grounding-practices',
+    title: 'Earth Connection and Grounding',
+    content: 'Grounding practices connect us with earth\'s stabilizing energy. Techniques include walking barefoot, sitting against trees, gardening, visualization of roots, or spending time in nature.',
+    relatedArticles: ['earthing', 'nature-healing', 'stability-practices']
   }
 ];
