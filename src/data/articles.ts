@@ -103,6 +103,66 @@ export const articles: Article[] = [
     tags: ['kundalini', 'awakening', 'spiritual', 'transformation'],
     lastUpdated: '2024-01-05'
   },
+  {
+    id: 'aura-layers',
+    title: 'Understanding the Human Aura',
+    category: 'core-concepts',
+    content: [
+      {
+        id: 'aura-basics',
+        title: 'What is the Aura?',
+        content: 'The aura is an electromagnetic field that surrounds every living being, extending 3-6 feet from the physical body. It consists of seven distinct layers, each corresponding to a chakra and representing different aspects of our being - from physical vitality to spiritual connection.',
+        hyperlinks: [
+          { text: 'electromagnetic field', targetId: 'biofield-science', type: 'article' },
+          { text: 'seven layers', targetId: 'auric-bodies', type: 'mini-article' }
+        ]
+      },
+      {
+        id: 'aura-colors',
+        title: 'Aura Colors and Meanings',
+        content: 'Aura colors reflect our current emotional, mental, and spiritual states. Red indicates passion or anger, orange shows creativity, yellow represents intellect, green is healing and growth, blue is communication and truth, indigo signifies intuition, and violet represents spiritual connection.',
+        hyperlinks: [
+          { text: 'color meanings', targetId: 'color-psychology', type: 'mini-article' },
+          { text: 'aura reading', targetId: 'energy-perception', type: 'mini-article' }
+        ]
+      }
+    ],
+    readTime: 9,
+    difficulty: 'intermediate',
+    relatedTopics: ['energy-anatomy', 'chakra-system-overview', 'energy-healing-methods'],
+    tags: ['aura', 'energy field', 'colors', 'perception'],
+    lastUpdated: '2024-01-14'
+  },
+  {
+    id: 'biofield-science',
+    title: 'Scientific Research on Human Energy Fields',
+    category: 'science',
+    content: [
+      {
+        id: 'biofield-definition',
+        title: 'What is the Human Biofield?',
+        content: 'The biofield is a scientifically measurable energy field that surrounds and permeates the human body. Research using sensitive instruments can detect electromagnetic emissions, biophoton activity, and coherent energy patterns that correlate with health and consciousness states.',
+        hyperlinks: [
+          { text: 'biophoton activity', targetId: 'light-emissions', type: 'mini-article' },
+          { text: 'electromagnetic emissions', targetId: 'energy-measurement', type: 'mini-article' }
+        ]
+      },
+      {
+        id: 'research-findings',
+        title: 'Current Research on Energy Fields',
+        content: 'Studies show that experienced energy healers can produce measurable changes in recipients\' biofields. Heart Rate Variability (HRV) research demonstrates how emotions and thoughts affect our electromagnetic field, while GDV photography captures real-time biofield changes.',
+        hyperlinks: [
+          { text: 'HRV research', targetId: 'heart-coherence', type: 'mini-article' },
+          { text: 'GDV photography', targetId: 'kirlian-imaging', type: 'mini-article' }
+        ]
+      }
+    ],
+    readTime: 14,
+    difficulty: 'advanced',
+    relatedTopics: ['meditation-neuroscience', 'consciousness-studies', 'energy-healing-research'],
+    tags: ['science', 'biofield', 'research', 'energy'],
+    lastUpdated: '2024-01-02'
+  },
 
   // Practices
   {
@@ -164,6 +224,37 @@ export const articles: Article[] = [
     relatedTopics: ['chakra-meditation-guide', 'sound-therapy', 'vocal-techniques'],
     tags: ['mantras', 'sound', 'chanting', 'vibration'],
     lastUpdated: '2024-01-08'
+  },
+  {
+    id: 'pranayama-breathing',
+    title: 'Pranayama: Sacred Breath Practices',
+    category: 'practices',
+    content: [
+      {
+        id: 'breathing-fundamentals',
+        title: 'The Power of Conscious Breathing',
+        content: 'Pranayama literally means "extension of life force" in Sanskrit. These ancient breathing techniques regulate prana flow, calm the nervous system, and prepare the mind for meditation. Each breath pattern creates specific effects on consciousness and energy.',
+        hyperlinks: [
+          { text: 'nervous system', targetId: 'autonomic-regulation', type: 'mini-article' },
+          { text: 'consciousness effects', targetId: 'breathwork-states', type: 'mini-article' }
+        ]
+      },
+      {
+        id: 'chakra-breathing',
+        title: 'Breath Techniques for Each Chakra',
+        content: 'Root Chakra: Deep belly breathing. Sacral: Hip circles with breath. Solar Plexus: Breath of fire (rapid pumping). Heart: 4-7-8 breathing. Throat: Ujjayi breath (ocean sound). Third Eye: Alternate nostril breathing. Crown: Silent breath awareness.',
+        hyperlinks: [
+          { text: 'breath of fire', targetId: 'kapalabhati', type: 'mini-article' },
+          { text: 'ujjayi breath', targetId: 'victorious-breath', type: 'mini-article' },
+          { text: 'alternate nostril', targetId: 'nadi-shodhana', type: 'mini-article' }
+        ]
+      }
+    ],
+    readTime: 11,
+    difficulty: 'beginner',
+    relatedTopics: ['chakra-meditation-guide', 'energy-anatomy', 'stress-relief'],
+    tags: ['pranayama', 'breathing', 'techniques', 'energy'],
+    lastUpdated: '2024-01-11'
   },
 
   // Science
@@ -227,6 +318,66 @@ export const articles: Article[] = [
     relatedTopics: ['color-therapy', 'sound-therapy', 'energy-healing-methods'],
     tags: ['crystals', 'healing', 'gemstones', 'therapy'],
     lastUpdated: '2024-01-07'
+  },
+  {
+    id: 'sound-therapy',
+    title: 'Healing with Sound and Frequency',
+    category: 'healing',
+    content: [
+      {
+        id: 'sound-science',
+        title: 'The Science of Sound Healing',
+        content: 'Sound therapy works on the principle that everything vibrates at specific frequencies. When we are healthy, our body resonates in harmony. Illness occurs when parts of our body go "out of tune." Sound healing uses specific frequencies to restore the body\'s natural harmonic patterns.',
+        hyperlinks: [
+          { text: 'harmonic patterns', targetId: 'resonance-theory', type: 'mini-article' },
+          { text: 'frequency healing', targetId: 'cymatics', type: 'mini-article' }
+        ]
+      },
+      {
+        id: 'sound-tools',
+        title: 'Sound Healing Instruments',
+        content: 'Tibetan singing bowls, crystal bowls, tuning forks, drums, and gongs each produce unique frequencies that affect different chakras and aspects of our being. The key is matching the instrument\'s frequency to the specific healing needed.',
+        hyperlinks: [
+          { text: 'singing bowls', targetId: 'bowl-therapy', type: 'mini-article' },
+          { text: 'tuning forks', targetId: 'fork-healing', type: 'mini-article' }
+        ]
+      }
+    ],
+    readTime: 8,
+    difficulty: 'beginner',
+    relatedTopics: ['chakra-mantras', 'vibrational-medicine', 'music-therapy'],
+    tags: ['sound', 'frequency', 'healing', 'vibration'],
+    lastUpdated: '2024-01-09'
+  },
+  {
+    id: 'gemstone-guide',
+    title: 'Complete Guide to Healing Crystals',
+    category: 'healing',
+    content: [
+      {
+        id: 'crystal-formation',
+        title: 'How Crystals Form and Hold Energy',
+        content: 'Crystals form through precise geometric arrangements of atoms over millions of years, creating stable energy patterns. This molecular structure allows them to store, amplify, and transmit energy, making them powerful tools for healing and meditation.',
+        hyperlinks: [
+          { text: 'molecular structure', targetId: 'crystal-lattice', type: 'mini-article' },
+          { text: 'energy storage', targetId: 'piezoelectric-effect', type: 'mini-article' }
+        ]
+      },
+      {
+        id: 'working-with-crystals',
+        title: 'How to Use Healing Crystals',
+        content: 'Place crystals on corresponding chakra points during meditation, carry them throughout the day, create crystal grids for specific intentions, or simply hold them while setting intentions. Always cleanse crystals regularly using moonlight, sage, or running water.',
+        hyperlinks: [
+          { text: 'crystal grids', targetId: 'sacred-geometry', type: 'mini-article' },
+          { text: 'crystal cleansing', targetId: 'energy-clearing', type: 'mini-article' }
+        ]
+      }
+    ],
+    readTime: 13,
+    difficulty: 'intermediate',
+    relatedTopics: ['crystal-healing', 'mineral-therapy', 'stone-medicine'],
+    tags: ['crystals', 'gemstones', 'healing', 'energy work'],
+    lastUpdated: '2024-01-06'
   }
 ];
 
@@ -278,5 +429,203 @@ export const miniArticles: MiniArticle[] = [
     title: 'Bija Mantras: Seed Sounds',
     content: 'Bija mantras are single-syllable sounds that contain the essence of each chakra\'s energy. These "seed sounds" create specific vibrations that resonate with and activate the corresponding energy center. Each mantra is considered a sonic key that unlocks the chakra\'s potential.',
     relatedArticles: ['chakra-mantras', 'sound-therapy']
+  },
+  {
+    id: 'spiritual-evolution',
+    title: 'Stages of Spiritual Development',
+    content: 'Spiritual development unfolds in natural stages, from awakening awareness to self-realization. Each stage brings expanded consciousness, deeper compassion, and greater connection to universal truth. The chakra system provides a roadmap for this evolutionary journey.',
+    relatedArticles: ['kundalini-awakening', 'consciousness-expansion']
+  },
+  {
+    id: 'consciousness-expansion',
+    title: 'Expanding Awareness and Consciousness',
+    content: 'Consciousness expansion involves transcending ordinary awareness to access higher states of perception and understanding. Through meditation, breathwork, and energy practices, we can experience unity consciousness, cosmic awareness, and direct knowing beyond the rational mind.',
+    relatedArticles: ['altered-states', 'kundalini-awakening']
+  },
+  {
+    id: 'altered-states',
+    title: 'Altered States of Consciousness',
+    content: 'Altered states include theta brainwave patterns, transcendent awareness, lucid dreaming, and mystical experiences. These states provide access to deeper wisdom, healing insights, and spiritual realizations that support personal transformation and growth.',
+    relatedArticles: ['brainwave-states', 'consciousness-expansion']
+  },
+  {
+    id: 'finding-teacher',
+    title: 'Finding a Spiritual Teacher or Guide',
+    content: 'A qualified teacher provides safe guidance for spiritual practices, helps navigate challenges, and offers personalized instruction. Look for teachers with extensive experience, ethical conduct, authentic lineage, and the ability to meet you where you are in your journey.',
+    relatedArticles: ['spiritual-safety', 'teacher-qualities']
+  },
+  {
+    id: 'kriyas-movements',
+    title: 'Kriyas: Spontaneous Energy Movements',
+    content: 'Kriyas are involuntary physical movements, sounds, or sensations that occur during deep meditation or energy work. They indicate the body is releasing energetic blockages and realigning itself. Common kriyas include shaking, swaying, tears, or feeling heat.',
+    relatedArticles: ['kundalini-awakening', 'energy-release']
+  },
+  {
+    id: 'hand-positions',
+    title: 'Mudras: Sacred Hand Positions',
+    content: 'Mudras are hand gestures that direct energy flow and enhance meditation. Each position creates specific energetic circuits in the body. Common mudras include Gyan (thumb to index finger for wisdom), Anjali (prayer hands for heart opening), and Chin (thumb to index for consciousness).',
+    relatedArticles: ['energy-channeling', 'gesture-healing']
+  },
+  {
+    id: 'sitting-positions',
+    title: 'Meditation Postures and Positions',
+    content: 'Proper posture supports energy flow and comfortable meditation. Key elements include straight spine, relaxed shoulders, hands in mudra, and stable base. Options include lotus, half-lotus, chair sitting, or lying down - choose what maintains alertness without strain.',
+    relatedArticles: ['meditation-basics', 'body-alignment']
+  },
+  {
+    id: 'brain-imaging',
+    title: 'fMRI and Brain Imaging Studies',
+    content: 'Functional Magnetic Resonance Imaging (fMRI) shows real-time brain activity during meditation. Studies reveal increased activity in areas associated with attention, emotional regulation, and self-awareness, while stress-related regions show decreased activation.',
+    relatedArticles: ['meditation-neuroscience', 'brain-research']
+  },
+  {
+    id: 'brainwave-states',
+    title: 'EEG Patterns and Brainwave States',
+    content: 'EEG studies show meditation produces specific brainwave patterns: Alpha (8-13Hz) for relaxed awareness, Theta (4-8Hz) for deep meditation, and Gamma (30-100Hz) for heightened consciousness. These patterns correlate with different levels of spiritual experience.',
+    relatedArticles: ['consciousness-states', 'meditation-neuroscience']
+  },
+  {
+    id: 'brain-plasticity',
+    title: 'Neuroplasticity and Meditation',
+    content: 'Neuroplasticity is the brain\'s ability to reorganize and form new neural pathways. Regular meditation literally rewires the brain, increasing gray matter in areas related to learning, memory, and emotional regulation while reducing activity in the stress-response centers.',
+    relatedArticles: ['brain-changes', 'meditation-benefits']
+  },
+  {
+    id: 'limbic-system',
+    title: 'Emotional Regulation and the Limbic System',
+    content: 'The limbic system processes emotions and stress responses. Meditation strengthens the prefrontal cortex\'s ability to regulate limbic reactions, leading to better emotional balance, reduced reactivity, and increased emotional intelligence and resilience.',
+    relatedArticles: ['stress-response', 'emotional-intelligence']
+  },
+  {
+    id: 'crystal-vibrations',
+    title: 'Crystal Vibrational Frequencies',
+    content: 'Each crystal has a unique atomic structure that vibrates at specific frequencies. These vibrations interact with our body\'s energy field, helping to restore balance and harmony. Quartz crystals, for example, vibrate at precise frequencies used in electronic devices.',
+    relatedArticles: ['vibrational-healing', 'crystal-science']
+  },
+  {
+    id: 'mineral-therapy',
+    title: 'Mineral Healing Properties',
+    content: 'Minerals contain trace elements and energetic signatures that can support healing. Iron-rich stones like hematite ground energy, copper-bearing stones like azurite enhance intuition, and calcium-based stones like fluorite promote mental clarity and bone health.',
+    relatedArticles: ['gemstone-guide', 'crystal-healing']
+  },
+  {
+    id: 'auric-bodies',
+    title: 'The Seven Auric Layers',
+    content: 'The aura consists of seven layers: Etheric (physical vitality), Emotional (feelings), Mental (thoughts), Astral (relationships), Etheric Template (divine will), Celestial (spiritual love), and Ketheric (cosmic consciousness). Each layer extends further from the body.',
+    relatedArticles: ['aura-layers', 'energy-anatomy']
+  },
+  {
+    id: 'color-psychology',
+    title: 'Color Meanings in Energy Work',
+    content: 'Colors carry specific energetic frequencies that affect our mood, thoughts, and healing. Red energizes, orange inspires creativity, yellow stimulates intellect, green promotes healing, blue enhances communication, indigo develops intuition, and violet connects to spirit.',
+    relatedArticles: ['chakra-colors', 'color-therapy']
+  },
+  {
+    id: 'energy-perception',
+    title: 'Developing Psychic and Energy Perception',
+    content: 'Energy perception develops through practice and sensitivity training. Start by feeling energy between your palms, sensing chakra activity, and noticing subtle sensations around people and places. Trust initial impressions and practice regularly to strengthen this natural ability.',
+    relatedArticles: ['intuitive-development', 'psychic-abilities']
+  },
+  {
+    id: 'autonomic-regulation',
+    title: 'Breath and Nervous System Regulation',
+    content: 'The breath directly influences the autonomic nervous system. Slow, deep breathing activates the parasympathetic (rest and digest) response, while rapid breathing triggers sympathetic (fight or flight) activation. Conscious breathing is our most accessible tool for self-regulation.',
+    relatedArticles: ['stress-management', 'breathing-therapy']
+  },
+  {
+    id: 'breathwork-states',
+    title: 'Altered States Through Breathwork',
+    content: 'Specific breathing patterns can induce altered states of consciousness, facilitate emotional release, and access non-ordinary awareness. Techniques like holotropic breathwork, rebirthing, and connected breathing create powerful transformational experiences.',
+    relatedArticles: ['consciousness-expansion', 'breath-therapy']
+  },
+  {
+    id: 'kapalabhati',
+    title: 'Breath of Fire (Kapalabhati)',
+    content: 'Kapalabhati is a rapid, forceful breathing technique that heats the body, clears the mind, and energizes the solar plexus chakra. Practice involves quick, sharp exhales through the nose while allowing natural inhales. Start slowly and build up duration gradually.',
+    relatedArticles: ['pranayama-breathing', 'solar-plexus-healing']
+  },
+  {
+    id: 'victorious-breath',
+    title: 'Ujjayi: The Victorious Breath',
+    content: 'Ujjayi breathing creates a soft "ocean" sound by slightly constricting the throat during both inhale and exhale. This technique calms the nervous system, enhances concentration, and generates internal heat. It\'s commonly used in yoga practice and meditation.',
+    relatedArticles: ['throat-chakra-healing', 'meditation-techniques']
+  },
+  {
+    id: 'nadi-shodhana',
+    title: 'Alternate Nostril Breathing',
+    content: 'Nadi Shodhana balances the left and right hemispheres of the brain by alternating breathing through each nostril. This practice harmonizes the ida and pingala nadis, creates mental clarity, and prepares the mind for meditation.',
+    relatedArticles: ['brain-balancing', 'meditation-preparation']
+  },
+  {
+    id: 'resonance-theory',
+    title: 'Harmonic Resonance and Healing',
+    content: 'Resonance occurs when one vibrating object causes another to vibrate at the same frequency. In healing, healthy frequencies can restore balance to "out of tune" areas of the body. This principle underlies sound therapy, tuning fork healing, and frequency medicine.',
+    relatedArticles: ['sound-therapy', 'vibrational-medicine']
+  },
+  {
+    id: 'cymatics',
+    title: 'Cymatics: The Study of Visible Sound',
+    content: 'Cymatics reveals how sound waves create geometric patterns in matter. When sound frequencies are applied to sand, water, or other materials, they form intricate, symmetrical patterns. This demonstrates how sound literally shapes matter and can influence healing.',
+    relatedArticles: ['sacred-geometry', 'frequency-healing']
+  },
+  {
+    id: 'bowl-therapy',
+    title: 'Singing Bowl Sound Healing',
+    content: 'Tibetan and crystal singing bowls produce pure tones that induce deep relaxation and energetic healing. Metal bowls ground energy and clear blockages, while crystal bowls create ethereal tones that open consciousness and activate chakras.',
+    relatedArticles: ['sound-therapy', 'meditation-tools']
+  },
+  {
+    id: 'fork-healing',
+    title: 'Tuning Fork Therapy',
+    content: 'Tuning forks produce precise frequencies that can target specific areas of the body or energy system. Weighted forks are applied directly to the body for physical healing, while unweighted forks are used around the aura for energetic balancing.',
+    relatedArticles: ['frequency-medicine', 'precision-healing']
+  },
+  {
+    id: 'crystal-lattice',
+    title: 'Crystal Molecular Structure',
+    content: 'Crystals form through repeating atomic patterns called lattices. This organized structure creates stability and allows crystals to store and transmit energy consistently. The specific lattice pattern determines the crystal\'s properties and healing applications.',
+    relatedArticles: ['crystal-science', 'mineral-formation']
+  },
+  {
+    id: 'piezoelectric-effect',
+    title: 'Piezoelectric Properties of Crystals',
+    content: 'Piezoelectricity is the ability of certain crystals to generate electric charge when subjected to mechanical stress. This property explains how crystals can interact with our body\'s bioelectric field and is why quartz is used in electronic devices.',
+    relatedArticles: ['crystal-technology', 'bioelectric-field']
+  },
+  {
+    id: 'sacred-geometry',
+    title: 'Sacred Geometry in Crystal Grids',
+    content: 'Crystal grids use sacred geometric patterns like the Flower of Life, Metatron\'s Cube, or Sri Yantra to amplify and direct crystal energy toward specific intentions. The geometric pattern acts as an energy template that focuses and magnifies the crystals\' power.',
+    relatedArticles: ['geometric-healing', 'crystal-grids']
+  },
+  {
+    id: 'energy-clearing',
+    title: 'Crystal Cleansing and Charging',
+    content: 'Crystals absorb energies from their environment and need regular cleansing to maintain their effectiveness. Methods include moonlight, sunlight, sage smoke, running water, or placing on selenite. Charging enhances their energy through intention, meditation, or earth connection.',
+    relatedArticles: ['crystal-care', 'energy-maintenance']
+  },
+  {
+    id: 'light-emissions',
+    title: 'Biophoton Research and Light Emissions',
+    content: 'Biophotons are ultra-weak light emissions produced by all living cells. Research shows that healthy cells emit coherent light patterns, while diseased cells show chaotic emissions. This biological light may be related to the concept of aura and energy fields.',
+    relatedArticles: ['biofield-science', 'cellular-health']
+  },
+  {
+    id: 'energy-measurement',
+    title: 'Measuring Human Energy Fields',
+    content: 'Advanced instruments like SQUID magnetometers, bioelectrography, and GDV cameras can detect and measure various aspects of human energy fields. These tools provide scientific validation for what energy healers and mystics have long perceived.',
+    relatedArticles: ['scientific-validation', 'energy-research']
+  },
+  {
+    id: 'heart-coherence',
+    title: 'Heart Rate Variability and Coherence',
+    content: 'Heart Rate Variability (HRV) measures the variation in time between heartbeats. Coherent HRV patterns, achieved through positive emotions and breathing techniques, correlate with improved health, emotional stability, and enhanced intuition.',
+    relatedArticles: ['heart-brain-connection', 'emotional-balance']
+  },
+  {
+    id: 'kirlian-imaging',
+    title: 'Kirlian Photography and Energy Imaging',
+    content: 'Kirlian photography and modern GDV (Gas Discharge Visualization) capture the corona discharge around living objects. These images reveal energy patterns that change with health, emotions, and consciousness states, providing visual evidence of biofields.',
+    relatedArticles: ['energy-photography', 'aura-visualization']
   }
 ];
