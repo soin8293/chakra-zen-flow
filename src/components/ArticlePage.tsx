@@ -246,12 +246,27 @@ export function ArticlePage({ articleId, onBack, onNavigateToArticle, onTagClick
                   <h4 className="font-medium text-card-foreground group-hover:text-primary transition-colors mb-2">
                     {relatedArticle.title}
                   </h4>
-                  <div className="flex items-center gap-2 text-xs text-muted-foreground">
+                  <div className="flex items-center gap-2 text-xs text-muted-foreground mb-2">
                     <Clock className="h-3 w-3" />
                     {relatedArticle.readTime} min
                     <Badge className={getDifficultyColor(relatedArticle.difficulty)} variant="outline">
                       {relatedArticle.difficulty}
                     </Badge>
+                  </div>
+                  <div className="flex flex-wrap gap-1">
+                    {relatedArticle.tags.slice(0, 3).map(tag => (
+                      <Badge 
+                        key={tag} 
+                        variant="outline" 
+                        className={`text-xs ${onTagClick ? 'cursor-pointer hover:bg-primary/10 hover:border-primary/30 transition-colors' : ''}`}
+                        onClick={onTagClick ? (e) => {
+                          e.stopPropagation();
+                          handleTagClick(tag);
+                        } : undefined}
+                      >
+                        #{tag}
+                      </Badge>
+                    ))}
                   </div>
                 </Card>
               ))}
