@@ -20,9 +20,10 @@ interface ArticlePageProps {
   articleId: string;
   onBack: () => void;
   onNavigateToArticle: (articleId: string) => void;
+  onTagClick?: (tag: string) => void;
 }
 
-export function ArticlePage({ articleId, onBack, onNavigateToArticle }: ArticlePageProps) {
+export function ArticlePage({ articleId, onBack, onNavigateToArticle, onTagClick }: ArticlePageProps) {
   const [selectedMiniArticle, setSelectedMiniArticle] = useState<MiniArticle | null>(null);
   const { isBookmarked, addBookmark, removeBookmark } = useBookmarks();
   
@@ -92,6 +93,12 @@ export function ArticlePage({ articleId, onBack, onNavigateToArticle }: ArticleP
     return category.replace('-', ' ').split(' ').map(word => 
       word.charAt(0).toUpperCase() + word.slice(1)
     ).join(' ');
+  };
+
+  const handleTagClick = (tag: string) => {
+    if (onTagClick) {
+      onTagClick(tag);
+    }
   };
 
   return (
@@ -180,7 +187,12 @@ export function ArticlePage({ articleId, onBack, onNavigateToArticle }: ArticleP
 
           <div className="flex flex-wrap gap-2">
             {article.tags.map(tag => (
-              <Badge key={tag} variant="outline" className="text-xs">
+              <Badge 
+                key={tag} 
+                variant="outline" 
+                className={`text-xs ${onTagClick ? 'cursor-pointer hover:bg-primary/10 hover:border-primary/30 transition-colors' : ''}`}
+                onClick={onTagClick ? () => handleTagClick(tag) : undefined}
+              >
                 #{tag}
               </Badge>
             ))}

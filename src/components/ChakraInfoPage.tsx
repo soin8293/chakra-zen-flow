@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { chakras, Chakra, ArticleCategory } from "@/types/chakra";
 import { articles } from "@/data/articles";
 import { Button } from "./ui/button";
@@ -14,12 +14,21 @@ interface ChakraInfoPageProps {
   onChakraSelect: (chakra: Chakra) => void;
   onArticleSelect: (articleId: string) => void;
   onBookmarksClick: () => void;
+  initialSearchTag?: string;
 }
 
-export function ChakraInfoPage({ onBack, onChakraSelect, onArticleSelect, onBookmarksClick }: ChakraInfoPageProps) {
+export function ChakraInfoPage({ onBack, onChakraSelect, onArticleSelect, onBookmarksClick, initialSearchTag }: ChakraInfoPageProps) {
   const [searchQuery, setSearchQuery] = useState('');
   const [activeCategory, setActiveCategory] = useState<ArticleCategory | 'all'>('all');
   const { totalBookmarks } = useBookmarks();
+
+  // Set initial search tag when provided
+  useEffect(() => {
+    if (initialSearchTag) {
+      setSearchQuery(initialSearchTag);
+      setActiveCategory('all');
+    }
+  }, [initialSearchTag]);
 
   const featuredArticles = articles.filter(article => article.featured);
   
@@ -49,6 +58,12 @@ export function ChakraInfoPage({ onBack, onChakraSelect, onArticleSelect, onBook
       case 'advanced': return 'bg-red-500/20 text-red-400';
       default: return 'bg-muted text-muted-foreground';
     }
+  };
+
+  const handleTagClick = (tag: string, e: React.MouseEvent) => {
+    e.stopPropagation(); // Prevent triggering article click
+    setSearchQuery(tag);
+    setActiveCategory('all'); // Reset category to show all results
   };
 
   return (
@@ -221,7 +236,12 @@ export function ChakraInfoPage({ onBack, onChakraSelect, onArticleSelect, onBook
                   </div>
                   <div className="flex flex-wrap gap-1">
                     {article.tags.slice(0, 3).map(tag => (
-                      <Badge key={tag} variant="outline" className="text-xs">
+                      <Badge 
+                        key={tag} 
+                        variant="outline" 
+                        className="text-xs cursor-pointer hover:bg-primary/10 hover:border-primary/30 transition-colors"
+                        onClick={(e) => handleTagClick(tag, e)}
+                      >
                         #{tag}
                       </Badge>
                     ))}

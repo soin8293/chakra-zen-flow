@@ -29,8 +29,9 @@ const Index = () => {
 const [sessionDuration, setSessionDuration] = useState<number>(5);
 const [sessionConfig, setSessionConfig] = useState<{ level: 'beginner'|'intermediate'|'advanced'; presetOverride: 'spec'|'calm'|'balance'|'energize'; includeHolds: boolean; }>({ level: 'beginner', presetOverride: 'balance', includeHolds: false });
 const [expandingChakraId, setExpandingChakraId] = useState<string | null>(null);
-const [articleOrigin, setArticleOrigin] = useState<'prep' | 'info' | null>(null);
-const [currentArticleId, setCurrentArticleId] = useState<string | null>(null);
+  const [articleOrigin, setArticleOrigin] = useState<'prep' | 'info' | null>(null);
+  const [currentArticleId, setCurrentArticleId] = useState<string | null>(null);
+  const [searchTag, setSearchTag] = useState<string>('');
 
   // Mock user profile data
   const [userProfile] = useState<UserProfile>({
@@ -99,6 +100,11 @@ const handleStartMeditation = (opts: { duration: number; level: 'beginner'|'inte
     setCurrentScreen('bookmarks');
   };
 
+  const handleTagClick = (tag: string) => {
+    setSearchTag(tag);
+    setCurrentScreen('chakra-info');
+  };
+
   const handleBack = () => {
     if (currentScreen === 'chakra-article') {
       if (articleOrigin === 'prep') {
@@ -116,6 +122,10 @@ const handleStartMeditation = (opts: { duration: number; level: 'beginner'|'inte
       setCurrentScreen('chakra-info');
     } else {
       setCurrentScreen('home');
+    }
+    // Reset search tag when navigating back
+    if (currentScreen !== 'chakra-info') {
+      setSearchTag('');
     }
   };
 
@@ -172,6 +182,7 @@ if (currentScreen === 'session' && selectedChakra) {
         onChakraSelect={handleChakraSelect}
         onArticleSelect={handleArticleSelect}
         onBookmarksClick={handleBookmarksClick}
+        initialSearchTag={searchTag}
       />
     );
   }
@@ -182,6 +193,7 @@ if (currentScreen === 'session' && selectedChakra) {
         articleId={currentArticleId}
         onBack={handleBack}
         onNavigateToArticle={handleArticleSelect}
+        onTagClick={handleTagClick}
       />
     );
   }
