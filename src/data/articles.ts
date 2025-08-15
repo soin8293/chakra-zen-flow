@@ -543,7 +543,7 @@ export const articles: Article[] = [
   {
     id: 'chakra-psychology',
     title: 'Psychological Aspects of Chakra Imbalances',
-    category: 'healing',
+    category: 'psychology',
     content: [
       {
         id: 'emotional-centers',
@@ -592,7 +592,7 @@ export const articles: Article[] = [
   {
     id: 'trauma-healing-chakras',
     title: 'Trauma Recovery Through Chakra Work',
-    category: 'healing',
+    category: 'psychology',
     content: [
       {
         id: 'trauma-energy-body',
@@ -634,7 +634,7 @@ export const articles: Article[] = [
   {
     id: 'cognitive-chakras',
     title: 'Cognitive Functions and Energy Centers',
-    category: 'healing',
+    category: 'psychology',
     content: [
       {
         id: 'thinking-patterns',
@@ -676,7 +676,7 @@ export const articles: Article[] = [
   {
     id: 'personality-chakras',
     title: 'Chakra Personality Types and Temperaments',
-    category: 'healing',
+    category: 'psychology',
     content: [
       {
         id: 'dominant-chakras',
@@ -718,7 +718,7 @@ export const articles: Article[] = [
   {
     id: 'developmental-psychology-chakras',
     title: 'Chakra Development Through Life Stages',
-    category: 'healing',
+    category: 'psychology',
     content: [
       {
         id: 'childhood-development',
