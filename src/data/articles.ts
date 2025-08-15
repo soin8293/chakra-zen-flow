@@ -562,13 +562,200 @@ export const articles: Article[] = [
           { text: 'somatic therapy', targetId: 'body-therapy', type: 'mini-article' },
           { text: 'transpersonal psychology', targetId: 'spiritual-psychology', type: 'mini-article' }
         ]
+      },
+      {
+        id: 'chakra-archetypes',
+        title: 'Psychological Archetypes and Energy Centers',
+        content: 'Each chakra embodies specific psychological archetypes that influence our personality, decision-making, and life patterns. Root Chakra contains the Survivor archetype, Sacral holds the Artist/Lover, Solar Plexus the Warrior, Heart the Healer, Throat the Communicator, Third Eye the Mystic, and Crown the Sage.',
+        hyperlinks: [
+          { text: 'Jungian archetypes', targetId: 'collective-unconscious', type: 'mini-article' },
+          { text: 'personality patterns', targetId: 'chakra-types', type: 'mini-article' }
+        ]
+      },
+      {
+        id: 'mental-health-connections',
+        title: 'Chakras and Mental Health Conditions',
+        content: 'Research shows correlations between chakra imbalances and common mental health conditions. Root chakra dysfunction may manifest as anxiety disorders, Sacral imbalances relate to depression and addiction, Solar Plexus issues connect to self-esteem problems, Heart blockages to relationship difficulties, and upper chakras to cognitive and spiritual concerns.',
+        hyperlinks: [
+          { text: 'anxiety treatment', targetId: 'grounding-anxiety', type: 'mini-article' },
+          { text: 'depression therapy', targetId: 'creative-healing', type: 'mini-article' },
+          { text: 'addiction recovery', targetId: 'energy-addiction', type: 'mini-article' }
+        ]
       }
     ],
-    readTime: 11,
+    readTime: 15,
     difficulty: 'intermediate',
     relatedTopics: ['trauma-healing', 'mind-body-connection', 'holistic-therapy'],
     tags: ['psychology', 'emotions', 'therapy', 'mental health'],
     lastUpdated: '2024-01-21'
+  },
+  {
+    id: 'trauma-healing-chakras',
+    title: 'Trauma Recovery Through Chakra Work',
+    category: 'healing',
+    content: [
+      {
+        id: 'trauma-energy-body',
+        title: 'How Trauma Affects the Energy System',
+        content: 'Trauma creates energetic blockages and disruptions in the chakra system. Unprocessed experiences become stored in specific energy centers, manifesting as physical symptoms, emotional dysregulation, and spiritual disconnection. Understanding these patterns is crucial for comprehensive healing.',
+        hyperlinks: [
+          { text: 'body memories', targetId: 'somatic-memories', type: 'mini-article' },
+          { text: 'nervous system', targetId: 'trauma-nervous-system', type: 'mini-article' },
+          { text: 'fight-flight-freeze', targetId: 'survival-responses', type: 'mini-article' }
+        ]
+      },
+      {
+        id: 'trauma-specific-chakras',
+        title: 'Trauma Storage in Energy Centers',
+        content: 'Different types of trauma affect specific chakras. Survival trauma impacts the Root Chakra, sexual trauma affects the Sacral, power/control trauma disrupts the Solar Plexus, betrayal impacts the Heart, suppressed voice affects the Throat, gaslighting damages the Third Eye, and spiritual abuse affects the Crown.',
+        hyperlinks: [
+          { text: 'childhood trauma', targetId: 'developmental-trauma', type: 'mini-article' },
+          { text: 'complex PTSD', targetId: 'cptsd-chakras', type: 'mini-article' },
+          { text: 'intergenerational trauma', targetId: 'ancestral-healing', type: 'mini-article' }
+        ]
+      },
+      {
+        id: 'healing-approaches',
+        title: 'Integrated Trauma Healing Methods',
+        content: 'Effective trauma healing combines traditional therapy with energy work. Methods include EMDR with chakra awareness, somatic experiencing with energy release, breathwork for nervous system regulation, and gradual chakra balancing to restore healthy energy flow and psychological resilience.',
+        hyperlinks: [
+          { text: 'EMDR therapy', targetId: 'eye-movement-therapy', type: 'mini-article' },
+          { text: 'somatic experiencing', targetId: 'body-awareness-therapy', type: 'mini-article' },
+          { text: 'trauma-informed yoga', targetId: 'gentle-yoga-trauma', type: 'mini-article' }
+        ]
+      }
+    ],
+    readTime: 18,
+    difficulty: 'advanced',
+    relatedTopics: ['chakra-psychology', 'nervous-system-healing', 'somatic-therapy'],
+    tags: ['trauma', 'PTSD', 'healing', 'therapy', 'recovery'],
+    lastUpdated: '2024-01-24'
+  },
+  {
+    id: 'cognitive-chakras',
+    title: 'Cognitive Functions and Energy Centers',
+    category: 'healing',
+    content: [
+      {
+        id: 'thinking-patterns',
+        title: 'How Chakras Influence Thought Processes',
+        content: 'Each chakra affects specific cognitive functions and thinking patterns. Root Chakra governs survival thinking and basic decision-making, Sacral influences creative problem-solving, Solar Plexus affects self-confidence in thinking, Heart connects emotional intelligence, Throat manages verbal processing, Third Eye governs intuition and insight, Crown enables higher reasoning.',
+        hyperlinks: [
+          { text: 'cognitive bias', targetId: 'thinking-errors', type: 'mini-article' },
+          { text: 'emotional intelligence', targetId: 'eq-development', type: 'mini-article' },
+          { text: 'intuitive thinking', targetId: 'right-brain-function', type: 'mini-article' }
+        ]
+      },
+      {
+        id: 'learning-styles',
+        title: 'Chakras and Learning Preferences',
+        content: 'Different people naturally access information through different chakras, creating distinct learning styles. Kinesthetic learners may be Root/Sacral dominant, visual learners often use Third Eye, auditory learners engage Throat Chakra, while conceptual learners access Crown energy.',
+        hyperlinks: [
+          { text: 'multiple intelligences', targetId: 'gardner-theory', type: 'mini-article' },
+          { text: 'neurodiversity', targetId: 'brain-differences', type: 'mini-article' },
+          { text: 'learning disabilities', targetId: 'alternative-learning', type: 'mini-article' }
+        ]
+      },
+      {
+        id: 'decision-making',
+        title: 'Chakra-Based Decision Making',
+        content: 'Healthy decision-making involves consulting multiple chakras. Gut feelings (Solar Plexus), heart wisdom (Heart Chakra), logical analysis (Third Eye), and practical considerations (Root Chakra) all contribute to optimal choices. Learning to access and integrate these different forms of intelligence improves life outcomes.',
+        hyperlinks: [
+          { text: 'gut intelligence', targetId: 'enteric-nervous-system', type: 'mini-article' },
+          { text: 'heart intelligence', targetId: 'cardiac-coherence', type: 'mini-article' },
+          { text: 'decision fatigue', targetId: 'choice-overload', type: 'mini-article' }
+        ]
+      }
+    ],
+    readTime: 14,
+    difficulty: 'intermediate',
+    relatedTopics: ['chakra-psychology', 'mind-body-connection', 'consciousness-studies'],
+    tags: ['cognition', 'thinking', 'learning', 'decision-making', 'intelligence'],
+    lastUpdated: '2024-01-25'
+  },
+  {
+    id: 'personality-chakras',
+    title: 'Chakra Personality Types and Temperaments',
+    category: 'healing',
+    content: [
+      {
+        id: 'dominant-chakras',
+        title: 'Identifying Your Dominant Energy Centers',
+        content: 'Most people have 1-2 dominant chakras that strongly influence their personality, career choices, relationships, and life challenges. Understanding your dominant chakras helps explain your natural strengths, recurring life themes, and areas for growth and balance.',
+        hyperlinks: [
+          { text: 'chakra assessment', targetId: 'energy-profiling', type: 'mini-article' },
+          { text: 'temperament theory', targetId: 'four-temperaments', type: 'mini-article' },
+          { text: 'constitutional types', targetId: 'ayurvedic-doshas', type: 'mini-article' }
+        ]
+      },
+      {
+        id: 'type-descriptions',
+        title: 'The Seven Chakra Personality Types',
+        content: 'Root Type: Practical, reliable, security-focused. Sacral Type: Creative, emotional, pleasure-seeking. Solar Plexus Type: Ambitious, competitive, goal-oriented. Heart Type: Compassionate, relationship-focused, healing-oriented. Throat Type: Expressive, communicative, truth-seeking. Third Eye Type: Intuitive, mystical, wisdom-seeking. Crown Type: Spiritual, philosophical, transcendent.',
+        hyperlinks: [
+          { text: 'type development', targetId: 'chakra-evolution', type: 'mini-article' },
+          { text: 'shadow aspects', targetId: 'chakra-shadows', type: 'mini-article' },
+          { text: 'integration work', targetId: 'wholeness-practice', type: 'mini-article' }
+        ]
+      },
+      {
+        id: 'relationship-compatibility',
+        title: 'Chakra Types in Relationships',
+        content: 'Understanding chakra types improves relationship dynamics. Complementary types (like Heart and Throat) often attract but need to learn each other\'s language. Similar types may understand each other but lack balance. Successful relationships involve appreciating differences and supporting each other\'s growth.',
+        hyperlinks: [
+          { text: 'relationship dynamics', targetId: 'energy-compatibility', type: 'mini-article' },
+          { text: 'conflict resolution', targetId: 'chakra-conflicts', type: 'mini-article' },
+          { text: 'love languages', targetId: 'energetic-love-languages', type: 'mini-article' }
+        ]
+      }
+    ],
+    readTime: 16,
+    difficulty: 'intermediate',
+    relatedTopics: ['chakra-psychology', 'personality-development', 'relationship-dynamics'],
+    tags: ['personality', 'types', 'relationships', 'temperament', 'compatibility'],
+    lastUpdated: '2024-01-26'
+  },
+  {
+    id: 'developmental-psychology-chakras',
+    title: 'Chakra Development Through Life Stages',
+    category: 'healing',
+    content: [
+      {
+        id: 'childhood-development',
+        title: 'Chakra Formation in Childhood',
+        content: 'Chakras develop sequentially during childhood, with each stage building the foundation for healthy adult functioning. Root Chakra develops 0-7 years (safety, trust), Sacral 8-14 years (creativity, sexuality), Solar Plexus 15-21 years (identity, personal power). Early trauma can disrupt this natural progression.',
+        hyperlinks: [
+          { text: 'attachment theory', targetId: 'bonding-patterns', type: 'mini-article' },
+          { text: 'developmental trauma', targetId: 'childhood-disruption', type: 'mini-article' },
+          { text: 'inner child work', targetId: 'child-healing', type: 'mini-article' }
+        ]
+      },
+      {
+        id: 'adult-cycles',
+        title: 'Seven-Year Chakra Cycles in Adulthood',
+        content: 'Adult development continues in seven-year cycles, revisiting and refining each chakra at deeper levels. Ages 21-28 focus on Heart Chakra (love, relationships), 28-35 on Throat (authentic expression), 35-42 on Third Eye (wisdom, intuition), 42-49 on Crown (spiritual purpose), then the cycle repeats.',
+        hyperlinks: [
+          { text: 'midlife transition', targetId: 'chakra-midlife', type: 'mini-article' },
+          { text: 'spiritual emergence', targetId: 'awakening-stages', type: 'mini-article' },
+          { text: 'life purpose', targetId: 'dharma-discovery', type: 'mini-article' }
+        ]
+      },
+      {
+        id: 'healing-development',
+        title: 'Healing Developmental Gaps',
+        content: 'Adults can heal childhood developmental gaps through targeted chakra work. Reparenting practices help develop missing foundations, inner child work heals early wounds, and conscious relationships provide corrective experiences for healthy attachment and self-worth.',
+        hyperlinks: [
+          { text: 'reparenting therapy', targetId: 'self-parenting', type: 'mini-article' },
+          { text: 'corrective experiences', targetId: 'healing-relationships', type: 'mini-article' },
+          { text: 'neuroplasticity', targetId: 'brain-rewiring', type: 'mini-article' }
+        ]
+      }
+    ],
+    readTime: 17,
+    difficulty: 'advanced',
+    relatedTopics: ['trauma-healing-chakras', 'personality-chakras', 'life-purpose'],
+    tags: ['development', 'childhood', 'life stages', 'healing', 'growth'],
+    lastUpdated: '2024-01-27'
   },
   {
     id: 'chakra-relationships',
@@ -897,6 +1084,182 @@ export const miniArticles: MiniArticle[] = [
     title: 'Pranic Healing Techniques',
     content: 'Pranic healing uses specific hand movements to cleanse, energize, and balance the energy body. Practitioners scan for energy imbalances, remove diseased energy, and project fresh prana to affected areas.',
     relatedArticles: ['energy-scanning', 'hands-on-healing', 'aura-cleansing']
+  },
+  
+  // Psychology Section Mini-Articles
+  {
+    id: 'chakra-trauma',
+    title: 'Emotional Patterns in Energy Centers',
+    content: 'Recurring emotional patterns often indicate specific chakra imbalances. Fear and anxiety suggest Root chakra issues, guilt and shame point to Sacral problems, anger and control relate to Solar Plexus, grief affects Heart, silence indicates Throat blockages, confusion impacts Third Eye, and disconnection affects Crown.',
+    relatedArticles: ['chakra-psychology', 'trauma-healing-chakras', 'emotional-healing']
+  },
+  {
+    id: 'energy-psychology',
+    title: 'Behavioral Healing Through Energy Work',
+    content: 'Energy psychology combines traditional therapy with chakra work to address behavioral patterns at their energetic root. This approach recognizes that behaviors often stem from energy imbalances and can be shifted through targeted chakra healing alongside cognitive interventions.',
+    relatedArticles: ['chakra-psychology', 'cognitive-chakras', 'holistic-therapy']
+  },
+  {
+    id: 'body-therapy',
+    title: 'Somatic Therapy and Energy Work',
+    content: 'Somatic therapy focuses on body sensations and movement to heal trauma. When combined with chakra awareness, it becomes even more effective as therapists can identify which energy centers hold trauma and use body-based techniques to release stored emotions.',
+    relatedArticles: ['trauma-healing-chakras', 'mind-body-connection', 'nervous-system-healing']
+  },
+  {
+    id: 'spiritual-psychology',
+    title: 'Transpersonal Psychology',
+    content: 'Transpersonal psychology integrates spiritual experiences with psychological healing. It recognizes that many mental health issues have spiritual dimensions and that accessing higher chakras can provide profound healing and perspective on life challenges.',
+    relatedArticles: ['chakra-psychology', 'consciousness-studies', 'spiritual-emergence']
+  },
+  {
+    id: 'collective-unconscious',
+    title: 'Jungian Archetypes and Chakras',
+    content: 'Carl Jung\'s archetypal theory aligns beautifully with chakra psychology. Each chakra embodies universal archetypes that exist in the collective unconscious - Survivor, Artist, Warrior, Healer, Communicator, Mystic, and Sage - explaining common personality patterns across cultures.',
+    relatedArticles: ['personality-chakras', 'chakra-psychology', 'universal-patterns']
+  },
+  {
+    id: 'chakra-types',
+    title: 'Personality Patterns and Energy Dominance',
+    content: 'People with dominant chakras exhibit predictable personality traits, career preferences, and life challenges. Understanding these patterns helps in self-awareness, career guidance, relationship counseling, and personal development work.',
+    relatedArticles: ['personality-chakras', 'career-guidance', 'self-awareness']
+  },
+  {
+    id: 'grounding-anxiety',
+    title: 'Root Chakra Anxiety Treatment',
+    content: 'Anxiety often stems from an ungrounded Root Chakra. Treatment involves grounding exercises like earthing, root vegetables in diet, red visualization, affirmations about safety, and building life stability through financial security and supportive relationships.',
+    relatedArticles: ['root-chakra-healing', 'anxiety-management', 'grounding-practices']
+  },
+  {
+    id: 'creative-healing',
+    title: 'Sacral Chakra Depression Therapy',
+    content: 'Depression frequently correlates with blocked Sacral Chakra creativity and life force. Healing approaches include creative expression therapy, pleasure practices, orange color therapy, hip-opening yoga, and reconnecting with passion and joy in life.',
+    relatedArticles: ['sacral-chakra-healing', 'depression-support', 'creative-therapy']
+  },
+  {
+    id: 'energy-addiction',
+    title: 'Chakra Imbalances in Addiction',
+    content: 'Addiction often represents attempts to fill energetic voids in specific chakras. Substance abuse may indicate Sacral Chakra pleasure-seeking, workaholism suggests Solar Plexus power issues, while spiritual bypassing can indicate Crown Chakra imbalances.',
+    relatedArticles: ['addiction-recovery', 'chakra-psychology', 'holistic-recovery']
+  },
+  {
+    id: 'somatic-memories',
+    title: 'Body Memories and Trauma Storage',
+    content: 'The body stores traumatic memories in tissues and energy centers. These somatic memories can be accessed and released through chakra work, breathwork, massage, yoga, and other body-based therapies that help the nervous system process unresolved experiences.',
+    relatedArticles: ['trauma-healing-chakras', 'body-therapy', 'nervous-system-healing']
+  },
+  {
+    id: 'trauma-nervous-system',
+    title: 'Nervous System and Energy Centers',
+    content: 'The nervous system and chakra system are intimately connected. Trauma dysregulates both systems, creating chronic stress patterns. Healing involves restoring nervous system regulation through vagus nerve work, breathwork, and gentle chakra activation.',
+    relatedArticles: ['trauma-healing-chakras', 'nervous-system-healing', 'vagus-nerve-work']
+  },
+  {
+    id: 'survival-responses',
+    title: 'Fight-Flight-Freeze and Chakras',
+    content: 'Trauma responses correlate with different chakras. Fight response activates Solar Plexus, flight engages Root and Sacral, freeze affects multiple centers, and fawn (people-pleasing) involves Heart and Throat. Understanding these patterns helps target healing approaches.',
+    relatedArticles: ['trauma-healing-chakras', 'nervous-system-responses', 'trauma-recovery']
+  },
+  {
+    id: 'developmental-trauma',
+    title: 'Childhood Trauma and Energy Development',
+    content: 'Early childhood trauma disrupts natural chakra development, creating lifelong patterns of imbalance. Healing involves reparenting work, inner child therapy, and systematically developing the energy centers that were disrupted during childhood.',
+    relatedArticles: ['developmental-psychology-chakras', 'trauma-healing-chakras', 'inner-child-work']
+  },
+  {
+    id: 'cptsd-chakras',
+    title: 'Complex PTSD and Energy Centers',
+    content: 'Complex PTSD from prolonged trauma affects multiple chakras simultaneously, creating systemic energy dysfunction. Treatment requires patience, trauma-informed approaches, and gradual restoration of safety in each energy center.',
+    relatedArticles: ['trauma-healing-chakras', 'complex-trauma', 'systematic-healing']
+  },
+  {
+    id: 'ancestral-healing',
+    title: 'Intergenerational Trauma in Energy Systems',
+    content: 'Trauma can be passed down through generations via epigenetics and energy transmission. Chakra work can help heal ancestral patterns, break negative family cycles, and clear inherited trauma from the energy system.',
+    relatedArticles: ['family-healing', 'generational-patterns', 'energy-lineage']
+  },
+  {
+    id: 'thinking-errors',
+    title: 'Cognitive Bias and Chakra Imbalances',
+    content: 'Chakra imbalances create predictable thinking errors. Root imbalances cause catastrophizing, Sacral issues lead to emotional reasoning, Solar Plexus problems create all-or-nothing thinking, while upper chakra imbalances affect judgment and perception.',
+    relatedArticles: ['cognitive-chakras', 'mindfulness-practices', 'thought-patterns']
+  },
+  {
+    id: 'eq-development',
+    title: 'Emotional Intelligence Through Chakras',
+    content: 'Emotional intelligence develops through balanced chakras. Heart Chakra governs empathy and emotional awareness, Throat enables emotional expression, Solar Plexus manages emotional regulation, while Third Eye provides emotional insight and wisdom.',
+    relatedArticles: ['cognitive-chakras', 'heart-chakra-healing', 'emotional-skills']
+  },
+  {
+    id: 'right-brain-function',
+    title: 'Intuitive Thinking and Third Eye',
+    content: 'The Third Eye Chakra correlates with right-brain functions including intuition, creativity, pattern recognition, and holistic thinking. Developing this chakra enhances access to non-linear intelligence and intuitive problem-solving abilities.',
+    relatedArticles: ['third-eye-chakra-healing', 'cognitive-chakras', 'intuition-development']
+  },
+  {
+    id: 'enteric-nervous-system',
+    title: 'Gut Intelligence and Solar Plexus',
+    content: 'The "second brain" in the gut corresponds to Solar Plexus Chakra, processing emotions and providing intuitive guidance. This enteric nervous system contains more neurons than the spinal cord and significantly influences decision-making and emotional well-being.',
+    relatedArticles: ['solar-plexus-chakra-healing', 'gut-health', 'intuitive-decision-making']
+  },
+  {
+    id: 'cardiac-coherence',
+    title: 'Heart Intelligence and Coherence',
+    content: 'The heart has its own neural network and generates a powerful electromagnetic field. Heart coherence - a state of physiological efficiency - occurs when heart rhythm patterns become smooth and coherent, enhanced through Heart Chakra practices.',
+    relatedArticles: ['heart-chakra-healing', 'coherence-practices', 'heart-brain-connection']
+  },
+  {
+    id: 'energy-profiling',
+    title: 'Chakra Assessment Methods',
+    content: 'Various methods can assess chakra dominance including observation of behavior patterns, career choices, physical characteristics, emotional tendencies, and energy sensing techniques. Professional assessments often combine multiple approaches for accuracy.',
+    relatedArticles: ['personality-chakras', 'energy-assessment', 'chakra-diagnosis']
+  },
+  {
+    id: 'four-temperaments',
+    title: 'Classical Temperaments and Chakras',
+    content: 'Ancient temperament theory aligns with chakra types: Melancholic (Root - earth), Phlegmatic (Heart/Throat - water), Sanguine (Sacral - air), and Choleric (Solar Plexus - fire). This provides a bridge between classical psychology and energy work.',
+    relatedArticles: ['personality-chakras', 'classical-psychology', 'temperament-theory']
+  },
+  {
+    id: 'chakra-evolution',
+    title: 'Spiritual Development Through Energy Centers',
+    content: 'Personality evolves as consciousness develops through different chakras. Early life focuses on lower chakras (survival, emotion, power), while spiritual maturity involves balancing all centers and accessing higher wisdom and compassion.',
+    relatedArticles: ['personality-chakras', 'spiritual-development', 'consciousness-evolution']
+  },
+  {
+    id: 'chakra-shadows',
+    title: 'Shadow Aspects of Energy Centers',
+    content: 'Each chakra has shadow aspects that emerge when the energy center is imbalanced. Root shadows include greed and materialism, Sacral shows as addiction and manipulation, Solar Plexus manifests as aggression, Heart as codependency, etc.',
+    relatedArticles: ['personality-chakras', 'shadow-work', 'psychological-integration']
+  },
+  {
+    id: 'bonding-patterns',
+    title: 'Attachment Theory and Root Chakra',
+    content: 'Early attachment experiences directly impact Root Chakra development. Secure attachment creates a stable foundation, while insecure patterns (anxious, avoidant, disorganized) create specific chakra imbalances that affect adult relationships and self-worth.',
+    relatedArticles: ['developmental-psychology-chakras', 'attachment-healing', 'relationship-patterns']
+  },
+  {
+    id: 'childhood-disruption',
+    title: 'Developmental Trauma Effects',
+    content: 'Trauma during critical developmental windows disrupts natural chakra formation. This can cause arrested development, energy fragmentation, and adaptive strategies that become problematic in adulthood but served survival purposes in childhood.',
+    relatedArticles: ['developmental-psychology-chakras', 'trauma-healing-chakras', 'developmental-repair']
+  },
+  {
+    id: 'child-healing',
+    title: 'Inner Child Work for Chakra Healing',
+    content: 'Inner child work addresses wounded aspects of the self that remain stuck at earlier developmental stages. Each chakra may contain inner child aspects that need recognition, validation, and healing to restore healthy energy flow.',
+    relatedArticles: ['developmental-psychology-chakras', 'inner-child-therapy', 'emotional-healing']
+  },
+  {
+    id: 'self-parenting',
+    title: 'Reparenting and Energy Development',
+    content: 'Reparenting involves consciously providing yourself with the nurturing, guidance, and support that may have been missing in childhood. This process helps develop under-formed chakras and heal developmental gaps in the energy system.',
+    relatedArticles: ['developmental-psychology-chakras', 'inner-child-work', 'healing-development']
+  },
+  {
+    id: 'brain-rewiring',
+    title: 'Neuroplasticity and Chakra Healing',
+    content: 'The brain\'s ability to form new neural pathways supports chakra healing at any age. Consistent energy work, meditation, and therapeutic practices can literally rewire the brain, creating new patterns of emotional regulation and behavior.',
+    relatedArticles: ['developmental-psychology-chakras', 'neuroscience-spirituality', 'brain-change']
   },
   {
     id: 'healing-research',
