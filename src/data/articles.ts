@@ -139,29 +139,144 @@ export const articles: Article[] = [
     category: 'science',
     content: [
       {
-        id: 'biofield-definition',
-        title: 'What is the Human Biofield?',
-        content: 'The biofield is a scientifically measurable energy field that surrounds and permeates the human body. Research using sensitive instruments can detect electromagnetic emissions, biophoton activity, and coherent energy patterns that correlate with health and consciousness states.',
+        id: 'historical-context',
+        title: 'Historical Scientific Context',
+        content: 'The scientific study of human energy fields began with pioneering researchers like Harold Saxton Burr at Yale University, who discovered "L-fields" (life fields) in the 1930s. His electrodynamic theory demonstrated that all living organisms possess measurable electrical patterns. This laid the foundation for modern biofield research.',
         hyperlinks: [
-          { text: 'biophoton activity', targetId: 'light-emissions', type: 'mini-article' },
-          { text: 'electromagnetic emissions', targetId: 'energy-measurement', type: 'mini-article' }
+          { text: 'Harold Saxton Burr', targetId: 'burr-researcher', type: 'mini-article' },
+          { text: 'L-fields', targetId: 'life-fields', type: 'mini-article' },
+          { text: 'electrodynamic theory', targetId: 'bioelectric-patterns', type: 'mini-article' }
         ]
       },
       {
-        id: 'research-findings',
-        title: 'Current Research on Energy Fields',
-        content: 'Studies show that experienced energy healers can produce measurable changes in recipients\' biofields. Heart Rate Variability (HRV) research demonstrates how emotions and thoughts affect our electromagnetic field, while GDV photography captures real-time biofield changes.',
+        id: 'biophoton-research',
+        title: 'Biophoton Research and Cellular Light',
+        content: 'Fritz-Albert Popp\'s groundbreaking research revealed that all living cells emit ultra-weak photons called biophotons. These light emissions carry coherent information and may coordinate cellular processes. Studies show biophoton intensity correlates with health status, with diseased tissues showing different emission patterns than healthy ones.',
         hyperlinks: [
-          { text: 'HRV research', targetId: 'heart-coherence', type: 'mini-article' },
-          { text: 'GDV photography', targetId: 'kirlian-imaging', type: 'mini-article' }
+          { text: 'Fritz-Albert Popp', targetId: 'popp-researcher', type: 'mini-article' },
+          { text: 'biophotons', targetId: 'cellular-light', type: 'mini-article' },
+          { text: 'coherent information', targetId: 'quantum-coherence', type: 'mini-article' },
+          { text: 'cellular processes', targetId: 'cell-communication', type: 'mini-article' }
+        ]
+      },
+      {
+        id: 'electromagnetic-fields',
+        title: 'Electromagnetic Field Studies',
+        content: 'The human heart generates the body\'s strongest electromagnetic field, extending 8-10 feet from the body. Research by the HeartMath Institute demonstrates that heart rhythm patterns affect this field\'s coherence. Brain waves, measured via EEG, also contribute to our electromagnetic signature, with different states of consciousness producing distinct patterns.',
+        hyperlinks: [
+          { text: 'HeartMath Institute', targetId: 'heartmath-research', type: 'mini-article' },
+          { text: 'heart rhythm patterns', targetId: 'cardiac-coherence', type: 'mini-article' },
+          { text: 'EEG patterns', targetId: 'brainwave-states', type: 'mini-article' },
+          { text: 'consciousness states', targetId: 'mind-states', type: 'mini-article' }
+        ]
+      },
+      {
+        id: 'hrv-research',
+        title: 'Heart Rate Variability Research',
+        content: 'Heart Rate Variability (HRV) measures the variation in time between heartbeats and reflects the nervous system\'s balance. Research shows that positive emotions create coherent HRV patterns, while stress and negative emotions create incoherent patterns. These patterns directly influence the heart\'s electromagnetic field and may affect others nearby.',
+        hyperlinks: [
+          { text: 'Heart Rate Variability', targetId: 'hrv-science', type: 'mini-article' },
+          { text: 'nervous system balance', targetId: 'autonomic-regulation', type: 'mini-article' },
+          { text: 'coherent patterns', targetId: 'heart-coherence', type: 'mini-article' },
+          { text: 'electromagnetic influence', targetId: 'field-entrainment', type: 'mini-article' }
+        ]
+      },
+      {
+        id: 'energy-healing-studies',
+        title: 'Energy Healing Clinical Studies',
+        content: 'Double-blind studies on Therapeutic Touch, Reiki, and other energy healing modalities show statistically significant effects on wound healing, pain reduction, and immune function. The Touch Research Institute has conducted over 100 studies demonstrating measurable physiological changes during energy healing sessions.',
+        hyperlinks: [
+          { text: 'Therapeutic Touch', targetId: 'therapeutic-touch-research', type: 'mini-article' },
+          { text: 'Reiki studies', targetId: 'reiki-clinical-research', type: 'mini-article' },
+          { text: 'Touch Research Institute', targetId: 'touch-institute', type: 'mini-article' },
+          { text: 'double-blind studies', targetId: 'research-methodology', type: 'mini-article' },
+          { text: 'immune function', targetId: 'energy-immunity', type: 'mini-article' }
+        ]
+      },
+      {
+        id: 'quantum-biology',
+        title: 'Quantum Biology and Coherence',
+        content: 'Emerging research in quantum biology reveals that quantum effects may play a role in biological systems. Quantum coherence has been observed in photosynthesis, bird navigation, and possibly human consciousness. This suggests that living systems may operate as quantum information processors, supporting theories about non-local healing and energy transmission.',
+        hyperlinks: [
+          { text: 'quantum biology', targetId: 'quantum-life-science', type: 'mini-article' },
+          { text: 'quantum coherence', targetId: 'biological-coherence', type: 'mini-article' },
+          { text: 'consciousness quantum effects', targetId: 'quantum-consciousness', type: 'mini-article' },
+          { text: 'non-local healing', targetId: 'distant-healing', type: 'mini-article' }
+        ]
+      },
+      {
+        id: 'neuroplasticity-energy',
+        title: 'Neuroplasticity and Energy Work',
+        content: 'Brain imaging studies show that meditation and energy practices create lasting changes in neural structure and function. fMRI research reveals increased gray matter density in areas associated with attention, emotional regulation, and self-awareness after just 8 weeks of practice. These neuroplastic changes may enhance sensitivity to subtle energy fields.',
+        hyperlinks: [
+          { text: 'neuroplasticity', targetId: 'brain-plasticity', type: 'mini-article' },
+          { text: 'fMRI studies', targetId: 'brain-imaging', type: 'mini-article' },
+          { text: 'gray matter density', targetId: 'neural-density', type: 'mini-article' },
+          { text: 'energy sensitivity', targetId: 'field-perception', type: 'mini-article' }
+        ]
+      },
+      {
+        id: 'biofield-imaging',
+        title: 'Biofield Imaging Technologies',
+        content: 'Advanced technologies can now visualize and measure human energy fields. Gas Discharge Visualization (GDV) photography captures real-time biofield changes. SQUID magnetometry detects the heart\'s magnetic field with extraordinary precision. Polycontrast Interference Photography (PIP) reveals energy patterns around the body that correlate with emotional and physical states.',
+        hyperlinks: [
+          { text: 'GDV photography', targetId: 'gdv-technology', type: 'mini-article' },
+          { text: 'SQUID magnetometry', targetId: 'squid-sensors', type: 'mini-article' },
+          { text: 'PIP photography', targetId: 'pip-imaging', type: 'mini-article' },
+          { text: 'Kirlian photography', targetId: 'kirlian-imaging', type: 'mini-article' }
+        ]
+      },
+      {
+        id: 'placebo-vs-real',
+        title: 'Distinguishing Placebo from Real Effects',
+        content: 'Rigorous scientific methodology helps distinguish genuine energy field effects from placebo responses. Studies using blinded conditions, objective measurements (EEG, fMRI, blood markers), and control groups consistently show effects beyond placebo in energy healing research. The key is measuring physiological changes that occur independently of conscious expectation.',
+        hyperlinks: [
+          { text: 'placebo effect', targetId: 'placebo-mechanism', type: 'mini-article' },
+          { text: 'blinded conditions', targetId: 'study-design', type: 'mini-article' },
+          { text: 'objective measurements', targetId: 'biomarkers', type: 'mini-article' },
+          { text: 'control groups', targetId: 'research-controls', type: 'mini-article' }
+        ]
+      },
+      {
+        id: 'distance-healing',
+        title: 'Distant Healing Research',
+        content: 'Perhaps the most controversial area of biofield science involves distant or non-local healing effects. Meta-analyses of remote healing studies show small but statistically significant effects. Proposed mechanisms include quantum entanglement, morphic resonance, or unknown information fields that transcend space-time limitations.',
+        hyperlinks: [
+          { text: 'distant healing', targetId: 'remote-healing-studies', type: 'mini-article' },
+          { text: 'meta-analyses', targetId: 'statistical-analysis', type: 'mini-article' },
+          { text: 'quantum entanglement', targetId: 'quantum-entanglement', type: 'mini-article' },
+          { text: 'morphic resonance', targetId: 'morphic-fields', type: 'mini-article' }
+        ]
+      },
+      {
+        id: 'clinical-applications',
+        title: 'Clinical Applications and Integration',
+        content: 'Major medical centers now integrate energy healing into patient care. The National Center for Complementary and Integrative Health (NCCIH) funds biofield research. Hospitals use Therapeutic Touch, Reiki, and meditation programs. Veterans Affairs hospitals have implemented energy healing programs for PTSD and pain management.',
+        hyperlinks: [
+          { text: 'NCCIH research', targetId: 'nih-energy-research', type: 'mini-article' },
+          { text: 'hospital programs', targetId: 'medical-integration', type: 'mini-article' },
+          { text: 'Veterans Affairs', targetId: 'va-energy-programs', type: 'mini-article' },
+          { text: 'PTSD treatment', targetId: 'trauma-energy-healing', type: 'mini-article' }
+        ]
+      },
+      {
+        id: 'future-directions',
+        title: 'Future Directions in Energy Research',
+        content: 'Emerging technologies promise deeper insights into human energy fields. Quantum sensors may detect previously unmeasurable biofield phenomena. Artificial intelligence analyzes complex energy patterns. Wearable devices monitor real-time biofield changes. These advances may revolutionize our understanding of consciousness, healing, and human potential.',
+        hyperlinks: [
+          { text: 'quantum sensors', targetId: 'quantum-detection', type: 'mini-article' },
+          { text: 'AI pattern analysis', targetId: 'machine-learning-biofield', type: 'mini-article' },
+          { text: 'wearable biofield devices', targetId: 'portable-sensors', type: 'mini-article' },
+          { text: 'consciousness research', targetId: 'consciousness-studies', type: 'mini-article' }
         ]
       }
     ],
-    readTime: 14,
+    readTime: 25,
     difficulty: 'advanced',
-    relatedTopics: ['meditation-neuroscience', 'consciousness-studies', 'energy-healing-research'],
-    tags: ['science', 'biofield', 'research', 'energy'],
-    lastUpdated: '2024-01-02'
+    relatedTopics: ['meditation-neuroscience', 'consciousness-studies', 'energy-healing-research', 'quantum-biology-basics'],
+    tags: ['science', 'biofield', 'research', 'energy', 'biophotons', 'electromagnetic', 'quantum', 'clinical-studies'],
+    lastUpdated: '2024-01-15',
+    featured: true
   },
 
   // Practices
@@ -1958,6 +2073,260 @@ export const miniArticles: MiniArticle[] = [
     title: 'Helena Blavatsky and Esoteric Anatomy',
     content: 'Helena Blavatsky (1831-1891) wrote extensively about subtle anatomy and energy centers in "The Secret Doctrine" and other works. Her interpretations blended Eastern teachings with Western esoteric traditions.',
     relatedArticles: ['esoteric-synthesis', 'theosophical-chakras', 'occult-anatomy']
+  },
+
+  // Scientific Research Support Articles
+  {
+    id: 'burr-researcher',
+    title: 'Harold Saxton Burr: Pioneer of Bioelectric Research',
+    content: 'Harold Saxton Burr (1889-1973) was a neuroanatomist at Yale University who discovered "L-fields" or life fields. He demonstrated that all living organisms generate measurable electrical patterns that correlate with health and development.',
+    relatedArticles: ['biofield-science', 'life-fields', 'bioelectric-patterns']
+  },
+  {
+    id: 'life-fields',
+    title: 'L-fields: Life\'s Electrical Blueprint',
+    content: 'L-fields (life fields) are the electrical patterns that Harold Burr discovered around all living organisms. These fields appear to act as organizing templates that guide growth, healing, and development at the cellular level.',
+    relatedArticles: ['biofield-science', 'burr-researcher', 'bioelectric-patterns']
+  },
+  {
+    id: 'bioelectric-patterns',
+    title: 'Bioelectric Patterns in Living Systems',
+    content: 'All living organisms generate complex electrical patterns that can be measured with sensitive instruments. These bioelectric fields appear to coordinate cellular activities and may serve as the body\'s information network.',
+    relatedArticles: ['biofield-science', 'burr-researcher', 'life-fields']
+  },
+  {
+    id: 'popp-researcher',
+    title: 'Fritz-Albert Popp: Discoverer of Biophotons',
+    content: 'Fritz-Albert Popp is a German biophysicist who discovered that all living cells emit ultra-weak light called biophotons. His research suggests these light emissions carry coherent information that coordinates biological processes.',
+    relatedArticles: ['biofield-science', 'cellular-light', 'quantum-coherence']
+  },
+  {
+    id: 'cellular-light',
+    title: 'Biophotons: Light From Living Cells',
+    content: 'Biophotons are ultra-weak light emissions from living cells, discovered by Fritz-Albert Popp. These photons appear to carry coherent information and may coordinate cellular processes across the entire organism.',
+    relatedArticles: ['biofield-science', 'popp-researcher', 'quantum-coherence']
+  },
+  {
+    id: 'quantum-coherence',
+    title: 'Quantum Coherence in Biological Systems',
+    content: 'Quantum coherence refers to quantum states that maintain their properties over time. Recent research suggests that biological systems may use quantum coherence for efficient energy transfer and information processing.',
+    relatedArticles: ['biofield-science', 'quantum-life-science', 'biological-coherence']
+  },
+  {
+    id: 'cell-communication',
+    title: 'Cellular Communication Networks',
+    content: 'Cells communicate through multiple channels including chemical signals, electrical fields, and possibly light emissions (biophotons). This complex communication network coordinates the activities of trillions of cells in the human body.',
+    relatedArticles: ['biofield-science', 'cellular-light', 'bioelectric-patterns']
+  },
+  {
+    id: 'heartmath-research',
+    title: 'HeartMath Institute Research',
+    content: 'The HeartMath Institute conducts research on heart-brain interactions and heart rhythm coherence. Their studies show how emotions affect heart rhythm patterns and the heart\'s electromagnetic field.',
+    relatedArticles: ['biofield-science', 'cardiac-coherence', 'heart-coherence']
+  },
+  {
+    id: 'cardiac-coherence',
+    title: 'Heart Rhythm Coherence',
+    content: 'Heart rhythm coherence refers to smooth, ordered heart rhythm patterns that occur during positive emotional states. This coherence enhances cognitive function and emotional well-being while optimizing the heart\'s electromagnetic field.',
+    relatedArticles: ['biofield-science', 'heartmath-research', 'hrv-science']
+  },
+  {
+    id: 'mind-states',
+    title: 'Consciousness States and Brain Activity',
+    content: 'Different states of consciousness produce distinct patterns of brain activity measurable by EEG. These states correlate with changes in the brain\'s electromagnetic field and may affect overall biofield coherence.',
+    relatedArticles: ['biofield-science', 'brainwave-states', 'consciousness-studies']
+  },
+  {
+    id: 'hrv-science',
+    title: 'Heart Rate Variability Science',
+    content: 'Heart Rate Variability (HRV) measures the variation in time between heartbeats. It reflects the balance between the sympathetic and parasympathetic nervous systems and correlates with overall health and stress resilience.',
+    relatedArticles: ['biofield-science', 'cardiac-coherence', 'autonomic-regulation']
+  },
+  {
+    id: 'field-entrainment',
+    title: 'Electromagnetic Field Entrainment',
+    content: 'Electromagnetic field entrainment occurs when two or more biofields synchronize their rhythms. Research suggests that coherent heart fields can influence the heart rhythms of others nearby, facilitating healing and emotional connection.',
+    relatedArticles: ['biofield-science', 'cardiac-coherence', 'distant-healing']
+  },
+  {
+    id: 'therapeutic-touch-research',
+    title: 'Therapeutic Touch Clinical Studies',
+    content: 'Therapeutic Touch has been studied in over 100 clinical trials. Research shows significant effects on wound healing, pain reduction, anxiety relief, and immune function, though results vary across studies.',
+    relatedArticles: ['biofield-science', 'energy-healing-research', 'touch-institute']
+  },
+  {
+    id: 'reiki-clinical-research',
+    title: 'Reiki Clinical Research',
+    content: 'Clinical studies on Reiki show promising results for pain management, anxiety reduction, and improved quality of life. Systematic reviews indicate small but statistically significant effects beyond placebo.',
+    relatedArticles: ['biofield-science', 'energy-healing-research', 'research-methodology']
+  },
+  {
+    id: 'touch-institute',
+    title: 'Touch Research Institute',
+    content: 'The Touch Research Institute at the University of Miami conducts scientific research on touch therapies. They have published over 100 studies demonstrating the physiological and psychological benefits of various healing touch modalities.',
+    relatedArticles: ['biofield-science', 'therapeutic-touch-research', 'energy-healing-research']
+  },
+  {
+    id: 'research-methodology',
+    title: 'Energy Healing Research Methodology',
+    content: 'Studying energy healing requires specialized research methods including double-blind designs, objective outcome measures, and proper control groups. Challenges include practitioner skill variation and developing appropriate placebo controls.',
+    relatedArticles: ['biofield-science', 'study-design', 'research-controls']
+  },
+  {
+    id: 'energy-immunity',
+    title: 'Energy Healing and Immune Function',
+    content: 'Research suggests that energy healing may enhance immune function by reducing stress hormones, increasing beneficial neurotransmitters, and promoting relaxation responses that support natural healing processes.',
+    relatedArticles: ['biofield-science', 'therapeutic-touch-research', 'stress-response']
+  },
+  {
+    id: 'quantum-life-science',
+    title: 'Quantum Biology Fundamentals',
+    content: 'Quantum biology studies quantum mechanical phenomena in biological systems. Examples include quantum coherence in photosynthesis, quantum effects in enzyme catalysis, and possible quantum processes in consciousness.',
+    relatedArticles: ['biofield-science', 'quantum-coherence', 'biological-coherence']
+  },
+  {
+    id: 'biological-coherence',
+    title: 'Biological Quantum Coherence',
+    content: 'Biological systems may maintain quantum coherence through specialized structures and processes. This coherence could enable efficient energy transfer, navigation abilities, and potentially consciousness itself.',
+    relatedArticles: ['biofield-science', 'quantum-life-science', 'quantum-consciousness']
+  },
+  {
+    id: 'quantum-consciousness',
+    title: 'Quantum Theories of Consciousness',
+    content: 'Some theories propose that consciousness emerges from quantum processes in the brain. While controversial, these theories attempt to explain how subjective experience arises from physical processes.',
+    relatedArticles: ['biofield-science', 'consciousness-studies', 'quantum-life-science']
+  },
+  {
+    id: 'distant-healing',
+    title: 'Distant Healing Mechanisms',
+    content: 'Proposed mechanisms for distant healing include quantum entanglement, morphic resonance, intention-based information fields, and unknown aspects of consciousness that transcend space-time limitations.',
+    relatedArticles: ['biofield-science', 'remote-healing-studies', 'quantum-entanglement']
+  },
+  {
+    id: 'neural-density',
+    title: 'Gray Matter Density Changes',
+    content: 'Meditation and mindfulness practices increase gray matter density in brain regions associated with attention, emotional regulation, and self-awareness. These structural changes correlate with improved cognitive and emotional functioning.',
+    relatedArticles: ['biofield-science', 'brain-imaging', 'neuroplasticity']
+  },
+  {
+    id: 'field-perception',
+    title: 'Energy Field Perception',
+    content: 'Some individuals demonstrate enhanced sensitivity to electromagnetic fields and subtle energy patterns. This sensitivity may be related to neuroplastic changes from meditation and energy practice.',
+    relatedArticles: ['biofield-science', 'brain-plasticity', 'energy-sensitivity']
+  },
+  {
+    id: 'gdv-technology',
+    title: 'Gas Discharge Visualization Technology',
+    content: 'GDV technology captures biofield patterns by photographing gas discharge around objects placed on an electrified glass plate. It provides real-time visualization of energy field changes and correlates with health status.',
+    relatedArticles: ['biofield-science', 'kirlian-imaging', 'pip-imaging']
+  },
+  {
+    id: 'squid-sensors',
+    title: 'SQUID Magnetometry',
+    content: 'SQUID (Superconducting Quantum Interference Device) magnetometers can detect extremely weak magnetic fields, including those generated by the human heart and brain. They provide precise measurements of biofield phenomena.',
+    relatedArticles: ['biofield-science', 'gdv-technology', 'quantum-detection']
+  },
+  {
+    id: 'pip-imaging',
+    title: 'Polycontrast Interference Photography',
+    content: 'PIP technology reveals energy patterns around living beings by detecting subtle changes in light interference. These patterns correlate with emotional states, health conditions, and energy healing interventions.',
+    relatedArticles: ['biofield-science', 'gdv-technology', 'kirlian-imaging']
+  },
+  {
+    id: 'placebo-mechanism',
+    title: 'Understanding the Placebo Effect',
+    content: 'The placebo effect occurs when expectation and belief trigger real physiological changes. Understanding placebo mechanisms helps researchers distinguish genuine energy healing effects from psychological influences.',
+    relatedArticles: ['biofield-science', 'study-design', 'research-controls']
+  },
+  {
+    id: 'study-design',
+    title: 'Blinded Study Design',
+    content: 'Blinded studies prevent participants and researchers from knowing who receives treatment, reducing bias. Double-blind designs are challenging in energy healing research but essential for credible results.',
+    relatedArticles: ['biofield-science', 'research-methodology', 'placebo-mechanism']
+  },
+  {
+    id: 'biomarkers',
+    title: 'Objective Biomarkers',
+    content: 'Objective biomarkers in energy healing research include hormone levels, immune markers, brain imaging, heart rate variability, and electromagnetic measurements. These provide unbiased evidence of treatment effects.',
+    relatedArticles: ['biofield-science', 'hrv-science', 'brain-imaging']
+  },
+  {
+    id: 'research-controls',
+    title: 'Research Control Groups',
+    content: 'Control groups in energy healing studies may include no-treatment controls, sham healing, conventional treatments, or waitlist controls. Proper controls help isolate specific treatment effects.',
+    relatedArticles: ['biofield-science', 'study-design', 'research-methodology']
+  },
+  {
+    id: 'remote-healing-studies',
+    title: 'Remote Healing Research',
+    content: 'Systematic reviews of distant healing studies show small but statistically significant effects. The most rigorous studies use objective outcome measures and strict protocols to minimize bias.',
+    relatedArticles: ['biofield-science', 'distant-healing', 'statistical-analysis']
+  },
+  {
+    id: 'statistical-analysis',
+    title: 'Meta-Analysis in Energy Research',
+    content: 'Meta-analyses combine results from multiple studies to increase statistical power. In energy healing research, meta-analyses help identify consistent effects across different studies and populations.',
+    relatedArticles: ['biofield-science', 'remote-healing-studies', 'research-methodology']
+  },
+  {
+    id: 'quantum-entanglement',
+    title: 'Quantum Entanglement in Biology',
+    content: 'Quantum entanglement creates instantaneous correlations between particles regardless of distance. Some researchers propose that entanglement may explain non-local healing effects, though this remains highly speculative.',
+    relatedArticles: ['biofield-science', 'quantum-life-science', 'distant-healing']
+  },
+  {
+    id: 'morphic-fields',
+    title: 'Morphic Resonance Theory',
+    content: 'Rupert Sheldrake\'s theory of morphic resonance suggests that information fields connect similar forms across space and time. This controversial theory attempts to explain various non-local phenomena.',
+    relatedArticles: ['biofield-science', 'distant-healing', 'consciousness-studies']
+  },
+  {
+    id: 'nih-energy-research',
+    title: 'NIH Energy Medicine Research',
+    content: 'The National Center for Complementary and Integrative Health (NCCIH) funds research on energy healing and biofield therapies. Their support has legitimized scientific investigation of these phenomena.',
+    relatedArticles: ['biofield-science', 'medical-integration', 'energy-healing-research']
+  },
+  {
+    id: 'medical-integration',
+    title: 'Hospital Energy Healing Programs',
+    content: 'Major medical centers including Johns Hopkins, Mayo Clinic, and Memorial Sloan Kettering integrate energy healing into patient care. These programs focus on stress reduction, pain management, and quality of life.',
+    relatedArticles: ['biofield-science', 'nih-energy-research', 'va-energy-programs']
+  },
+  {
+    id: 'va-energy-programs',
+    title: 'Veterans Affairs Energy Programs',
+    content: 'The VA healthcare system has implemented energy healing programs for veterans with PTSD, chronic pain, and other conditions. These programs demonstrate the growing acceptance of energy therapies in mainstream medicine.',
+    relatedArticles: ['biofield-science', 'medical-integration', 'trauma-energy-healing']
+  },
+  {
+    id: 'trauma-energy-healing',
+    title: 'Energy Healing for Trauma',
+    content: 'Energy healing approaches for trauma work with the body\'s energy system to release stored traumatic patterns. Research shows promise for PTSD, anxiety, and other trauma-related conditions.',
+    relatedArticles: ['biofield-science', 'va-energy-programs', 'stress-response']
+  },
+  {
+    id: 'quantum-detection',
+    title: 'Quantum Sensor Technology',
+    content: 'Advanced quantum sensors can detect previously unmeasurable subtle energy phenomena. These technologies may revolutionize biofield research by providing unprecedented sensitivity to weak energy signals.',
+    relatedArticles: ['biofield-science', 'squid-sensors', 'portable-sensors']
+  },
+  {
+    id: 'machine-learning-biofield',
+    title: 'AI in Biofield Research',
+    content: 'Artificial intelligence and machine learning analyze complex patterns in biofield data that humans cannot detect. These tools may reveal previously unknown correlations between energy patterns and health outcomes.',
+    relatedArticles: ['biofield-science', 'quantum-detection', 'portable-sensors']
+  },
+  {
+    id: 'portable-sensors',
+    title: 'Wearable Biofield Devices',
+    content: 'New wearable devices can monitor heart rate variability, electromagnetic fields, and other biofield parameters in real-time. These tools make biofield research more accessible and practical.',
+    relatedArticles: ['biofield-science', 'hrv-science', 'quantum-detection']
+  },
+  {
+    id: 'consciousness-studies',
+    title: 'Scientific Study of Consciousness',
+    content: 'Consciousness research investigates the nature of subjective experience and its relationship to brain activity. This field increasingly recognizes the role of electromagnetic fields and quantum processes in awareness.',
+    relatedArticles: ['biofield-science', 'quantum-consciousness', 'mind-states']
   },
   {
     id: 'leadbeater-clairvoyant-investigations',
