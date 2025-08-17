@@ -85,7 +85,7 @@ export function useChakraLayout(
   // compute responsive scale factor
   const scale = useMemo(() => {
     if (!containerH || !spineRect.heightPx) return 1;
-    return Math.min(Math.max(spineRect.heightPx / 560, 0.85), 1.25);
+    return Math.min(Math.max(spineRect.heightPx / 560, 1.2), 2.0);
   }, [containerH, spineRect.heightPx]);
 
   // compute positions using geometry-driven anchors
