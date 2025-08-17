@@ -27,6 +27,7 @@ export function NavigationSheet({ onProfileClick, onChakraInfoClick }: Navigatio
 
       {/* Bottom Sheet */}
       <div 
+        data-bottom-sheet
         className={cn(
           "fixed bottom-0 left-0 right-0 bg-card rounded-t-3xl shadow-elevation z-50",
           "transition-transform duration-300 ease-out will-change-transform",

@@ -1,6 +1,15 @@
+import { useRef } from "react";
 import { chakras } from "@/types/chakra";
 import { ChakraButton } from "./ChakraButton";
 import { useChakraLayout } from "@/hooks/useChakraLayout";
+
+// Development sizing inspector (lazy loaded)
+let SizingInspector: any = null;
+if (process.env.NODE_ENV !== "production") {
+  import("@/features/zenflow/dev/SizingInspector").then(m => {
+    SizingInspector = m.SizingInspector;
+  });
+}
 
 interface MeditationFigureProps {
   onChakraClick: (chakraId: string) => void;
@@ -9,11 +18,22 @@ interface MeditationFigureProps {
 
 export function MeditationFigure({ onChakraClick, expandingChakraId }: MeditationFigureProps) {
   const { positions, spineStyle, spineRect, scale } = useChakraLayout();
+  
+  // Refs for sizing inspector
+  const figureRef = useRef<HTMLDivElement>(null);
+  const imgRef = useRef<HTMLImageElement>(null);
+  
+  // Show sizing inspector in development with ?sizing=1
+  const showSizing = 
+    process.env.NODE_ENV !== "production" &&
+    typeof window !== "undefined" &&
+    new URLSearchParams(window.location.search).has("sizing");
 
   return (
     <div className="relative w-full h-full flex items-center justify-center min-h-[400px] max-w-[880px] mx-auto px-4">
       {/* Responsive Meditation Figure Container */}
       <div 
+        ref={figureRef}
         className="relative transition-all duration-300 ease-out w-full h-full"
         data-meditation-container
         style={{
@@ -60,6 +80,7 @@ export function MeditationFigure({ onChakraClick, expandingChakraId }: Meditatio
         {/* Layer 3: Responsive meditation figure */}
         <div data-spine-wrapper className="absolute inset-0 flex items-center justify-center z-20">
           <img 
+            ref={imgRef}
             data-meditation-figure
             src="/lovable-uploads/367d80a7-5795-4dfa-a351-9d3588def8bd.png"
             alt="Meditation figure in lotus position"
@@ -102,6 +123,15 @@ export function MeditationFigure({ onChakraClick, expandingChakraId }: Meditatio
               }}
             />
           </div>
+        )}
+
+        {/* Development sizing inspector */}
+        {showSizing && SizingInspector && (
+          <SizingInspector
+            figureRef={figureRef}
+            imgRef={imgRef}
+            scale={scale}
+          />
         )}
 
       </div>

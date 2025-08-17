@@ -43,13 +43,13 @@ export function anchorToPercent(anchor: ChakraAnchor): { x: number; y: number } 
 }
 
 /**
- * Get all chakra positions as CSS percentages
+ * Get all chakra positions as normalized coordinates (0-1)
  */
 export function getChakraPositions(): Record<ChakraId, { x: number; y: number }> {
   const positions: Record<ChakraId, { x: number; y: number }> = {} as any;
   
   Object.entries(CHAKRA_ANCHORS).forEach(([id, anchor]) => {
-    positions[id as ChakraId] = anchorToPercent(anchor);
+    positions[id as ChakraId] = { x: anchor.x, y: anchor.y };
   });
   
   return positions;
