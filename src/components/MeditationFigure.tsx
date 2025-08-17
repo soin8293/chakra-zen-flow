@@ -87,7 +87,9 @@ export function MeditationFigure({ onChakraClick, expandingChakraId }: Meditatio
         </div>
 
         {/* Layer 4: Chakra positioning overlay */}
-        <div className="absolute inset-0 z-30" aria-label="Interactive chakra points">
+        <div className="absolute inset-0 z-30 w-full h-full" 
+             style={{ transform: `scale(${scale})`, transformOrigin: 'center' }} 
+             aria-label="Interactive chakra points">
           {/* Layer 5: Individual chakra buttons */}
           {positions.map((pos) => {
             const chakra = chakras.find(c => c.id === pos.id);
