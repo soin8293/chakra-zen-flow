@@ -27,7 +27,7 @@ interface MeditationSessionProps {
 }
 
 export function MeditationSession({ chakra, duration, onComplete, onExit, level, presetOverride, includeHolds }: MeditationSessionProps) {
-  const { phase, progress, direction, isPlaying, remaining, toggle } = useBreathEngine({
+  const { phase, progress, direction, isPlaying, remaining, currentPhaseDuration, toggle } = useBreathEngine({
     chakraAppId: chakra.id,
     level: level ?? 'beginner',
     presetOverride: presetOverride ?? 'balance',
@@ -65,11 +65,12 @@ export function MeditationSession({ chakra, duration, onComplete, onExit, level,
 
 return (
     <div 
-      className="min-h-screen flex flex-col items-center justify-center relative transition-all duration-[5s] ease-in-out"
+      className="min-h-screen flex flex-col items-center justify-center relative transition-all ease-in-out"
       style={{
         backgroundColor: phase === 'inhale' 
           ? `hsl(var(--${chakra.color}))` 
           : 'hsl(220 15% 8%)',
+        transitionDuration: `${currentPhaseDuration}s`,
       }}
     >
       {/* Control buttons - fade in on hover/touch */}
@@ -125,10 +126,11 @@ return (
 
         {/* Breathing indicator */}
 <div 
-          className="w-24 h-24 rounded-full border-4 border-white/50 mx-auto transition-all duration-[5s] ease-in-out"
+          className="w-24 h-24 rounded-full border-4 border-white/50 mx-auto transition-all ease-in-out"
           style={{
             transform: phase === 'inhale' ? 'scale(1.5)' : 'scale(1)',
-            borderColor: phase === 'inhale' ? 'white' : 'rgba(255,255,255,0.3)'
+            borderColor: phase === 'inhale' ? 'white' : 'rgba(255,255,255,0.3)',
+            transitionDuration: `${currentPhaseDuration}s`,
           }}
         />
       </div>
@@ -138,7 +140,10 @@ return (
         <div className="w-40 h-2 bg-white/20 rounded-full overflow-hidden">
 <div 
             className="h-full bg-white transition-all ease-linear"
-            style={{ width: `${progressWidth}%` }}
+            style={{ 
+              width: `${progressWidth}%`,
+              transitionDuration: `${currentPhaseDuration}s`,
+            }}
           />
         </div>
       </div>
