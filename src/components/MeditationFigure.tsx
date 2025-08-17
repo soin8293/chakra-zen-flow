@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { chakras } from "@/types/chakra";
 import { ChakraButton } from "./ChakraButton";
 import { useChakraLayout } from "@/hooks/useChakraLayout";
@@ -23,11 +23,9 @@ export function MeditationFigure({ onChakraClick, expandingChakraId }: Meditatio
   const figureRef = useRef<HTMLDivElement>(null);
   const imgRef = useRef<HTMLImageElement>(null);
   
-  // Show sizing inspector in development with ?sizing=1
-  const showSizing = 
-    process.env.NODE_ENV !== "production" &&
-    typeof window !== "undefined" &&
-    new URLSearchParams(window.location.search).has("sizing");
+  // Development sizing inspector toggle
+  const [showSizing, setShowSizing] = useState(false);
+  const isDev = process.env.NODE_ENV !== "production";
 
   return (
     <div className="relative w-full h-full flex items-center justify-center min-h-[400px] max-w-[880px] mx-auto px-4">
@@ -135,6 +133,16 @@ export function MeditationFigure({ onChakraClick, expandingChakraId }: Meditatio
         )}
 
       </div>
+
+      {/* Development toggle button */}
+      {isDev && (
+        <button
+          onClick={() => setShowSizing(!showSizing)}
+          className="fixed bottom-4 right-4 z-[10000] bg-purple-600 hover:bg-purple-700 text-white px-3 py-2 rounded-lg text-sm font-mono transition-colors"
+        >
+          {showSizing ? "Hide" : "Show"} Sizing
+        </button>
+      )}
     </div>
   );
 }
