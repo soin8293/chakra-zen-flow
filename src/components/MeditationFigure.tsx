@@ -82,7 +82,7 @@ export function MeditationFigure({ onChakraClick, expandingChakraId }: Meditatio
             data-meditation-figure
             src="/lovable-uploads/367d80a7-5795-4dfa-a351-9d3588def8bd.png"
             alt="Meditation figure in lotus position"
-            className="opacity-90 filter invert object-contain transition-all duration-300 w-full h-full scale-200"
+            className="opacity-90 filter invert object-contain transition-all duration-300 w-full h-full scale-2000"
           />
         </div>
 
