@@ -5,7 +5,8 @@ import { ParticleBackground } from "@/components/ParticleBackground";
 import { MeditationPrep } from "@/components/MeditationPrep";
 import { MeditationSession } from "@/components/MeditationSession";
 import { SessionComplete } from "@/components/SessionComplete";
-import { BottomSheet } from "@/components/BottomSheet";
+import { NavigationSheet } from "@/components/NavigationSheet";
+import { MeditationCTA } from "@/components/MeditationCTA";
 import { ProfilePage } from "@/components/ProfilePage";
 import { ChakraInfoPage } from "@/components/ChakraInfoPage";
 import { ChakraArticle } from "@/components/ChakraArticle";
@@ -26,12 +27,13 @@ type AppScreen =
 const Index = () => {
   const [currentScreen, setCurrentScreen] = useState<AppScreen>('home');
   const [selectedChakra, setSelectedChakra] = useState<Chakra | null>(null);
-const [sessionDuration, setSessionDuration] = useState<number>(5);
-const [sessionConfig, setSessionConfig] = useState<{ level: 'beginner'|'intermediate'|'advanced'; presetOverride: 'spec'|'calm'|'balance'|'energize'; includeHolds: boolean; }>({ level: 'beginner', presetOverride: 'balance', includeHolds: false });
-const [expandingChakraId, setExpandingChakraId] = useState<string | null>(null);
+  const [sessionDuration, setSessionDuration] = useState<number>(5);
+  const [sessionConfig, setSessionConfig] = useState<{ level: 'beginner'|'intermediate'|'advanced'; presetOverride: 'spec'|'calm'|'balance'|'energize'; includeHolds: boolean; }>({ level: 'beginner', presetOverride: 'balance', includeHolds: false });
+  const [expandingChakraId, setExpandingChakraId] = useState<string | null>(null);
   const [articleOrigin, setArticleOrigin] = useState<'prep' | 'info' | null>(null);
   const [currentArticleId, setCurrentArticleId] = useState<string | null>(null);
   const [searchTag, setSearchTag] = useState<string>('');
+  const [hasActiveSession, setHasActiveSession] = useState<boolean>(false);
 
   // Mock user profile data
   const [userProfile] = useState<UserProfile>({
@@ -220,13 +222,15 @@ if (currentScreen === 'session' && selectedChakra) {
   // Home screen
   return (
     <div className="min-h-screen bg-gradient-cosmic relative overflow-hidden">
-      {/* Particle background */}
-      <ParticleBackground />
+      {/* Particle background (dimmed for better contrast) */}
+      <div className="opacity-40">
+        <ParticleBackground />
+      </div>
 
       {/* Main content */}
-      <div className="relative z-10 flex flex-col items-center justify-center min-h-screen p-6">
+      <div className="relative z-10 flex flex-col min-h-screen">
         {/* Header with streak indicator */}
-        <div className="text-center mb-8">
+        <div className="text-center pt-8 pb-6 px-4">
           <div className="flex items-center justify-center gap-4 mb-4">
             <h1 className="text-4xl font-bold text-white drop-shadow-lg">
               ChakraFlow
@@ -236,28 +240,48 @@ if (currentScreen === 'session' && selectedChakra) {
               <span className="text-white font-semibold">{userProfile.currentStreak}</span>
             </div>
           </div>
-          <p className="text-white/70">Guided chakra meditation</p>
+          <p className="text-white/70 text-lg">Guided chakra meditation</p>
           <p className="text-white/50 text-sm mt-1">
             {userProfile.totalMinutesMeditated} minutes • {userProfile.sessionsCompleted} sessions
           </p>
         </div>
 
+        {/* Primary CTA */}
+        <div className="px-4">
+          <MeditationCTA
+            isActive={hasActiveSession}
+            onStart={() => {
+              // Quick start with root chakra
+              const rootChakra = chakras.find(c => c.id === 'root');
+              if (rootChakra) {
+                setSelectedChakra(rootChakra);
+                setCurrentScreen('prep');
+              }
+            }}
+            onResume={() => {
+              if (selectedChakra) {
+                setCurrentScreen('session');
+              }
+            }}
+          />
+        </div>
+
         {/* Meditation figure with chakras */}
-        <div className="flex-1 flex items-center justify-center w-full max-w-md">
+        <div className="flex-1 flex items-center justify-center px-4">
           <MeditationFigure
             onChakraClick={handleChakraClick}
             expandingChakraId={expandingChakraId}
           />
         </div>
 
-        {/* Breathing instruction */}
-        <div className="text-center text-white/60 mb-4">
-          <p className="text-sm">Tap a chakra to begin your meditation journey</p>
+        {/* Instruction */}
+        <div className="text-center text-white/60 pb-6 px-4">
+          <p className="text-sm">Tap a chakra point to customize your session</p>
         </div>
       </div>
 
-      {/* Bottom sheet menu */}
-      <BottomSheet
+      {/* Navigation sheet */}
+      <NavigationSheet
         onProfileClick={handleProfileClick}
         onChakraInfoClick={handleChakraInfoClick}
       />

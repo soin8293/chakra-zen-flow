@@ -7,10 +7,11 @@ interface ChakraButtonProps {
   position: { x: number; y: number; scale: number };
   onClick: () => void;
   isExpanding?: boolean;
+  isSelected?: boolean;
   scale?: number;
 }
 
-export function ChakraButton({ chakra, position, onClick, isExpanding, scale = 1 }: ChakraButtonProps) {
+export function ChakraButton({ chakra, position, onClick, isExpanding, isSelected = false, scale = 1 }: ChakraButtonProps) {
   const handleClick = () => {
     // Haptic feedback
     if ('vibrate' in navigator) {
@@ -23,18 +24,34 @@ export function ChakraButton({ chakra, position, onClick, isExpanding, scale = 1
   const buttonSize = Math.max(32, Math.min(56, 48 * position.scale));
   const fontSize = Math.max(12, Math.min(20, 16 * position.scale));
 
+  // Check for reduced motion preference
+  const prefersReducedMotion = typeof window !== 'undefined' && 
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
   return (
     <Tooltip>
       <TooltipTrigger asChild>
         <button
           className={cn(
             "absolute rounded-full flex items-center justify-center",
-            "transition-all duration-300 hover:scale-125 hover:shadow-2xl",
-            "shadow-lg animate-pulse-gentle",
-            "border-2 border-white/30 hover:border-white/60",
-            "group relative overflow-hidden",
-            "touch-manipulation", // Better mobile interaction
-            isExpanding && "animate-expand-chakra z-50"
+            "transition-all duration-300 will-change-transform",
+            "shadow-lg border-2 group relative overflow-hidden",
+            "touch-manipulation min-w-[48px] min-h-[48px]", // Better accessibility
+            // State-based styling
+            {
+              // Rest state
+              "border-white/30 hover:border-white/60": !isSelected && !isExpanding,
+              // Hover state (if not reduced motion)
+              "hover:scale-125": !prefersReducedMotion && !isSelected,
+              // Selected state
+              "border-white/80 scale-110": isSelected,
+              // Expanding state
+              "animate-ping z-50": isExpanding,
+              // Breathing animation (if not reduced motion)
+              "chakra-pulse": !prefersReducedMotion && !isSelected && !isExpanding,
+              // Static glow for reduced motion
+              "chakra-glow-static": prefersReducedMotion && !isSelected
+            }
           )}
           style={{
             left: `${position.x}%`,
@@ -43,22 +60,25 @@ export function ChakraButton({ chakra, position, onClick, isExpanding, scale = 1
             width: `${buttonSize}px`,
             height: `${buttonSize}px`,
             backgroundColor: `hsl(var(--${chakra.color}))`,
-            boxShadow: `0 0 ${Math.max(15, 20 * scale)}px hsl(var(--${chakra.color}) / 0.3)`,
-            minWidth: '32px',
-            minHeight: '32px',
+            boxShadow: isSelected 
+              ? `0 0 ${Math.max(25, 35 * scale)}px hsl(var(--${chakra.color}) / 0.8)`
+              : `0 0 ${Math.max(15, 20 * scale)}px hsl(var(--${chakra.color}) / 0.3)`,
             fontSize: `${fontSize}px`
           }}
           onMouseEnter={(e) => {
-            // Enhanced glow on hover with responsive sizing
+            if (prefersReducedMotion) return;
             const target = e.currentTarget as HTMLElement;
             target.style.boxShadow = `0 0 ${Math.max(30, 40 * scale)}px hsl(var(--${chakra.color}) / 0.6)`;
           }}
           onMouseLeave={(e) => {
+            if (prefersReducedMotion) return;
             const target = e.currentTarget as HTMLElement;
-            target.style.boxShadow = `0 0 ${Math.max(15, 20 * scale)}px hsl(var(--${chakra.color}) / 0.3)`;
+            const baseGlow = isSelected ? 0.8 : 0.3;
+            target.style.boxShadow = `0 0 ${Math.max(15, 20 * scale)}px hsl(var(--${chakra.color}) / ${baseGlow})`;
           }}
           onClick={handleClick}
           aria-label={`${chakra.name} chakra meditation`}
+          aria-pressed={isSelected}
         >
           {/* Ripple effect */}
           <div className="absolute inset-0 rounded-full bg-white/20 transform scale-0 group-active:scale-110 transition-transform duration-200" />

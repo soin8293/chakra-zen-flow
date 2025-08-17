@@ -1,13 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-
-export type ChakraId =
-  | "crown"
-  | "thirdEye"
-  | "throat"
-  | "heart"
-  | "solar"
-  | "sacral"
-  | "root";
+import { CHAKRA_ANCHORS, getChakraPositions, type ChakraId } from "@/features/zenflow/ChakraAnchors";
 
 type Pos = { id: ChakraId; xPercent: number; yPercent: number };
 type SpineRect = { topPx: number; heightPx: number };
@@ -16,84 +8,11 @@ type Return = {
   positions: Pos[];
   spineStyle: { top: number; left: string; height: number; width: number; transform: string };
   spineRect: SpineRect;
-  debug: boolean;
-  setYNorm: (id: ChakraId, next: number) => void; // dev-only; persists to localStorage when debug
+  scale: number;
 };
-
-// ---------- constants ----------
-const STORAGE_KEY = "chakra.yNorm";
-const QUERY_DEBUG_KEY = "layout";
-
-// Dynamic chakra positioning configuration
-const CHAKRA_CONFIG = {
-  spacingRatio: 0.04, // 4% spacing between chakras
-  startRatio: 0.12,   // Start position ratio within figure
-  count: 7,           // Total number of chakras
-  horizontalOffset: -3.5, // Offset from center (negative = left) - adjust to align with figure's spine
-};
-
-// Calculate dynamic positions based on figure dimensions
-function calculateChakraPositions(): Record<ChakraId, number> {
-  const { spacingRatio, startRatio, count } = CHAKRA_CONFIG;
-  const chakraIds: ChakraId[] = ["crown", "thirdEye", "throat", "heart", "solar", "sacral", "root"];
-  
-  const positions: Record<ChakraId, number> = {} as Record<ChakraId, number>;
-  
-  chakraIds.forEach((id, index) => {
-    positions[id] = startRatio + (index * spacingRatio);
-  });
-  
-  return positions;
-}
-
-export const DEFAULT_Y_NORM: Record<ChakraId, number> = calculateChakraPositions();
-
-// spine pad overrides
-const PADS_KEY = "chakra.spinePads";
-type SpinePads = { top: number; bottom: number };
-function readPadOverrides(): SpinePads {
-  try {
-    const raw = localStorage.getItem(PADS_KEY);
-    if (!raw) return { top: 0, bottom: 0 };
-    const obj = JSON.parse(raw);
-    const top = typeof obj?.top === "number" ? obj.top : 0;
-    const bottom = typeof obj?.bottom === "number" ? obj.bottom : 0;
-    const clamp01 = (v: number) => Math.max(0, Math.min(0.3, v));
-    return { top: clamp01(top), bottom: clamp01(bottom) };
-  } catch {
-    return { top: 0, bottom: 0 };
-  }
-}
 
 // clamp helper
 const clamp = (v: number, lo: number, hi: number) => Math.max(lo, Math.min(hi, v));
-
-// safe parse of overrides
-function readOverrides(): Partial<Record<ChakraId, number>> {
-  try {
-    const raw = localStorage.getItem(STORAGE_KEY);
-    if (!raw) return {};
-    const obj = JSON.parse(raw);
-    const out: Partial<Record<ChakraId, number>> = {};
-    for (const k of Object.keys(DEFAULT_Y_NORM) as ChakraId[]) {
-      const val = obj[k];
-      if (typeof val === "number" && val >= 0 && val <= 1) out[k] = val;
-    }
-    return out;
-  } catch {
-    return {};
-  }
-}
-
-function writeOverrides(next: Partial<Record<ChakraId, number>>) {
-  try {
-    const current = readOverrides();
-    const merged = { ...current, ...next };
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(merged));
-  } catch {
-    /* ignore */
-  }
-}
 
 export function useChakraLayout(
   containerSel = "[data-meditation-container]",
@@ -104,12 +23,6 @@ export function useChakraLayout(
   const containerRef = useRef<HTMLElement | null>(null);
   const [imageTopRel, setImageTopRel] = useState<number | null>(null);
   const [imageH, setImageH] = useState<number>(0);
-
-  const debug = useMemo(() => {
-    if (typeof window === "undefined") return false;
-    const q = new URLSearchParams(window.location.search);
-    return q.has(QUERY_DEBUG_KEY);
-  }, []);
 
   // observe container + image size (with image load guard and wrapper preference)
   useEffect(() => {
@@ -169,30 +82,23 @@ export function useChakraLayout(
     return { topPx: spineTop, heightPx: spineH };
   }, [containerH, imageH, imageTopRel]);
 
-  // resolve yNorm with optional debug overrides
-  const yNorm: Record<ChakraId, number> = useMemo(() => {
-    if (!debug) return DEFAULT_Y_NORM;
-    const overrides = readOverrides();
-    return { ...DEFAULT_Y_NORM, ...overrides } as Record<ChakraId, number>;
-  }, [debug]);
+  // compute responsive scale factor
+  const scale = useMemo(() => {
+    if (!containerH || !spineRect.heightPx) return 1;
+    return Math.min(Math.max(spineRect.heightPx / 560, 0.85), 1.25);
+  }, [containerH, spineRect.heightPx]);
 
-  const pads = useMemo(() => {
-    const base: SpinePads = { top: 0, bottom: 0 };
-    if (!debug) return base;
-    return { ...base, ...readPadOverrides() };
-  }, [debug]);
-
-  // compute positions (%)
+  // compute positions using geometry-driven anchors
   const positions: Pos[] = useMemo(() => {
     if (!containerH || !spineRect.heightPx) return [];
-    const ids = Object.keys(DEFAULT_Y_NORM) as ChakraId[];
-    const out: Pos[] = ids.map((id) => {
-      const yPx = spineRect.topPx + yNorm[id] * spineRect.heightPx;
+    const anchors = getChakraPositions();
+    const out: Pos[] = Object.entries(anchors).map(([id, pos]) => {
+      const yPx = spineRect.topPx + (pos.y / 100) * spineRect.heightPx;
       const yPercent = (yPx / containerH) * 100;
-      return { id, xPercent: 50 + CHAKRA_CONFIG.horizontalOffset, yPercent };
+      return { id: id as ChakraId, xPercent: pos.x, yPercent };
     });
     return out;
-  }, [containerH, spineRect, yNorm]);
+  }, [containerH, spineRect]);
 
   const spineStyle = useMemo(() => {
     return {
@@ -204,11 +110,5 @@ export function useChakraLayout(
     };
   }, [spineRect, containerW]);
 
-  const setYNorm = (id: ChakraId, nextVal: number) => {
-    if (!debug) return; // no-op in prod
-    const v = clamp(nextVal, 0, 1);
-    writeOverrides({ [id]: v });
-  };
-
-  return { positions, spineStyle, spineRect, debug, setYNorm };
+  return { positions, spineStyle, spineRect, scale };
 }

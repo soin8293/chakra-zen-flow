@@ -76,7 +76,8 @@ export default {
 			backgroundImage: {
 				'gradient-cosmic': 'var(--gradient-cosmic)',
 				'gradient-chakra-glow': 'var(--gradient-chakra-glow)',
-				'gradient-meditation': 'var(--gradient-meditation)'
+				'gradient-meditation': 'var(--gradient-meditation)',
+				'gradient-radial': 'radial-gradient(circle, var(--tw-gradient-stops))'
 			},
 			boxShadow: {
 				'chakra': 'var(--shadow-chakra)',
@@ -137,6 +138,26 @@ export default {
 				'pulse-gentle': {
 					'0%, 100%': { opacity: '0.8', transform: 'scale(1)' },
 					'50%': { opacity: '1', transform: 'scale(1.05)' }
+				},
+				'chakra-pulse': {
+					"0%, 100%": {
+						opacity: "1",
+						transform: "translate(-50%, -50%) scale(1)"
+					},
+					"50%": {
+						opacity: "0.8",
+						transform: "translate(-50%, -50%) scale(1.05)"
+					}
+				},
+				'fade-in': {
+					"0%": {
+						opacity: "0",
+						transform: "translateY(10px)"
+					},
+					"100%": {
+						opacity: "1", 
+						transform: "translateY(0)"
+					}
 				}
 			},
 			animation: {
@@ -148,7 +169,9 @@ export default {
 				'breath-out': 'breath-out 5s ease-in-out',
 				'pulse-glow': 'pulse-glow 2s ease-in-out infinite',
 				'expand-chakra': 'expand-chakra 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards',
-				'pulse-gentle': 'pulse-gentle 3s ease-in-out infinite'
+				'pulse-gentle': 'pulse-gentle 3s ease-in-out infinite',
+				'chakra-pulse': 'chakra-pulse 3s ease-in-out infinite',
+				'fade-in': 'fade-in 0.3s ease-out'
 			}
 		}
 	},

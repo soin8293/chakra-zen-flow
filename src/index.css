@@ -46,6 +46,7 @@ All colors MUST be HSL.
     --gradient-cosmic: linear-gradient(135deg, hsl(220 15% 8%), hsl(250 20% 12%), hsl(280 25% 10%));
     --gradient-chakra-glow: radial-gradient(circle, hsl(var(--primary) / 0.2), transparent 70%);
     --gradient-meditation: linear-gradient(180deg, hsl(220 15% 6%), hsl(220 15% 12%));
+    --gradient-radial: radial-gradient(circle, var(--tw-gradient-stops));
     
     /* Shadows and glows */
     --shadow-chakra: 0 0 30px hsl(var(--primary) / 0.3);
@@ -129,5 +130,25 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .chakra-pulse {
+    animation: chakra-pulse 3s ease-in-out infinite;
+  }
+  
+  .chakra-glow-static {
+    box-shadow: 0 0 20px hsl(var(--primary) / 0.4);
+  }
+  
+  .bg-gradient-radial {
+    background-image: var(--gradient-radial);
+  }
+  
+  @media (prefers-reduced-motion: reduce) {
+    .chakra-pulse {
+      animation: none;
+    }
   }
 }

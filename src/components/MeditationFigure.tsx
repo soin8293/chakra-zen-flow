@@ -8,45 +8,28 @@ interface MeditationFigureProps {
 }
 
 export function MeditationFigure({ onChakraClick, expandingChakraId }: MeditationFigureProps) {
-  const { positions, spineStyle, spineRect, debug, setYNorm } = useChakraLayout();
-  const scaleFactor = Math.min(Math.max(spineRect.heightPx / 560, 0.85), 1.25);
+  const { positions, spineStyle, spineRect, scale } = useChakraLayout();
 
   return (
-    <div className="relative w-full h-full flex items-center justify-center min-h-[400px]">
+    <div className="relative w-full h-full flex items-center justify-center min-h-[400px] max-w-[880px] mx-auto px-4">
       {/* Responsive Meditation Figure Container */}
       <div 
         className="relative transition-all duration-300 ease-out w-full h-full"
         data-meditation-container
         style={{
-          minWidth: '800px',
-          minHeight: '1000px',
-          maxWidth: '1200px',
+          minWidth: '300px',
+          minHeight: '400px',
+          maxWidth: '800px',
           maxHeight: '100vh'
         }}
       >
-        {/* Layer 1: Multi-layer glowing background effects */}
+        {/* Layer 1: Radial vignette */}
         <div className="absolute inset-0 flex items-center justify-center z-0">
           <div 
-            className="rounded-full bg-white/8 blur-3xl animate-pulse"
+            className="rounded-full bg-gradient-radial from-white/10 via-white/5 to-transparent"
             style={{
-              width: `300px`,
-              height: `300px`
-            }}
-          />
-          <div 
-            className="absolute rounded-full bg-white/15 blur-2xl animate-pulse"
-            style={{ 
-              animationDelay: '0.5s',
-              width: `200px`,
-              height: `200px`
-            }}
-          />
-          <div 
-            className="absolute rounded-full bg-white/25 blur-xl animate-pulse"
-            style={{ 
-              animationDelay: '1s',
-              width: `100px`,
-              height: `100px`
+              width: `${Math.min(400, spineRect.heightPx * 0.8)}px`,
+              height: `${Math.min(400, spineRect.heightPx * 0.8)}px`
             }}
           />
         </div>
@@ -95,10 +78,10 @@ export function MeditationFigure({ onChakraClick, expandingChakraId }: Meditatio
               <ChakraButton
                 key={chakra.id}
                 chakra={chakra}
-                position={{ x: pos.xPercent, y: pos.yPercent, scale: scaleFactor }}
+                position={{ x: pos.xPercent, y: pos.yPercent, scale }}
                 onClick={() => onChakraClick(chakra.id)}
                 isExpanding={expandingChakraId === chakra.id}
-                scale={scaleFactor}
+                scale={scale}
               />
             );
           })}
@@ -121,31 +104,6 @@ export function MeditationFigure({ onChakraClick, expandingChakraId }: Meditatio
           </div>
         )}
 
-        {/* Debug overlay for calibration */}
-        {debug && spineRect.heightPx > 0 && (
-          <div className="absolute inset-0 pointer-events-none text-[10px] text-white/70 z-40">
-            <div
-              className="absolute border border-white/30"
-              style={{
-                top: spineRect.topPx,
-                left: '50%',
-                height: spineRect.heightPx,
-                width: Number(spineStyle.width) + 8,
-                transform: 'translateX(-50%)',
-                borderRadius: 8
-              }}
-            />
-            {[0, 0.25, 0.5, 0.75, 1].map((t) => (
-              <div
-                key={t}
-                className="absolute left-0 right-0 border-t border-white/20"
-                style={{ top: spineRect.topPx + t * spineRect.heightPx }}
-              >
-                <span className="absolute left-2 -translate-y-1/2">{t}</span>
-              </div>
-            ))}
-          </div>
-        )}
       </div>
     </div>
   );
