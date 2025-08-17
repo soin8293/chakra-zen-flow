@@ -1,4 +1,4 @@
-import { Play, Pause } from "lucide-react";
+import { Play } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface MeditationCTAProps {
@@ -6,9 +6,16 @@ interface MeditationCTAProps {
   onStart: () => void;
   onResume?: () => void;
   disabled?: boolean;
+  className?: string;
 }
 
-export function MeditationCTA({ isActive = false, onStart, onResume, disabled = false }: MeditationCTAProps) {
+export function MeditationCTA({ 
+  isActive = false, 
+  onStart, 
+  onResume, 
+  disabled = false,
+  className 
+}: MeditationCTAProps) {
   const handleClick = () => {
     if (isActive && onResume) {
       onResume();
@@ -18,35 +25,29 @@ export function MeditationCTA({ isActive = false, onStart, onResume, disabled = 
   };
 
   return (
-    <div className="flex justify-center mb-6">
+    <div className={cn("flex justify-center", className)}>
       <button
         onClick={handleClick}
         disabled={disabled}
         className={cn(
-          "flex items-center gap-3 px-8 py-4 rounded-full",
-          "bg-primary text-primary-foreground font-semibold text-lg",
+          "flex items-center justify-center gap-3",
+          "h-12 md:h-14 px-8 rounded-full",
+          "bg-primary text-primary-foreground",
+          "font-semibold text-base md:text-lg",
           "hover:bg-primary/90 active:scale-95",
           "transition-all duration-200 ease-out",
           "shadow-lg hover:shadow-xl",
-          "min-w-[200px] h-14",
+          "min-w-[200px] max-w-[280px]",
           "disabled:opacity-50 disabled:cursor-not-allowed",
-          "touch-manipulation" // Better mobile interaction
+          "touch-manipulation",
+          "focus:outline-none focus:ring-2 focus:ring-primary/50 focus:ring-offset-2",
+          "safe-area-below"
         )}
-        style={{
-          boxShadow: "var(--glow-active)"
-        }}
       >
-        {isActive ? (
-          <>
-            <Play className="h-5 w-5" />
-            Resume Session
-          </>
-        ) : (
-          <>
-            <Play className="h-5 w-5" />
-            Start Meditation
-          </>
-        )}
+        <Play className="h-5 w-5 flex-shrink-0" />
+        <span className="truncate">
+          {isActive ? "Resume Session" : "Start Meditation"}
+        </span>
       </button>
     </div>
   );
