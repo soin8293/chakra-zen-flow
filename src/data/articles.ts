@@ -1,4 +1,5 @@
 import { Article, MiniArticle } from "@/types/chakra";
+import { additionalArticles } from "./additionalArticles";
 
 export const articles: Article[] = [
   // Core Concepts
@@ -1195,7 +1196,8 @@ export const articles: Article[] = [
     tags: ['history', 'modern', 'science', 'new-age', 'digital'],
     lastUpdated: '2024-01-15',
     featured: true
-  }
+  },
+  ...additionalArticles
 ];
 
 export const miniArticles: MiniArticle[] = [
