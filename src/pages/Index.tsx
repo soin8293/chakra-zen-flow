@@ -13,9 +13,12 @@ import { ChakraArticle } from "@/components/ChakraArticle";
 import { ArticlePage } from "@/components/ArticlePage";
 import { BookmarksPage } from "@/components/BookmarksPage";
 import { OnboardingFlow } from "@/components/OnboardingFlow";
+import { OfflineIndicator } from "@/components/OfflineIndicator";
 import { useOfflineStatus, useServiceWorker } from "@/hooks/useOffline";
 import { useAnalytics } from "@/hooks/useAnalytics";
+import { usePerformanceMonitoring } from "@/hooks/usePerformance";
 import { toast } from "@/hooks/use-toast";
+import { addScreenshotMarkers } from "@/utils/screenshot";
 
 type AppScreen = 
   | 'home' 
@@ -44,6 +47,12 @@ const Index = () => {
   const isOnline = useOfflineStatus();
   const { isUpdateAvailable, updateApp } = useServiceWorker();
   const analytics = useAnalytics();
+  const performanceMetrics = usePerformanceMonitoring();
+
+  // Add screenshot markers for app store assets
+  useEffect(() => {
+    addScreenshotMarkers();
+  }, [currentScreen]);
 
   // Track screen changes
   useEffect(() => {
