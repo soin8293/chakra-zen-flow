@@ -152,3 +152,42 @@ All colors MUST be HSL.
     }
   }
 }
+
+/* Accessibility enhancements */
+.reduce-motion * {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+}
+
+.high-contrast {
+  --foreground: 0 0% 0%;
+  --background: 0 0% 100%;
+  --primary: 250 100% 50%;
+  --secondary: 0 0% 20%;
+  --muted: 0 0% 80%;
+  --border: 0 0% 50%;
+}
+
+.large-text {
+  font-size: 1.125rem !important;
+}
+
+.large-text h1 { font-size: 3rem !important; }
+.large-text h2 { font-size: 2.5rem !important; }
+.large-text h3 { font-size: 2rem !important; }
+.large-text .text-sm { font-size: 1rem !important; }
+.large-text .text-xs { font-size: 0.9rem !important; }
+
+/* Screen reader only content */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}

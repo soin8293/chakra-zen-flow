@@ -33,6 +33,15 @@ export class ErrorBoundary extends Component<Props, State> {
         fatal: false
       });
     }
+
+    // TODO: Log to Firebase Analytics when configured
+    // if (firebase?.analytics) {
+    //   firebase.analytics.logEvent('app_error', {
+    //     error_message: error.message,
+    //     error_stack: error.stack,
+    //     component_stack: errorInfo.componentStack
+    //   });
+    // }
   }
 
   handleReload = () => {

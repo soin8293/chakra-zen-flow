@@ -46,6 +46,14 @@ export const useAnalytics = () => {
         ...parameters
       });
     }
+    
+    // TODO: Firebase Analytics when configured
+    // if (firebase?.analytics) {
+    //   firebase.analytics.logEvent(eventName, {
+    //     app_name: 'ZenFlow',
+    //     ...parameters
+    //   });
+    // }
   };
 
   const trackScreenView = (screenName: string) => {
