@@ -2,7 +2,6 @@ import { Chakra } from "@/types/chakra";
 import { articles, miniArticles } from "@/data/articles";
 import { Button } from "./ui/button";
 import { Badge } from "./ui/badge";
-import { HoverCard, HoverCardContent, HoverCardTrigger } from "./ui/hover-card";
 import { ArrowLeft, ExternalLink, BookmarkIcon, Clock, Star, Lightbulb, Heart, Brain } from "lucide-react";
 import { useState } from "react";
 import { useBookmarks } from "@/hooks/useBookmarks";
@@ -120,38 +119,16 @@ export function ChakraArticle({ chakra, onBack, onArticleSelect }: ChakraArticle
       if (miniArticle) {
         return (
           <span key={index}>
-            <HoverCard>
-              <HoverCardTrigger asChild>
-                <button
-                  className="text-primary underline underline-offset-2 hover:text-primary/80 transition-colors"
-                  onClick={() => {
-                    if (window.innerWidth <= 768) {
-                      setSelectedMiniArticle(miniArticle.id);
-                      setIsMobileModalOpen(true);
-                    }
-                  }}
-                >
-                  {word}
-                </button>
-              </HoverCardTrigger>
-              <HoverCardContent className="w-80 p-4">
-                <div className="space-y-2">
-                  <h4 className="text-sm font-semibold">{miniArticle.title}</h4>
-                  <p className="text-sm text-muted-foreground">{miniArticle.content}</p>
-                  <Button
-                    size="sm"
-                    variant="outline"
-                    onClick={() => {
-                      const fullArticle = articles.find(a => a.id === miniArticle.relatedArticles[0]);
-                      if (fullArticle) onArticleSelect(fullArticle.id);
-                    }}
-                    className="w-full"
-                  >
-                    Read Full Article
-                  </Button>
-                </div>
-              </HoverCardContent>
-            </HoverCard>
+            <button
+              className="text-primary underline underline-offset-2 hover:text-primary/80 transition-colors"
+              onClick={() => {
+                setSelectedMiniArticle(miniArticle.id);
+                setIsMobileModalOpen(true);
+              }}
+              title={`${miniArticle.title}: ${miniArticle.content}`}
+            >
+              {word}
+            </button>
             {index < words.length - 1 ? ' ' : ''}
           </span>
         );

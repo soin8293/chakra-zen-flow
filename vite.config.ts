@@ -17,8 +17,8 @@ export default defineConfig(({ mode }) => ({
     VitePWA({
       registerType: 'autoUpdate',
       workbox: {
-        globPatterns: ['**/*.{js,css,html,ico,png,svg}'],
-        maximumFileSizeToCacheInBytes: 3 * 1024 * 1024, // 3MB limit
+        globPatterns: ['**/*.{js,css,html,ico,png,svg,woff2}'],
+        maximumFileSizeToCacheInBytes: 2 * 1024 * 1024, // 2MB limit
         runtimeCaching: [
           {
             urlPattern: /^https:\/\/fonts\.googleapis\.com\/.*/i,
@@ -33,7 +33,6 @@ export default defineConfig(({ mode }) => ({
           }
         ]
       },
-      // Use external manifest.json instead of inline config
       manifest: false
     })
   ].filter(Boolean),
