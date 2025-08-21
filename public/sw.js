@@ -1,4 +1,4 @@
-const CACHE_NAME = 'zenflow-v1.0.0';
+const CACHE_NAME = 'zenflow-v1.0.1';
 const STATIC_ASSETS = [
   '/',
   '/index.html',
@@ -6,9 +6,36 @@ const STATIC_ASSETS = [
   '/src/App.tsx',
   '/src/index.css',
   '/lovable-uploads/367d80a7-5795-4dfa-a351-9d3588def8bd.png',
+  '/lovable-uploads/68914da5-0095-4573-9463-0fe7454a8848.png',
   '/icon-1024.png',
-  '/splash-1920x1080.png'
+  '/splash-1920x1080.png',
+  '/screenshot-main.png',
+  '/screenshot-session.png',
+  '/screenshot-learning.png'
 ];
+
+// Critical resources that should always be cached
+const CRITICAL_ASSETS = [
+  '/',
+  '/index.html',
+  '/src/index.css',
+  '/icon-1024.png'
+];
+
+// Add security headers for cached responses
+const addSecurityHeaders = (response) => {
+  const newHeaders = new Headers(response.headers);
+  newHeaders.set('X-Content-Type-Options', 'nosniff');
+  newHeaders.set('X-Frame-Options', 'DENY');
+  newHeaders.set('X-XSS-Protection', '1; mode=block');
+  newHeaders.set('Referrer-Policy', 'strict-origin-when-cross-origin');
+  
+  return new Response(response.body, {
+    status: response.status,
+    statusText: response.statusText,
+    headers: newHeaders
+  });
+};
 
 // Install event - cache static assets
 self.addEventListener('install', (event) => {
