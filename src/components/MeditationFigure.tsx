@@ -81,16 +81,21 @@ export function MeditationFigure({ onChakraClick, expandingChakraId }: Meditatio
             ref={imgRef}
             data-meditation-figure
             src="/lovable-uploads/367d80a7-5795-4dfa-a351-9d3588def8bd.png"
-            alt="Meditation figure in lotus position"
+            alt="Meditation figure in lotus position with seven chakra energy centers - interactive guide for chakra healing and energy balance"
             className="opacity-90 filter invert object-contain transition-all duration-300 w-full h-full scale-[1.55]"
+            loading="lazy"
+            aria-describedby="chakra-instructions"
           />
         </div>
 
         {/* Layer 4: Chakra positioning overlay */}
-        <div className="absolute inset-0 z-30 w-full h-full" 
-             style={{ transform: `scale(${scale})`, transformOrigin: 'center' }} 
-             aria-label="Interactive chakra points">
-          {/* Layer 5: Individual chakra buttons */}
+        <div 
+          className="absolute inset-0 z-30 w-full h-full" 
+          style={{ transform: `scale(${scale})`, transformOrigin: 'center' }} 
+          aria-label="Interactive chakra energy points - tap to explore each energy center"
+          role="application"
+          aria-describedby="chakra-instructions"
+        >
           {positions.map((pos) => {
             const chakra = chakras.find(c => c.id === pos.id);
             if (!chakra) return null;
