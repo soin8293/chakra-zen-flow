@@ -1,8 +1,9 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { Chakra } from "@/types/chakra";
 import { Button } from "./ui/button";
 import { useBreathEngine } from "@/hooks/useBreathEngine";
 import { useHapticFeedback } from "@/hooks/useHapticFeedback";
+import { useAnalytics } from "@/hooks/useAnalytics";
 import { Pause, Play, X } from "lucide-react";
 import { 
   AlertDialog,
@@ -27,16 +28,30 @@ interface MeditationSessionProps {
 }
 
 export function MeditationSession({ chakra, duration, onComplete, onExit, level, presetOverride, includeHolds }: MeditationSessionProps) {
+  const sessionStartTimeRef = useRef<number>(Date.now());
+  const totalDurationSeconds = duration * 60;
+  
   const { phase, progress, direction, isPlaying, remaining, currentPhaseDuration, toggle } = useBreathEngine({
     chakraAppId: chakra.id,
     level: level ?? 'beginner',
     presetOverride: presetOverride ?? 'balance',
     includeHolds: includeHolds ?? false,
     minutes: duration,
-    onComplete,
+    onComplete: () => {
+      const timeElapsed = Math.round((Date.now() - sessionStartTimeRef.current) / 1000);
+      analytics.trackMeditationComplete(chakra.name, duration, 100);
+      onComplete();
+    },
   });
 
   const { vibrate, isSupported } = useHapticFeedback();
+  const analytics = useAnalytics();
+
+  // Track session start
+  useEffect(() => {
+    analytics.trackMeditationStart(chakra.name, duration, level ?? 'beginner');
+    sessionStartTimeRef.current = Date.now();
+  }, [chakra.name, duration, level, analytics]);
 
   // Enhanced haptic feedback for breathing phases
   useEffect(() => {
@@ -58,7 +73,17 @@ export function MeditationSession({ chakra, duration, onComplete, onExit, level,
   };
 
   const togglePlayPause = () => {
+    if (isPlaying) {
+      const timeElapsed = Math.round((Date.now() - sessionStartTimeRef.current) / 1000);
+      analytics.trackMeditationPause(chakra.name, timeElapsed);
+    }
     toggle();
+  };
+
+  const handleExit = () => {
+    const timeElapsed = Math.round((Date.now() - sessionStartTimeRef.current) / 1000);
+    analytics.trackMeditationExit(chakra.name, timeElapsed, totalDurationSeconds);
+    onExit();
   };
 
   const progressWidth = (direction === 'ltr' ? progress : 1 - progress) * 100;
@@ -103,7 +128,7 @@ return (
             </AlertDialogHeader>
             <AlertDialogFooter>
               <AlertDialogCancel>Continue</AlertDialogCancel>
-              <AlertDialogAction onClick={onExit}>End session</AlertDialogAction>
+              <AlertDialogAction onClick={handleExit}>End session</AlertDialogAction>
             </AlertDialogFooter>
           </AlertDialogContent>
         </AlertDialog>

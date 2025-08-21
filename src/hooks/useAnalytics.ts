@@ -2,34 +2,41 @@ import { useEffect } from 'react';
 
 declare global {
   interface Window {
-    gtag: (command: string, eventName: string, parameters?: Record<string, any>) => void;
+    gtag: (...args: any[]) => void;
+    dataLayer: any[];
   }
 }
 
 export const useAnalytics = () => {
   useEffect(() => {
-    // Initialize Google Analytics 4 (replace with your measurement ID)
-    const script = document.createElement('script');
-    script.async = true;
-    script.src = 'https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID';
-    document.head.appendChild(script);
-
-    const configScript = document.createElement('script');
-    configScript.innerHTML = `
+    // Analytics implementation ready for production
+    const MEASUREMENT_ID = 'G-XXXXXXXXXX'; // Replace with actual GA4 ID
+    
+    if (typeof window !== 'undefined' && !window.gtag) {
+      // Create dataLayer
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'GA_MEASUREMENT_ID', {
+      
+      // Define gtag function
+      window.gtag = function(...args: any[]) {
+        window.dataLayer.push(args);
+      };
+      
+      // Initialize with timestamp
+      window.gtag('js', new Date());
+      
+      // Configure GA4
+      window.gtag('config', MEASUREMENT_ID, {
         app_name: 'ZenFlow',
-        app_version: '1.0.0'
+        app_version: '1.0.0',
+        send_page_view: false // We'll track manually
       });
-    `;
-    document.head.appendChild(configScript);
-
-    return () => {
-      document.head.removeChild(script);
-      document.head.removeChild(configScript);
-    };
+      
+      // Load GA4 script
+      const script = document.createElement('script');
+      script.async = true;
+      script.src = `https://www.googletagmanager.com/gtag/js?id=${MEASUREMENT_ID}`;
+      document.head.appendChild(script);
+    }
   }, []);
 
   const trackEvent = (eventName: string, parameters?: Record<string, any>) => {
@@ -51,14 +58,34 @@ export const useAnalytics = () => {
     trackEvent('meditation_start', {
       chakra_type: chakra,
       session_duration: duration,
-      difficulty_level: level
+      difficulty_level: level,
+      engagement_time_msec: 1
     });
   };
 
-  const trackMeditationComplete = (chakra: string, duration: number) => {
+  const trackMeditationComplete = (chakra: string, duration: number, completionRate?: number) => {
     trackEvent('meditation_complete', {
       chakra_type: chakra,
-      session_duration: duration
+      session_duration: duration,
+      completion_rate: completionRate || 100,
+      value: duration // Track duration as value for engagement metrics
+    });
+  };
+
+  const trackMeditationPause = (chakra: string, timeElapsed: number) => {
+    trackEvent('meditation_pause', {
+      chakra_type: chakra,
+      time_elapsed: timeElapsed
+    });
+  };
+
+  const trackMeditationExit = (chakra: string, timeElapsed: number, totalDuration: number) => {
+    const completionRate = Math.round((timeElapsed / totalDuration) * 100);
+    trackEvent('meditation_exit', {
+      chakra_type: chakra,
+      time_elapsed: timeElapsed,
+      total_duration: totalDuration,
+      completion_rate: completionRate
     });
   };
 
@@ -81,6 +108,8 @@ export const useAnalytics = () => {
     trackScreenView,
     trackMeditationStart,
     trackMeditationComplete,
+    trackMeditationPause,
+    trackMeditationExit,
     trackArticleRead,
     trackBookmark
   };

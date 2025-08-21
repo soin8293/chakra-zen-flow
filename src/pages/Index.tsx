@@ -43,7 +43,12 @@ const Index = () => {
   // Hooks for offline functionality and analytics
   const isOnline = useOfflineStatus();
   const { isUpdateAvailable, updateApp } = useServiceWorker();
-  const { trackScreenView } = useAnalytics();
+  const analytics = useAnalytics();
+
+  // Track screen changes
+  useEffect(() => {
+    analytics.trackScreenView(currentScreen);
+  }, [currentScreen, analytics]);
 
   // Mock user profile data
   const [userProfile] = useState<UserProfile>({
@@ -82,10 +87,6 @@ const Index = () => {
     }
   }, [isUpdateAvailable]);
 
-  // Track screen changes for analytics
-  useEffect(() => {
-    trackScreenView(currentScreen);
-  }, [currentScreen, trackScreenView]);
 
   const handleChakraClick = (chakraId: string) => {
     const chakra = chakras.find(c => c.id === chakraId);
