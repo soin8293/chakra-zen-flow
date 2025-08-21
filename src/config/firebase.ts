@@ -1,30 +1,46 @@
-// Firebase configuration
-// Set these environment variables in your Firebase CLI or hosting environment
+// Firebase configuration - optimized for production deployment
+// Replace placeholder values with actual Firebase project credentials
 
 export const firebaseConfig = {
-  apiKey: process.env.FIREBASE_API_KEY || "your-firebase-api-key-here",
-  authDomain: process.env.FIREBASE_AUTH_DOMAIN || "your-project.firebaseapp.com",
-  projectId: process.env.FIREBASE_PROJECT_ID || "your-project-id",
-  storageBucket: process.env.FIREBASE_STORAGE_BUCKET || "your-project.appspot.com",
-  messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID || "your-sender-id",
-  appId: process.env.FIREBASE_APP_ID || "your-app-id",
-  measurementId: process.env.FIREBASE_MEASUREMENT_ID || "your-measurement-id"
+  apiKey: "your-firebase-api-key-here",
+  authDomain: "zenflow-meditation.firebaseapp.com", 
+  projectId: "zenflow-meditation",
+  storageBucket: "zenflow-meditation.appspot.com",
+  messagingSenderId: "123456789012",
+  appId: "1:123456789012:web:abc123def456ghi789",
+  measurementId: "G-XXXXXXXXXX"
 };
 
-// Initialize Firebase when needed
+// Lazy-loaded Firebase initialization for optimal performance
 export const initializeFirebase = async () => {
   if (typeof window !== 'undefined') {
-    const { initializeApp } = await import('firebase/app');
-    const { getAnalytics } = await import('firebase/analytics');
-    const { getAuth } = await import('firebase/auth');
-    const { getFirestore } = await import('firebase/firestore');
-    
-    const app = initializeApp(firebaseConfig);
-    const analytics = getAnalytics(app);
-    const auth = getAuth(app);
-    const db = getFirestore(app);
-    
-    return { app, analytics, auth, db };
+    try {
+      const [
+        { initializeApp },
+        { getAnalytics, isSupported },
+        { getAuth },
+        { getFirestore }
+      ] = await Promise.all([
+        import('firebase/app'),
+        import('firebase/analytics'),
+        import('firebase/auth'),
+        import('firebase/firestore')
+      ]);
+      
+      const app = initializeApp(firebaseConfig);
+      
+      // Only initialize analytics if supported (avoids errors in dev/testing)
+      const analyticsSupported = await isSupported();
+      const analytics = analyticsSupported ? getAnalytics(app) : null;
+      
+      const auth = getAuth(app);
+      const db = getFirestore(app);
+      
+      return { app, analytics, auth, db };
+    } catch (error) {
+      console.warn('Firebase initialization failed:', error);
+      return null;
+    }
   }
   return null;
 };
