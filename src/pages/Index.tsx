@@ -12,6 +12,7 @@ import { ChakraInfoPage } from "@/components/ChakraInfoPage";
 import { ChakraArticle } from "@/components/ChakraArticle";
 import { ArticlePage } from "@/components/ArticlePage";
 import { BookmarksPage } from "@/components/BookmarksPage";
+import { OnboardingFlow } from "@/components/OnboardingFlow";
 
 type AppScreen = 
   | 'home' 
@@ -34,6 +35,7 @@ const Index = () => {
   const [currentArticleId, setCurrentArticleId] = useState<string | null>(null);
   const [searchTag, setSearchTag] = useState<string>('');
   const [hasActiveSession, setHasActiveSession] = useState<boolean>(false);
+  const [showOnboarding, setShowOnboarding] = useState<boolean>(true);
 
   // Mock user profile data
   const [userProfile] = useState<UserProfile>({
@@ -219,6 +221,11 @@ if (currentScreen === 'session' && selectedChakra) {
     );
   }
 
+  // Show onboarding first
+  if (showOnboarding) {
+    return <OnboardingFlow onComplete={() => setShowOnboarding(false)} />;
+  }
+
   // Home screen
   return (
     <div className="min-h-screen bg-gradient-cosmic relative overflow-hidden">
@@ -233,7 +240,7 @@ if (currentScreen === 'session' && selectedChakra) {
         <div className="text-center pt-8 pb-6 px-4">
           <div className="flex items-center justify-center gap-4 mb-4">
             <h1 className="text-4xl font-bold text-white drop-shadow-lg">
-              ChakraFlow
+              ZenFlow
             </h1>
             <div className="flex items-center gap-1 bg-white/10 backdrop-blur-sm rounded-full px-3 py-1">
               <span className="text-lg">🔥</span>

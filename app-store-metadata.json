@@ -1,0 +1,30 @@
+{
+  "name": "ZenFlow",
+  "version": "1.0.0",
+  "buildNumber": "1",
+  "description": "Interactive chakra meditation app with guided breathing, energy visualization, and comprehensive learning resources for holistic wellness.",
+  "author": "ZenFlow Team",
+  "homepage": "https://zenflow.app",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zenflow/zenflow-app"
+  },
+  "keywords": [
+    "meditation", 
+    "chakra", 
+    "mindfulness", 
+    "wellness", 
+    "energy healing", 
+    "breathing exercises",
+    "spiritual growth",
+    "holistic health"
+  ],
+  "playstore": {
+    "title": "ZenFlow: Chakra Meditation & Energy Healing",
+    "shortDescription": "Interactive chakra meditation with guided breathing and energy visualization for holistic wellness and spiritual growth.",
+    "fullDescription": "Transform your meditation practice with ZenFlow, the comprehensive chakra healing and energy meditation app. Featuring interactive chakra points, guided breathing exercises, and extensive educational content about energy healing and spiritual wellness.\n\nKEY FEATURES:\n🧘 Interactive Chakra Meditation - Touch and explore each energy center\n🌬️ Guided Breathing Exercises - Synchronized with visual cues\n📚 Comprehensive Learning Library - 200+ articles on energy healing\n📖 Bookmarking System - Save your favorite content\n🎯 Progress Tracking - Monitor your meditation journey\n📱 Offline Access - Meditate anywhere, anytime\n\nWHAT YOU'LL DISCOVER:\n• Root Chakra - Grounding and stability practices\n• Sacral Chakra - Creativity and emotional balance\n• Solar Plexus - Personal power and confidence\n• Heart Chakra - Love and compassion cultivation\n• Throat Chakra - Communication and expression\n• Third Eye - Intuition and inner wisdom\n• Crown Chakra - Spiritual connection and enlightenment\n\nEDUCATIONAL CONTENT:\n• Scientific research on meditation benefits\n• Practical techniques for daily life\n• Psychology of energy healing\n• Historical context and traditions\n• Advanced meditation practices\n\nPERFECT FOR:\n• Meditation beginners seeking guidance\n• Experienced practitioners wanting deeper knowledge\n• Anyone interested in chakra healing\n• Stress relief and emotional balance\n• Spiritual growth and self-discovery\n\nStart your transformative journey today with ZenFlow - where ancient wisdom meets modern technology for optimal wellness.",
+    "category": "Health & Fitness",
+    "contentRating": "Everyone",
+    "tags": ["meditation", "wellness", "chakra", "mindfulness", "healing", "spirituality"]
+  }
+}
