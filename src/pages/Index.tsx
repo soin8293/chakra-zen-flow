@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { chakras, Chakra, UserProfile } from "@/types/chakra";
 import { MeditationFigure } from "@/components/MeditationFigure";
 import { ParticleBackground } from "@/components/ParticleBackground";
@@ -13,6 +13,9 @@ import { ChakraArticle } from "@/components/ChakraArticle";
 import { ArticlePage } from "@/components/ArticlePage";
 import { BookmarksPage } from "@/components/BookmarksPage";
 import { OnboardingFlow } from "@/components/OnboardingFlow";
+import { useOfflineStatus, useServiceWorker } from "@/hooks/useOffline";
+import { useAnalytics } from "@/hooks/useAnalytics";
+import { toast } from "@/hooks/use-toast";
 
 type AppScreen = 
   | 'home' 
@@ -36,6 +39,11 @@ const Index = () => {
   const [searchTag, setSearchTag] = useState<string>('');
   const [hasActiveSession, setHasActiveSession] = useState<boolean>(false);
   const [showOnboarding, setShowOnboarding] = useState<boolean>(true);
+  
+  // Hooks for offline functionality and analytics
+  const isOnline = useOfflineStatus();
+  const { isUpdateAvailable, updateApp } = useServiceWorker();
+  const { trackScreenView } = useAnalytics();
 
   // Mock user profile data
   const [userProfile] = useState<UserProfile>({
@@ -47,6 +55,37 @@ const Index = () => {
     bookmarks: [],
     readingHistory: []
   });
+
+  // Handle offline status and app updates
+  useEffect(() => {
+    if (!isOnline) {
+      toast({
+        title: "Offline Mode",
+        description: "ZenFlow is working offline. Your progress will sync when you reconnect.",
+        duration: 3000,
+      });
+    }
+  }, [isOnline]);
+
+  useEffect(() => {
+    if (isUpdateAvailable) {
+      toast({
+        title: "Update Available",
+        description: "A new version of ZenFlow is ready.",
+        action: (
+          <button onClick={updateApp} className="text-sm underline">
+            Update Now
+          </button>
+        ),
+        duration: 10000,
+      });
+    }
+  }, [isUpdateAvailable]);
+
+  // Track screen changes for analytics
+  useEffect(() => {
+    trackScreenView(currentScreen);
+  }, [currentScreen, trackScreenView]);
 
   const handleChakraClick = (chakraId: string) => {
     const chakra = chakras.find(c => c.id === chakraId);
