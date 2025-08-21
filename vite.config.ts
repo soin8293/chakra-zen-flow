@@ -33,25 +33,8 @@ export default defineConfig(({ mode }) => ({
           }
         ]
       },
-      manifest: {
-        name: 'ZenFlow - Chakra Meditation',
-        short_name: 'ZenFlow',
-        description: 'Interactive chakra meditation with guided breathing and energy visualization',
-        theme_color: '#8B5CF6',
-        background_color: '#0F0F23',
-        display: 'standalone',
-        orientation: 'portrait',
-        scope: '/',
-        start_url: '/',
-        icons: [
-          {
-            src: '/icon-1024.png',
-            sizes: '1024x1024',
-            type: 'image/png',
-            purpose: 'any maskable'
-          }
-        ]
-      }
+      // Use external manifest.json instead of inline config
+      manifest: false
     })
   ].filter(Boolean),
   resolve: {
@@ -64,8 +47,9 @@ export default defineConfig(({ mode }) => ({
       output: {
         manualChunks: {
           vendor: ['react', 'react-dom'],
-          ui: ['@radix-ui/react-dialog', '@radix-ui/react-toast'],
-          router: ['react-router-dom']
+          ui: ['@radix-ui/react-dialog', '@radix-ui/react-toast', '@radix-ui/react-slot'],
+          router: ['react-router-dom'],
+          utils: ['clsx', 'tailwind-merge', 'class-variance-authority']
         }
       }
     },
@@ -74,9 +58,11 @@ export default defineConfig(({ mode }) => ({
     terserOptions: {
       compress: {
         drop_console: true,
-        drop_debugger: true
+        drop_debugger: true,
+        pure_funcs: ['console.log', 'console.info']
       }
-    }
+    },
+    chunkSizeWarningLimit: 500
   },
   optimizeDeps: {
     include: ['react', 'react-dom', 'react-router-dom']
