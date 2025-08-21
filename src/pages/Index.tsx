@@ -2,16 +2,18 @@ import { useState, useEffect } from "react";
 import { chakras, Chakra, UserProfile } from "@/types/chakra";
 import { MeditationFigure } from "@/components/MeditationFigure";
 import { ParticleBackground } from "@/components/ParticleBackground";
-import { MeditationPrep } from "@/components/MeditationPrep";
-import { MeditationSession } from "@/components/MeditationSession";
-import { SessionComplete } from "@/components/SessionComplete";
+import { 
+  LazyMeditationPrep,
+  LazyMeditationSession, 
+  LazySessionComplete,
+  LazyProfilePage,
+  LazyChakraInfoPage,
+  LazyChakraArticle,
+  LazyArticlePage,
+  LazyBookmarksPage
+} from "@/components/LazyComponents";
 import { NavigationSheet } from "@/components/NavigationSheet";
 import { MeditationCTA } from "@/components/MeditationCTA";
-import { ProfilePage } from "@/components/ProfilePage";
-import { ChakraInfoPage } from "@/components/ChakraInfoPage";
-import { ChakraArticle } from "@/components/ChakraArticle";
-import { ArticlePage } from "@/components/ArticlePage";
-import { BookmarksPage } from "@/components/BookmarksPage";
 import { OnboardingFlow } from "@/components/OnboardingFlow";
 import { OfflineIndicator } from "@/components/OfflineIndicator";
 import { useOfflineStatus, useServiceWorker } from "@/hooks/useOffline";
@@ -185,7 +187,7 @@ const handleStartMeditation = (opts: { duration: number; level: 'beginner'|'inte
 // Render current screen
 if (currentScreen === 'prep' && selectedChakra) {
   return (
-    <MeditationPrep
+    <LazyMeditationPrep
       chakra={selectedChakra}
       onBack={handleBackToHome}
       onStart={handleStartMeditation}
@@ -196,7 +198,7 @@ if (currentScreen === 'prep' && selectedChakra) {
 
 if (currentScreen === 'session' && selectedChakra) {
   return (
-    <MeditationSession
+    <LazyMeditationSession
       chakra={selectedChakra}
       duration={sessionDuration}
       level={sessionConfig.level}
@@ -210,7 +212,7 @@ if (currentScreen === 'session' && selectedChakra) {
 
   if (currentScreen === 'complete' && selectedChakra) {
     return (
-      <SessionComplete
+      <LazySessionComplete
         chakra={selectedChakra}
         duration={sessionDuration}
         onRestart={handleRestartSession}
@@ -221,7 +223,7 @@ if (currentScreen === 'session' && selectedChakra) {
 
   if (currentScreen === 'profile') {
     return (
-      <ProfilePage
+      <LazyProfilePage
         profile={userProfile}
         onBack={handleBackToHome}
       />
@@ -230,7 +232,7 @@ if (currentScreen === 'session' && selectedChakra) {
 
   if (currentScreen === 'chakra-info') {
     return (
-      <ChakraInfoPage
+      <LazyChakraInfoPage
         onBack={handleBackToHome}
         onChakraSelect={handleChakraSelect}
         onArticleSelect={handleArticleSelect}
@@ -242,7 +244,7 @@ if (currentScreen === 'session' && selectedChakra) {
 
   if (currentScreen === 'article' && currentArticleId) {
     return (
-      <ArticlePage
+      <LazyArticlePage
         articleId={currentArticleId}
         onBack={handleBack}
         onNavigateToArticle={handleArticleSelect}
@@ -253,7 +255,7 @@ if (currentScreen === 'session' && selectedChakra) {
 
   if (currentScreen === 'bookmarks') {
     return (
-      <BookmarksPage
+      <LazyBookmarksPage
         onBack={handleBack}
         onNavigateToArticle={handleArticleSelect}
       />
@@ -262,7 +264,7 @@ if (currentScreen === 'session' && selectedChakra) {
 
   if (currentScreen === 'chakra-article' && selectedChakra) {
     return (
-      <ChakraArticle
+      <LazyChakraArticle
         chakra={selectedChakra}
         onBack={handleBack}
         onArticleSelect={handleArticleSelect}
