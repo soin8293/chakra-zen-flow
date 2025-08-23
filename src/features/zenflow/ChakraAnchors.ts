@@ -52,7 +52,7 @@ export interface ChakraAnchor {
  * - Example: subtract 0.05 from all to move everything up
  */
 export const CHAKRA_ANCHORS: Record<ChakraId, ChakraAnchor> = {
-  crown: { x: 0.5, y: 10.0 },     // TOP chakra - at head (y=0)
+  crown: { x: 0.5, y: 100.0 },     // TOP chakra - at head (y=0)
   thirdEye: { x: 0.5, y: 0.15 }, // Forehead area
   throat: { x: 0.5, y: 0.30 },   // Throat area
   heart: { x: 0.5, y: 0.45 },    // CENTER reference point - chest
