@@ -102,9 +102,11 @@ export function useChakraLayout(
   const positions: Pos[] = useMemo(() => {
     if (!containerH || !spineRect.heightPx) return [];
     const anchors = getChakraPositions();
+    console.log("🔥 CHAKRA ANCHORS:", anchors);
     const out: Pos[] = Object.entries(anchors).map(([id, pos]) => {
       const yPx = spineRect.topPx + pos.y * spineRect.heightPx;
       const yPercent = (yPx / containerH) * 100;
+      console.log(`🔥 ${id}: anchor y=${pos.y} -> yPx=${yPx} -> yPercent=${yPercent}`);
       return { id: id as ChakraId, xPercent: pos.x * 100, yPercent };
     });
     return out;
