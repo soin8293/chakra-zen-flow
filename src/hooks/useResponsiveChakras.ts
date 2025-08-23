@@ -13,6 +13,18 @@ interface ResponsiveChakrasConfig {
   figureScale: number;
 }
 
+/**
+ * ⚠️ WARNING: THIS HOOK IS NOT BEING USED BUT CONTAINS DUPLICATE CHAKRA POSITIONING LOGIC
+ * 
+ * This hook defines its own hardcoded chakra positions that COMPLETELY IGNORE your CHAKRA_ANCHORS.
+ * If any component were using this instead of useChakraLayout, your coordinate edits would have no effect.
+ * 
+ * THE ACTUAL POSITIONING SYSTEM BEING USED:
+ * - src/hooks/useChakraLayout.ts (uses your editable CHAKRA_ANCHORS)
+ * - src/features/zenflow/ChakraAnchors.ts (your coordinate file)
+ * 
+ * THIS FILE SHOULD PROBABLY BE DELETED to avoid confusion.
+ */
 export function useResponsiveChakras() {
   const [config, setConfig] = useState<ResponsiveChakrasConfig>({
     containerWidth: 256, // Default w-64
@@ -20,19 +32,20 @@ export function useResponsiveChakras() {
     figureScale: 1
   });
 
-  // Anatomically correct chakra positions along the spine
+  // ⚠️ HARDCODED POSITIONS - These ignore your CHAKRA_ANCHORS completely!
+  // These are different values than what you're editing in ChakraAnchors.ts
   const getChakraPositions = useCallback((): ChakraPosition[] => {
     const { containerWidth, containerHeight, figureScale } = config;
     
-    // Anatomical positions from top of head to base of spine
+    // ⚠️ HARDCODED anatomical positions - NOT using your editable coordinates!
     const anatomicalPositions = [
-      { y: 0.15, name: 'Crown' },     // Top of head
-      { y: 0.25, name: 'Third Eye' }, // Forehead
-      { y: 0.35, name: 'Throat' },    // Throat area
-      { y: 0.50, name: 'Heart' },     // Center chest
-      { y: 0.65, name: 'Solar' },     // Upper abdomen
-      { y: 0.80, name: 'Sacral' },    // Lower abdomen
-      { y: 0.90, name: 'Root' }       // Base of spine
+      { y: 0.15, name: 'Crown' },     // ← This is hardcoded, not from CHAKRA_ANCHORS
+      { y: 0.25, name: 'Third Eye' }, // ← This is hardcoded, not from CHAKRA_ANCHORS
+      { y: 0.35, name: 'Throat' },    // ← This is hardcoded, not from CHAKRA_ANCHORS
+      { y: 0.50, name: 'Heart' },     // ← This is hardcoded, not from CHAKRA_ANCHORS
+      { y: 0.65, name: 'Solar' },     // ← This is hardcoded, not from CHAKRA_ANCHORS
+      { y: 0.80, name: 'Sacral' },    // ← This is hardcoded, not from CHAKRA_ANCHORS
+      { y: 0.90, name: 'Root' }       // ← This is hardcoded, not from CHAKRA_ANCHORS
     ];
 
     return chakras.map((chakra, index) => {
