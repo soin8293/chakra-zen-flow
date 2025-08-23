@@ -53,7 +53,7 @@ export interface ChakraAnchor {
  */
 export const CHAKRA_ANCHORS: Record<ChakraId, ChakraAnchor> = {
   crown: { x: 0.5, y: 1.0 },    // TOP chakra - decrease y to move higher, increase to move lower
-  thirdEye: { x: 0.5, y: 0.16 }, // Decrease y to compress upward, increase to spread downward
+  thirdEye: { x: 0.5, y: 0.1 }, // Decrease y to compress upward, increase to spread downward
   throat: { x: 0.5, y: 0.20 },   // Adjust proportionally with others
   heart: { x: 0.5, y: 0.24 },    // CENTER reference point
   solar: { x: 0.5, y: 0.28 },    // Adjust proportionally with others
