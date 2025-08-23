@@ -18,18 +18,47 @@ export interface ChakraAnchor {
 }
 
 /**
- * Fixed geometry-based chakra anchors
- * These coordinates are based on the meditation figure's spine alignment
- * No manual calibration or debug mode required
+ * CHAKRA POSITIONING SYSTEM
+ * ========================
+ * 
+ * Fixed geometry-based chakra anchors using normalized coordinates (0-1)
+ * 
+ * HOW TO ADJUST CHAKRA POSITIONS:
+ * ------------------------------
+ * 
+ * X VALUES (horizontal position):
+ * - 0.5 = center of figure (recommended for all chakras)
+ * - Lower values (0.4) = move left
+ * - Higher values (0.6) = move right
+ * 
+ * Y VALUES (vertical position - MOST IMPORTANT FOR EDITING):
+ * - Lower values = higher on screen (crown should be lowest number)
+ * - Higher values = lower on screen (root should be highest number)
+ * 
+ * CURRENT SPREAD: 0.24 total (from 0.12 to 0.36)
+ * 
+ * TO MAKE CHAKRAS MORE SPREAD OUT:
+ * - Decrease crown y value (e.g., 0.10 instead of 0.12)
+ * - Increase root y value (e.g., 0.40 instead of 0.36)
+ * - Adjust others proportionally
+ * 
+ * TO MAKE CHAKRAS MORE COMPRESSED:
+ * - Increase crown y value (e.g., 0.15 instead of 0.12)
+ * - Decrease root y value (e.g., 0.33 instead of 0.36)
+ * - Adjust others proportionally
+ * 
+ * TO MOVE ALL CHAKRAS UP/DOWN:
+ * - Subtract/add same value to all y coordinates
+ * - Example: subtract 0.05 from all to move everything up
  */
 export const CHAKRA_ANCHORS: Record<ChakraId, ChakraAnchor> = {
-  crown: { x: 0.5, y: 0.12 },
-  thirdEye: { x: 0.5, y: 0.16 },
-  throat: { x: 0.5, y: 0.20 },
-  heart: { x: 0.5, y: 0.24 },
-  solar: { x: 0.5, y: 0.28 },
-  sacral: { x: 0.5, y: 0.32 },
-  root: { x: 0.5, y: 0.36 }
+  crown: { x: 0.5, y: 0.12 },    // TOP chakra - decrease y to move higher, increase to move lower
+  thirdEye: { x: 0.5, y: 0.16 }, // Decrease y to compress upward, increase to spread downward
+  throat: { x: 0.5, y: 0.20 },   // Adjust proportionally with others
+  heart: { x: 0.5, y: 0.24 },    // CENTER reference point
+  solar: { x: 0.5, y: 0.28 },    // Adjust proportionally with others
+  sacral: { x: 0.5, y: 0.32 },   // Increase y to spread downward, decrease to compress upward
+  root: { x: 0.5, y: 0.36 }      // BOTTOM chakra - increase y to move lower, decrease to move higher
 };
 
 /**

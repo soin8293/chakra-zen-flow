@@ -65,26 +65,36 @@ export function useChakraLayout(
     };
   }, [containerSel, imageSel]);
 
-  // compute spineRect from container height
+  // SPINE HEIGHT CALCULATION
+  // ========================
+  // This determines the vertical space available for chakra positioning
   const spineRect: SpineRect = useMemo(() => {
     const H = containerH || 0;
     if (!H) return { topPx: 0, heightPx: 0 };
 
     if (imageH > 0 && imageTopRel !== null) {
-      const spineH = clamp(imageH, 200, H);
+      // EDIT THESE VALUES TO ADJUST SPINE HEIGHT:
+      const spineH = clamp(imageH, 200, H);        // min: 200px, max: container height
       const spineTop = clamp(imageTopRel, 0, H - spineH);
       return { topPx: spineTop, heightPx: spineH };
     }
 
-    // fallback: center within container
-    const spineH = clamp(H * 0.70, 200, H);
-    const spineTop = (H - spineH) / 2;
+    // FALLBACK SPINE SIZING (when no image detected):
+    // Change 0.70 to make spine taller (0.80) or shorter (0.60)
+    const spineH = clamp(H * 0.70, 200, H);      // 70% of container height
+    const spineTop = (H - spineH) / 2;           // Center vertically
     return { topPx: spineTop, heightPx: spineH };
   }, [containerH, imageH, imageTopRel]);
 
-  // compute responsive scale factor
+  // CHAKRA SCALING CALCULATION
+  // ==========================
+  // This makes chakras bigger/smaller based on available space
   const scale = useMemo(() => {
     if (!containerH || !spineRect.heightPx) return 1;
+    // EDIT THESE VALUES TO ADJUST CHAKRA SIZE SCALING:
+    // - Change 560 to make chakras scale sooner (lower) or later (higher)
+    // - Change 0.85 to set minimum scale (smaller = tinier chakras)
+    // - Change 1.25 to set maximum scale (larger = bigger chakras)
     return Math.min(Math.max(spineRect.heightPx / 560, 0.85), 1.25);
   }, [containerH, spineRect.heightPx]);
 
