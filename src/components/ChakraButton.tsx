@@ -1,4 +1,4 @@
-import { Chakra } from "@/types/chakra";
+import { Chakra, ChakraId } from "@/types/chakra"; // Added ChakraId
 import { cn } from "@/lib/utils";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 
@@ -28,10 +28,17 @@ export function ChakraButton({ chakra, position, onClick, isExpanding, isSelecte
   const prefersReducedMotion = typeof window !== 'undefined' && 
     window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  // For debug title
+  const isDebug = typeof window !== 'undefined' && new URLSearchParams(window.location.search).has('debug');
+
   return (
     <Tooltip>
       <TooltipTrigger asChild>
         <button
+          // TASK 2: Add data-chakra-id
+          data-chakra-id={chakra.id as ChakraId} // Assuming chakra.id is the ChakraId
+          // TASK 2: Add conditional title for debug
+          title={isDebug ? `ID: ${chakra.id}\nX: ${position.x.toFixed(1)}%\nY: ${position.y.toFixed(1)}%` : undefined}
           className={cn(
             "absolute rounded-full flex items-center justify-center",
             "transition-all duration-300 will-change-transform",

@@ -100,17 +100,35 @@ export function useChakraLayout(
 
   // compute positions using geometry-driven anchors
   const positions: Pos[] = useMemo(() => {
+    // Debug Gate
+    const isDebug = new URLSearchParams(window.location.search).has('debug');
+
     if (!containerH || !spineRect.heightPx) return [];
     const anchors = getChakraPositions();
-    console.log("🔥 CHAKRA ANCHORS:", anchors);
+
+    if (isDebug) {
+      console.log("CHAKRA DEBUG: Raw anchors from getChakraPositions():", JSON.parse(JSON.stringify(anchors)));
+      console.log("CHAKRA DEBUG: Computed spineRect:", JSON.parse(JSON.stringify(spineRect)));
+    }
+
     const out: Pos[] = Object.entries(anchors).map(([id, pos]) => {
-      const yPx = spineRect.topPx + pos.y * spineRect.heightPx;
+      // Ensure pos.y is a number, default to 0 if not (should not happen with current ChakraAnchors.ts)
+      const anchorY = typeof pos.y === 'number' ? pos.y : 0;
+      const yPx = spineRect.topPx + anchorY * spineRect.heightPx;
       const yPercent = (yPx / containerH) * 100;
-      console.log(`🔥 ${id}: anchor y=${pos.y} -> yPx=${yPx} -> yPercent=${yPercent}`);
-      return { id: id as ChakraId, xPercent: pos.x * 100, yPercent };
+
+      // Ensure pos.x is a number, default to 0.5 if not
+      const anchorX = typeof pos.x === 'number' ? pos.x : 0.5;
+      const xPercent = anchorX * 100;
+
+      if (isDebug) {
+        console.log(`CHAKRA DEBUG: ${id} - Raw anchor: { x: ${anchorX}, y: ${anchorY} }`);
+        console.log(`CHAKRA DEBUG: ${id} - Calculated: yPx=${yPx.toFixed(2)}, xPercent=${xPercent.toFixed(2)}%, yPercent=${yPercent.toFixed(2)}%`);
+      }
+      return { id: id as ChakraId, xPercent, yPercent };
     });
     return out;
-  }, [containerH, spineRect]);
+  }, [containerH, spineRect, window.location.search]);
 
   const spineStyle = useMemo(() => {
     return {
