@@ -1,4 +1,5 @@
-import { Chakra, ChakraId } from "@/types/chakra"; // Added ChakraId
+import { Chakra } from "@/types/chakra";
+import { ChakraId } from "@/features/zenflow/ChakraAnchors";
 import { cn } from "@/lib/utils";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 

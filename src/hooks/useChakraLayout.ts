@@ -65,24 +65,34 @@ export function useChakraLayout(
     };
   }, [containerSel, imageSel]);
 
-  // SPINE HEIGHT CALCULATION
-  // ========================
-  // This determines the vertical space available for chakra positioning
+  // RESPONSIVE SPINE HEIGHT CALCULATION
+  // ===================================
+  // Enhanced spine calculation with viewport constraints and better fallbacks
   const spineRect: SpineRect = useMemo(() => {
     const H = containerH || 0;
     if (!H) return { topPx: 0, heightPx: 0 };
 
+    // Viewport-based constraints for better responsive behavior
+    const viewportHeight = window.innerHeight;
+    const viewportWidth = window.innerWidth;
+    const isPortrait = viewportHeight > viewportWidth;
+    const isSmallScreen = Math.min(viewportWidth, viewportHeight) < 400;
+
     if (imageH > 0 && imageTopRel !== null) {
-      // EDIT THESE VALUES TO ADJUST SPINE HEIGHT:
-      const spineH = clamp(imageH, 200, H);        // min: 200px, max: container height
+      // Image-based spine calculation with viewport constraints
+      const minSpineH = isSmallScreen ? 150 : 200;
+      const maxSpineH = Math.min(H, viewportHeight * 0.8);
+      const spineH = clamp(imageH, minSpineH, maxSpineH);
       const spineTop = clamp(imageTopRel, 0, H - spineH);
       return { topPx: spineTop, heightPx: spineH };
     }
 
-    // FALLBACK SPINE SIZING (when no image detected):
-    // Change 0.70 to make spine taller (0.80) or shorter (0.60)
-    const spineH = clamp(H * 0.70, 200, H);      // 70% of container height
-    const spineTop = (H - spineH) / 2;           // Center vertically
+    // Enhanced fallback with responsive considerations
+    const spineRatio = isPortrait ? 0.70 : (isSmallScreen ? 0.60 : 0.75);
+    const minSpineH = isSmallScreen ? 150 : 200;
+    const maxSpineH = Math.min(H, viewportHeight * 0.8);
+    const spineH = clamp(H * spineRatio, minSpineH, maxSpineH);
+    const spineTop = (H - spineH) / 2;
     return { topPx: spineTop, heightPx: spineH };
   }, [containerH, imageH, imageTopRel]);
 
@@ -98,9 +108,8 @@ export function useChakraLayout(
     return Math.min(Math.max(spineRect.heightPx / 560, 0.85), 1.25);
   }, [containerH, spineRect.heightPx]);
 
-  // compute positions using geometry-driven anchors
+  // Enhanced chakra position calculation with validation
   const positions: Pos[] = useMemo(() => {
-    // Debug Gate
     const isDebug = new URLSearchParams(window.location.search).has('debug');
 
     if (!containerH || !spineRect.heightPx) return [];
@@ -112,19 +121,29 @@ export function useChakraLayout(
     }
 
     const out: Pos[] = Object.entries(anchors).map(([id, pos]) => {
-      // Ensure pos.y is a number, default to 0 if not (should not happen with current ChakraAnchors.ts)
-      const anchorY = typeof pos.y === 'number' ? pos.y : 0;
+      // Coordinate validation and normalization
+      const anchorY = typeof pos.y === 'number' ? clamp(pos.y, 0, 1) : 0;
+      const anchorX = typeof pos.x === 'number' ? clamp(pos.x, 0, 1) : 0.5;
+      
+      // Warn about invalid coordinates in development
+      if (isDebug && (pos.y < 0 || pos.y > 1 || pos.x < 0 || pos.x > 1)) {
+        console.warn(`CHAKRA WARNING: ${id} has invalid coordinates: { x: ${pos.x}, y: ${pos.y} }. Should be between 0-1.`);
+      }
+
       const yPx = spineRect.topPx + anchorY * spineRect.heightPx;
       const yPercent = (yPx / containerH) * 100;
-
-      // Ensure pos.x is a number, default to 0.5 if not
-      const anchorX = typeof pos.x === 'number' ? pos.x : 0.5;
       const xPercent = anchorX * 100;
+
+      // Additional validation for off-screen elements
+      if (isDebug && (yPercent < 0 || yPercent > 100)) {
+        console.warn(`CHAKRA WARNING: ${id} is off-screen. yPercent: ${yPercent.toFixed(2)}%`);
+      }
 
       if (isDebug) {
         console.log(`CHAKRA DEBUG: ${id} - Raw anchor: { x: ${anchorX}, y: ${anchorY} }`);
         console.log(`CHAKRA DEBUG: ${id} - Calculated: yPx=${yPx.toFixed(2)}, xPercent=${xPercent.toFixed(2)}%, yPercent=${yPercent.toFixed(2)}%`);
       }
+      
       return { id: id as ChakraId, xPercent, yPercent };
     });
     return out;

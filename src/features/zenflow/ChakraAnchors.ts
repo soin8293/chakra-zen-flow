@@ -52,13 +52,13 @@ export interface ChakraAnchor {
  * - Example: subtract 0.05 from all to move everything up
  */
 export const CHAKRA_ANCHORS: Record<ChakraId, ChakraAnchor> = {
-  crown: { x: 0.5, y: 0.0 },    // TOP chakra - at head (e.g. y=0.05)
-  thirdEye: { x: 0.5, y: 0.13 }, // Forehead area
+  crown: { x: 0.5, y: 0.05 },    // TOP chakra - at head (moved down from 0.0 for visibility)
+  thirdEye: { x: 0.5, y: 0.15 }, // Forehead area
   throat: { x: 0.5, y: 0.30 },   // Throat area
   heart: { x: 0.5, y: 0.45 },    // CENTER reference point - chest
   solar: { x: 0.5, y: 0.60 },    // Upper abdomen
   sacral: { x: 0.5, y: 0.75 },   // Lower abdomen
-  root: { x: 0.5, y: 0.80 }       // BOTTOM chakra - at base of spine (y=1)
+  root: { x: 0.5, y: 0.90 }       // BOTTOM chakra - at base of spine
 };
 
 /**

@@ -1,4 +1,3 @@
-\
 import React, { useEffect, useState } from 'react';
 import { useChakraLayout } from '@/hooks/useChakraLayout';
 import { CHAKRA_ANCHORS, ChakraId } from '@/features/zenflow/ChakraAnchors';
