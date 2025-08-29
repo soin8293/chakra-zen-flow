@@ -1,5 +1,6 @@
 import { Article, MiniArticle } from "@/types/chakra";
 import { additionalArticles } from "./additionalArticles";
+import { simpleLearningCards } from "./simpleLearningCards";
 
 export const articles: Article[] = [
   // Core Concepts
@@ -1197,7 +1198,8 @@ export const articles: Article[] = [
     lastUpdated: '2024-01-15',
     featured: true
   },
-  ...additionalArticles
+  ...additionalArticles,
+  ...simpleLearningCards
 ];
 
 export const miniArticles: MiniArticle[] = [
