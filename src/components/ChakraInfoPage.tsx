@@ -42,6 +42,7 @@ export function ChakraInfoPage({ onBack, onChakraSelect, onArticleSelect, onBook
 
   const categoryDisplayNames: Record<ArticleCategory | 'all', string> = {
     'all': 'All Topics',
+    'basic-concepts': 'Basics',
     'core-concepts': 'Core Concepts',
     'practices': 'Practices',
     'science': 'Science',

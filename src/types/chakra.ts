@@ -167,6 +167,7 @@ export interface MiniArticle {
 
 export type ArticleCategory = 
   | 'core-concepts'
+  | 'basic-concepts'
   | 'practices' 
   | 'science'
   | 'healing'
