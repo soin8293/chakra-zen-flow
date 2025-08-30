@@ -26,6 +26,7 @@ interface Props {
 }
 
 export const AccessibilityProvider: React.FC<Props> = ({ children }) => {
+  console.log('AccessibilityProvider: Rendering');
   const [announcements, setAnnouncements] = useState<string[]>([]);
   const [reduceMotion, setReduceMotion] = useState(false);
   const [highContrast, setHighContrast] = useState(false);

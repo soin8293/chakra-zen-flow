@@ -34,6 +34,7 @@ type AppScreen =
   | 'bookmarks';
 
 const Index = () => {
+  console.log('IndexPage: Rendering');
   const [currentScreen, setCurrentScreen] = useState<AppScreen>('home');
   const [selectedChakra, setSelectedChakra] = useState<Chakra | null>(null);
   const [sessionDuration, setSessionDuration] = useState<number>(5);

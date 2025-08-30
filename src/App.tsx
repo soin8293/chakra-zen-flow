@@ -7,7 +7,9 @@ import { AccessibilityProvider } from "@/components/AccessibilityProvider";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 
-const App = () => (
+const App = () => {
+  console.log('App: Rendering');
+  return (
   <ErrorBoundary>
     <AccessibilityProvider>
       <TooltipProvider>
@@ -23,6 +25,7 @@ const App = () => (
       </TooltipProvider>
     </AccessibilityProvider>
   </ErrorBoundary>
-);
+  );
+};
 
 export default App;
