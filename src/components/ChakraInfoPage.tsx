@@ -30,6 +30,9 @@ export function ChakraInfoPage({ onBack, onChakraSelect, onArticleSelect, onBook
     }
   }, [initialSearchTag]);
 
+  console.log('ChakraInfoPage: Total articles available:', articles.length);
+  console.log('ChakraInfoPage: Simple learning cards found:', articles.filter(a => a.tags.includes('simple')).length);
+  
   const featuredArticles = articles.filter(article => article.featured);
   
   const filteredArticles = articles.filter(article => {
@@ -39,6 +42,10 @@ export function ChakraInfoPage({ onBack, onChakraSelect, onArticleSelect, onBook
       article.tags.some(tag => tag.toLowerCase().includes(searchQuery.toLowerCase()));
     return matchesCategory && matchesSearch;
   });
+  
+  console.log('ChakraInfoPage: Filtered articles count:', filteredArticles.length);
+  console.log('ChakraInfoPage: Active category:', activeCategory);
+  console.log('ChakraInfoPage: Search query:', searchQuery);
 
   const categoryDisplayNames: Record<ArticleCategory | 'all', string> = {
     'all': 'All Topics',
