@@ -78,11 +78,15 @@ export function ChakraButton({ chakra, position, onClick, isExpanding, isSelecte
    * with screen size and the scale factor from useChakraLayout.
    */
   
-  // Button size: scales with position.scale from layout system
-  const buttonSize = Math.max(32, Math.min(56, 48 * position.scale));
+  // Button size: scales with position.scale from layout system, mobile-optimized
+  const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+  const minSize = isMobile ? 28 : 32; // Smaller minimum on mobile
+  const maxSize = isMobile ? 48 : 56; // Smaller maximum on mobile
+  const baseSize = isMobile ? 42 : 48; // Smaller base size on mobile
+  const buttonSize = Math.max(minSize, Math.min(maxSize, baseSize * position.scale));
   
   // Font size: scales proportionally with button size
-  const fontSize = Math.max(12, Math.min(20, 16 * position.scale));
+  const fontSize = Math.max(10, Math.min(18, 14 * position.scale));
 
   /**
    * ACCESSIBILITY AND MOTION PREFERENCES
@@ -119,7 +123,7 @@ export function ChakraButton({ chakra, position, onClick, isExpanding, isSelecte
             "absolute rounded-full flex items-center justify-center",
             "transition-all duration-300 will-change-transform",
             "shadow-lg border-2 group relative overflow-hidden",
-            "touch-manipulation min-w-[48px] min-h-[48px]", // Accessibility: minimum touch target
+            "touch-manipulation", // Improved touch for mobile
             {
               // STATE-BASED STYLING: Different appearances for different states
               "border-white/30 hover:border-white/60": !isSelected && !isExpanding,

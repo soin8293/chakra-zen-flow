@@ -254,16 +254,29 @@ export function useChakraLayout(
     // If no dimensions available, use normal scale
     if (!containerH || !spineRect.heightPx) return 1;
     
-    // SCALING FORMULA:
-    // - Base calculation: spineHeight / 560px (this can be adjusted)
-    // - Minimum scale: 0.85 (prevents chakras from being too tiny)  
-    // - Maximum scale: 1.25 (prevents chakras from being too huge)
-    //
-    // AI AGENTS: Adjust these values to change chakra size behavior:
-    // - Change 560 to make scaling more/less sensitive to spine size
-    // - Change 0.85 to set different minimum size limit
-    // - Change 1.25 to set different maximum size limit
-    return Math.min(Math.max(spineRect.heightPx / 560, 0.85), 1.25);
+    // Get viewport information for mobile-specific scaling
+    const viewportHeight = window.innerHeight;
+    const viewportWidth = window.innerWidth;
+    const isMobile = Math.min(viewportWidth, viewportHeight) < 768;
+    const isSmallMobile = Math.min(viewportWidth, viewportHeight) < 400;
+    
+    // ENHANCED SCALING FORMULA FOR MOBILE:
+    // - Base calculation: spineHeight / 560px (reference size)
+    // - Mobile devices: More aggressive scaling down (min 0.6 vs 0.85)
+    // - Small mobile: Even more aggressive (min 0.5)
+    // - Desktop: Keep original range (0.85-1.25)
+    let baseScale = spineRect.heightPx / 560;
+    
+    if (isSmallMobile) {
+      // Very small screens: allow very small chakras to fit everything
+      return Math.min(Math.max(baseScale, 0.5), 1.0);
+    } else if (isMobile) {
+      // Mobile screens: more aggressive scaling
+      return Math.min(Math.max(baseScale, 0.6), 1.1);
+    } else {
+      // Desktop: original scaling
+      return Math.min(Math.max(baseScale, 0.85), 1.25);
+    }
   }, [containerH, spineRect.heightPx]);  // Recalculate when container or spine changes
 
   /**

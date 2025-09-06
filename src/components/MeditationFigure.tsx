@@ -103,7 +103,7 @@ export function MeditationFigure({ onChakraClick, expandingChakraId }: Meditatio
    * - Scale factor adjusts chakra sizes responsively
    */
   return (
-    <div className="relative w-full h-full flex items-center justify-center min-h-[400px] max-w-[880px] mx-auto px-4">
+    <div className="relative w-full h-full flex items-center justify-center min-h-[350px] max-w-[880px] mx-auto px-2">
       {/* 
         MAIN CONTAINER: Responsive Meditation Figure Container
         ===================================================
@@ -116,10 +116,10 @@ export function MeditationFigure({ onChakraClick, expandingChakraId }: Meditatio
         className="relative transition-all duration-300 ease-out w-full h-full"
         data-meditation-container  // ← IMPORTANT: This is how useChakraLayout finds the container
         style={{
-          minWidth: '300px',      // Prevent too small on mobile
-          minHeight: '400px',     // Ensure minimum usable height
+          minWidth: '280px',      // Smaller min for mobile
+          minHeight: '350px',     // Smaller min height for mobile
           maxWidth: '800px',      // Prevent too large on desktop
-          maxHeight: '100vh'      // Don't exceed viewport height
+          maxHeight: '90vh'       // Use more viewport height on mobile
         }}
       >
         {/* 
