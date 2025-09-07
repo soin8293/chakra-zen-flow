@@ -144,7 +144,7 @@ All colors MUST be HSL.
     padding: 0;
     width: 100%;
     min-height: 100vh;
-    height: 100%;
+    /* Remove conflicting height: 100% */
     overflow-x: hidden;
     /* Better mobile handling */
     position: relative;
@@ -152,18 +152,7 @@ All colors MUST be HSL.
     overscroll-behavior: none;
   }
 
-  #root {
-    width: 100%;
-    min-height: 100vh;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    /* Ensure proper mobile container */
-    display: flex;
-    flex-direction: column;
-    /* Prevent content overflow */
-    overflow-x: hidden;
-  }
+  /* Remove duplicate #root definition - it's handled in App.css */
 }
 
 @layer utilities {
