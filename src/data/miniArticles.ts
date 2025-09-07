@@ -12,8 +12,11 @@ export const miniArticles: Article[] = [
       {
         id: 'deep-breathing-simple',
         title: 'How to Breathe Deeply',
-        content: 'Place one hand on your chest, one on your belly. Breathe in slowly through your nose, letting your belly rise more than your chest. This activates your diaphragm and triggers your body\'s relaxation response. Practice this for just 2-3 minutes daily.',
-        hyperlinks: []
+        content: "Place one hand on your chest, one on your belly. Breathe in slowly through your nose, letting your belly rise more than your chest. This activates your diaphragm and triggers your body's relaxation response. Practice this for just 2-3 minutes daily.",
+        hyperlinks: [
+          { text: 'diaphragm', targetId: 'diaphragmatic-breathing', type: 'mini-article' },
+          { text: 'relaxation response', targetId: 'stress-relief-basics', type: 'mini-article' }
+        ]
       }
     ],
     readTime: 1,
@@ -30,8 +33,11 @@ export const miniArticles: Article[] = [
       {
         id: 'mindful-breathing',
         title: 'Watching Your Breath',
-        content: 'Simply notice your breathing without changing it. Feel the air entering and leaving your nostrils. Notice if your breath is shallow or deep, fast or slow. This gentle awareness naturally deepens and slows your breathing.',
-        hyperlinks: []
+        content: "Simply notice your breathing without changing it. Feel the air entering and leaving your nostrils. Notice if your breath is shallow or deep, fast or slow. This gentle awareness naturally deepens and slows your breathing.",
+        hyperlinks: [
+          { text: 'awareness', targetId: 'mindfulness-basics', type: 'mini-article' },
+          { text: 'mindfulness', targetId: 'present-moment', type: 'mini-article' }
+        ]
       }
     ],
     readTime: 1,
@@ -49,7 +55,10 @@ export const miniArticles: Article[] = [
         id: 'counted-breathing',
         title: 'Counting Your Breaths',
         content: 'Try breathing in for 4 counts, holding for 4, then out for 6. The longer exhale activates your parasympathetic nervous system. Start with whatever count feels comfortable - even 2-2-3 works great.',
-        hyperlinks: []
+        hyperlinks: [
+          { text: 'parasympathetic nervous system', targetId: 'nervous-system', type: 'mini-article' },
+          { text: 'longer exhale', targetId: 'extended-exhale', type: 'mini-article' }
+        ]
       }
     ],
     readTime: 1,
@@ -87,7 +96,10 @@ export const miniArticles: Article[] = [
         id: 'morning-intentions',
         title: 'How to Set Daily Intentions',
         content: 'Each morning, take a moment to think about how you want to feel or what quality you want to embody today. Maybe it\'s patience, joy, or kindness. Keep it simple and positive. Let this intention guide your choices throughout the day.',
-        hyperlinks: []
+        hyperlinks: [
+          { text: 'intentions', targetId: 'intention-setting', type: 'mini-article' },
+          { text: 'mindfulness', targetId: 'mindfulness-basics', type: 'mini-article' }
+        ]
       }
     ],
     readTime: 1,
@@ -125,7 +137,10 @@ export const miniArticles: Article[] = [
         id: 'daily-gratitude',
         title: 'Finding Things to Appreciate',
         content: 'Each day, notice three things you appreciate - they can be big or small. Maybe it\'s your morning coffee, a text from a friend, or simply that you\'re breathing. Gratitude shifts your focus to what\'s good in your life.',
-        hyperlinks: []
+        hyperlinks: [
+          { text: 'gratitude', targetId: 'gratitude-practice', type: 'mini-article' },
+          { text: 'appreciation', targetId: 'appreciation-meditation', type: 'mini-article' }
+        ]
       }
     ],
     readTime: 1,
@@ -145,7 +160,10 @@ export const miniArticles: Article[] = [
         id: 'stress-release-technique',
         title: 'Letting Go of Stress',
         content: 'Imagine stress as a heavy backpack you can set down. Take a deep breath and imagine placing all your worries in this imaginary pack. Gently set it aside, knowing you can pick it up later if needed. Feel the lightness.',
-        hyperlinks: []
+        hyperlinks: [
+          { text: 'stress', targetId: 'stress-physiology', type: 'mini-article' },
+          { text: 'visualization', targetId: 'guided-imagery', type: 'mini-article' }
+        ]
       }
     ],
     readTime: 1,
@@ -183,7 +201,10 @@ export const miniArticles: Article[] = [
         id: 'energizing-movement',
         title: 'Simple Movements for Energy',
         content: 'Gentle stretching, arm circles, or even wiggling your fingers and toes can boost energy. Movement helps blood flow and releases feel-good chemicals in your brain. Listen to your body and move in ways that feel good.',
-        hyperlinks: []
+        hyperlinks: [
+          { text: 'gentle stretching', targetId: 'simple-stretches', type: 'mini-article' },
+          { text: 'feel-good chemicals', targetId: 'endorphins', type: 'mini-article' }
+        ]
       }
     ],
     readTime: 1,
@@ -201,7 +222,10 @@ export const miniArticles: Article[] = [
         id: 'shoulder-relief',
         title: 'Quick Tension Relief',
         content: 'Slowly roll your shoulders backwards 5 times. Gently turn your head left and right. Drop your right ear toward your right shoulder, hold for 10 seconds, then switch sides. These simple moves release common tension spots.',
-        hyperlinks: []
+        hyperlinks: [
+          { text: 'tension', targetId: 'muscle-tension', type: 'mini-article' },
+          { text: 'stretching', targetId: 'neck-stretches', type: 'mini-article' }
+        ]
       }
     ],
     readTime: 1,
@@ -733,7 +757,10 @@ export const miniArticles: Article[] = [
         id: 'vitality-awareness-practice',
         title: 'Checking Your Energy',
         content: 'Throughout the day, pause and notice your energy level. Do you feel energized, tired, restless, or calm? Where do you feel this in your body? This awareness helps you understand what activities, foods, or thoughts affect your vitality.',
-        hyperlinks: []
+        hyperlinks: [
+          { text: 'energy level', targetId: 'vitality-check', type: 'mini-article' },
+          { text: 'body awareness', targetId: 'somatic-awareness', type: 'mini-article' }
+        ]
       }
     ],
     readTime: 1,
@@ -753,7 +780,10 @@ export const miniArticles: Article[] = [
         id: 'stress-chemistry-simple',
         title: 'Understanding Stress Hormones',
         content: 'When stressed, your body releases cortisol and adrenaline - chemicals that give you energy to handle danger. In small amounts, they\'re helpful. But chronic stress keeps these chemicals high, which can make you feel anxious, tired, or overwhelmed.',
-        hyperlinks: []
+        hyperlinks: [
+          { text: 'cortisol', targetId: 'cortisol-effects', type: 'mini-article' },
+          { text: 'chronic stress', targetId: 'chronic-stress-effects', type: 'mini-article' }
+        ]
       }
     ],
     readTime: 1,
@@ -825,7 +855,10 @@ export const miniArticles: Article[] = [
         id: 'bioelectric-field-simple',
         title: 'The Electricity in Your Body',
         content: 'Your heart, brain, and nervous system all run on electrical signals. This creates a measurable energy field around your body. When you\'re healthy and relaxed, this field is strong and coherent. Stress and illness can make it weak or chaotic.',
-        hyperlinks: []
+        hyperlinks: [
+          { text: 'energy field', targetId: 'field-harmony', type: 'mini-article' },
+          { text: 'coherent', targetId: 'coherence-benefits', type: 'mini-article' }
+        ]
       }
     ],
     readTime: 1,
@@ -861,7 +894,10 @@ export const miniArticles: Article[] = [
         id: 'vibration-emotion-connection',
         title: 'The Connection Between Vibration and Emotions',
         content: 'Everything vibrates at different frequencies, including your thoughts and emotions. Love and joy vibrate at higher frequencies than fear and anger. By choosing higher-vibrating thoughts and activities, you can naturally shift how you feel.',
-        hyperlinks: []
+        hyperlinks: [
+          { text: 'frequencies', targetId: 'vibrational-scale', type: 'mini-article' },
+          { text: 'higher-vibrating thoughts', targetId: 'positive-thinking', type: 'mini-article' }
+        ]
       }
     ],
     readTime: 1,
