@@ -1,8 +1,16 @@
+/* Mobile-first container setup */
 #root {
   width: 100%;
   min-height: 100vh;
+  height: 100%;
   margin: 0;
   padding: 0;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  /* Prevent mobile scroll issues */
+  position: relative;
+  contain: layout style;
 }
 
 .logo {

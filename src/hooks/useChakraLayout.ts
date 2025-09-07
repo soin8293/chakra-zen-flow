@@ -260,19 +260,27 @@ export function useChakraLayout(
     const isMobile = Math.min(viewportWidth, viewportHeight) < 768;
     const isSmallMobile = Math.min(viewportWidth, viewportHeight) < 400;
     
-    // ENHANCED SCALING FORMULA FOR MOBILE:
-    // - Base calculation: spineHeight / 560px (reference size)
-    // - Mobile devices: More aggressive scaling down (min 0.6 vs 0.85)
-    // - Small mobile: Even more aggressive (min 0.5)
-    // - Desktop: Keep original range (0.85-1.25)
-    let baseScale = spineRect.heightPx / 560;
+    // ULTRA-ROBUST MOBILE SCALING FORMULA:
+    // - Base calculation adjusted for smaller reference size
+    // - Extra small mobile: Very aggressive scaling (min 0.35)
+    // - Small mobile: Aggressive scaling (min 0.45) 
+    // - Mobile: Moderate scaling (min 0.55)
+    // - Desktop: Conservative scaling (0.85-1.25)
+    let baseScale = spineRect.heightPx / 480; // Smaller reference for tighter fit
     
-    if (isSmallMobile) {
-      // Very small screens: allow very small chakras to fit everything
-      return Math.min(Math.max(baseScale, 0.5), 1.0);
+    // Get more detailed size categories
+    const isExtraSmallMobile = Math.min(viewportWidth, viewportHeight) < 350;
+    const containerScale = Math.min(containerH / 400, 1); // Additional container-based scaling
+    
+    if (isExtraSmallMobile) {
+      // Extra small screens: ultra-aggressive scaling to ensure all chakras fit
+      return Math.min(Math.max(baseScale * containerScale, 0.35), 0.8);
+    } else if (isSmallMobile) {
+      // Small screens: very aggressive scaling
+      return Math.min(Math.max(baseScale * containerScale, 0.45), 0.9);
     } else if (isMobile) {
-      // Mobile screens: more aggressive scaling
-      return Math.min(Math.max(baseScale, 0.6), 1.1);
+      // Mobile screens: aggressive scaling
+      return Math.min(Math.max(baseScale * containerScale, 0.55), 1.0);
     } else {
       // Desktop: original scaling
       return Math.min(Math.max(baseScale, 0.85), 1.25);
