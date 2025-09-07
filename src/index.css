@@ -195,19 +195,36 @@ All colors MUST be HSL.
     height: 100dvh; /* Dynamic viewport height when supported */
   }
   
-  @media (prefers-reduced-motion: reduce) {
-    .chakra-pulse {
-      animation: none;
-    }
+  /* Safe area utilities for mobile */
+  .pb-safe {
+    padding-bottom: max(1.5rem, env(safe-area-inset-bottom));
   }
   
-  /* Extra mobile-specific optimizations */
+  .mb-safe {
+    margin-bottom: max(1rem, env(safe-area-inset-bottom));
+  }
+  
+  /* Enable smooth scrolling on mobile */
   @media (max-width: 768px) {
+    html, body {
+      /* Enable momentum scrolling on iOS */
+      -webkit-overflow-scrolling: touch;
+      /* Improve scroll performance */
+      scroll-behavior: smooth;
+    }
+    
     .meditation-figure-mobile {
       /* Force proper sizing on mobile */
       min-height: 280px !important;
       max-height: 75vh !important;
       width: 100% !important;
+    }
+    
+    /* Ensure buttons are always accessible */
+    .meditation-cta-mobile {
+      position: relative;
+      z-index: 50;
+      margin-bottom: 1rem;
     }
   }
   
@@ -216,6 +233,10 @@ All colors MUST be HSL.
       /* Even more aggressive sizing for small screens */
       min-height: 250px !important;
       max-height: 70vh !important;
+    }
+    
+    .pb-safe {
+      padding-bottom: max(2rem, env(safe-area-inset-bottom));
     }
   }
 }

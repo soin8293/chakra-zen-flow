@@ -25,7 +25,7 @@ export function MeditationCTA({
   };
 
   return (
-    <div className={cn("flex justify-center", className)}>
+    <div className={cn("flex justify-center meditation-cta-mobile", className)}>
       <button
         onClick={handleClick}
         disabled={disabled}

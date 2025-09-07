@@ -280,14 +280,14 @@ if (currentScreen === 'session' && selectedChakra) {
 
   // Home screen
   return (
-    <div className="min-h-screen bg-gradient-cosmic relative overflow-hidden">
+    <div className="min-h-screen bg-gradient-cosmic relative overflow-x-hidden overflow-y-auto">
       {/* Particle background (dimmed for better contrast) */}
       <div className="opacity-40">
         <ParticleBackground />
       </div>
 
       {/* Main content */}
-      <div className="relative z-10 flex flex-col min-h-screen">
+      <div className="relative z-10 flex flex-col min-h-screen pb-safe">
         {/* Header with streak indicator */}
         <div className="text-center pt-8 pb-6 px-4">
           <div className="flex items-center justify-center gap-4 mb-4">
@@ -305,8 +305,8 @@ if (currentScreen === 'session' && selectedChakra) {
           </p>
         </div>
 
-        {/* Primary CTA */}
-        <div className="px-4">
+        {/* Primary CTA - ensure it's accessible on mobile */}
+        <div className="px-4 mb-4">
           <MeditationCTA
             isActive={hasActiveSession}
             onStart={() => {
@@ -325,16 +325,16 @@ if (currentScreen === 'session' && selectedChakra) {
           />
         </div>
 
-        {/* Meditation figure with chakras */}
-        <div className="flex-1 flex items-center justify-center px-4">
+        {/* Meditation figure with chakras - allow it to be scrollable */}
+        <div className="flex-1 flex items-center justify-center px-4 min-h-[300px] py-4">
           <MeditationFigure
             onChakraClick={handleChakraClick}
             expandingChakraId={expandingChakraId}
           />
         </div>
 
-        {/* Instruction */}
-        <div className="text-center text-white/60 pb-6 px-4">
+        {/* Instruction with bottom padding for mobile access */}
+        <div className="text-center text-white/60 pb-6 px-4 mb-safe">
           <p className="text-sm">Tap a chakra point to customize your session</p>
         </div>
       </div>
