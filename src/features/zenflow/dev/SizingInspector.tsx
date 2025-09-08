@@ -8,6 +8,7 @@ interface SizingData {
   centerlineX: number;
   sheetHeight: number;
   chakraButtonDiameter: number;
+  spineArea: { top: number; height: number; bottom: number };
   anchorsNorm: Array<{ id: ChakraId; x: number; y: number }>;
   anchorsPx: Array<{ id: ChakraId; x: number; y: number }>;
   containerConstraints: string[];
@@ -48,6 +49,44 @@ export function SizingInspector({ figureRef, imgRef, scale }: SizingInspectorPro
     // Chakra button diameter (base 48px * scale factor)
     const chakraButtonDiameter = 48 * scale;
 
+    // Get the spine area measurements from the actual layout calculation
+    const viewportHeight = window.innerHeight;
+    const viewportWidth = window.innerWidth;
+    const isPortrait = viewportHeight > viewportWidth;
+    const isSmallScreen = Math.min(viewportWidth, viewportHeight) < 400;
+    
+    // Calculate spine rect using the same logic as useChakraLayout
+    let spineTop = 0;
+    let spineHeight = 0;
+    
+    // Try to get image position for spine calculation
+    const wrapperEl = document.querySelector('[data-spine-wrapper]') as HTMLElement;
+    const measureEl = wrapperEl || img;
+    
+    if (measureEl) {
+      const iRect = measureEl.getBoundingClientRect();
+      const imageTopRel = iRect.top - figureRect.top;
+      const imageH = iRect.height;
+      
+      if (imageH > 0 && imageTopRel !== null) {
+        const minSpineH = isSmallScreen ? 150 : 200;
+        const maxSpineH = Math.min(figureRect.height, viewportHeight * 0.8);
+        const clamp = (v: number, lo: number, hi: number) => Math.max(lo, Math.min(hi, v));
+        
+        spineHeight = clamp(imageH, minSpineH, maxSpineH);
+        spineTop = clamp(imageTopRel, 0, figureRect.height - spineHeight);
+      } else {
+        // Fallback calculation
+        const spineRatio = isPortrait ? 0.70 : (isSmallScreen ? 0.60 : 0.75);
+        const minSpineH = isSmallScreen ? 150 : 200;
+        const maxSpineH = Math.min(figureRect.height, viewportHeight * 0.8);
+        const clamp = (v: number, lo: number, hi: number) => Math.max(lo, Math.min(hi, v));
+        
+        spineHeight = clamp(figureRect.height * spineRatio, minSpineH, maxSpineH);
+        spineTop = (figureRect.height - spineHeight) / 2;
+      }
+    }
+
     // Anchors in normalized coordinates (0-1)
     const anchorsNorm = Object.entries(CHAKRA_ANCHORS).map(([id, anchor]) => ({
       id: id as ChakraId,
@@ -55,19 +94,19 @@ export function SizingInspector({ figureRef, imgRef, scale }: SizingInspectorPro
       y: anchor.y
     }));
 
-    // Convert anchors to pixel coordinates
+    // Convert anchors to ACTUAL pixel coordinates using the spine calculation
     const anchorsPx = anchorsNorm.map(anchor => ({
       id: anchor.id,
       x: figureRect.x + anchor.x * figureRect.width,
-      y: figureRect.y + anchor.y * figureRect.height
+      y: figureRect.y + spineTop + anchor.y * spineHeight  // Use spine calculation, not raw figure height
     }));
 
     // Container constraints analysis
     const containerConstraints = [
-      "Outer: relative w-full h-full flex items-center justify-center min-h-[400px] max-w-[880px] mx-auto px-4",
-      "Inner: relative transition-all duration-300 ease-out w-full h-full",
-      "Inline: minWidth: '300px', minHeight: '400px', maxWidth: '800px', maxHeight: '100vh'",
-      "Image: opacity-90 filter invert object-contain transition-all duration-300 w-full h-full"
+      "Container: data-meditation-container with responsive sizing",
+      "Spine: positioned within figure using image alignment or fallback",
+      "Image: data-meditation-figure with scale(1.55) and centering",
+      "Chakras: positioned relative to spine area, not raw container"
     ];
 
     setData({
@@ -90,6 +129,11 @@ export function SizingInspector({ figureRef, imgRef, scale }: SizingInspectorPro
       centerlineX: Math.round(centerlineX),
       sheetHeight: Math.round(sheetHeight),
       chakraButtonDiameter: Math.round(chakraButtonDiameter),
+      spineArea: {
+        top: Math.round(spineTop),
+        height: Math.round(spineHeight),
+        bottom: Math.round(spineTop + spineHeight)
+      },
       anchorsNorm,
       anchorsPx: anchorsPx.map(p => ({
         id: p.id,
@@ -173,6 +217,13 @@ export function SizingInspector({ figureRef, imgRef, scale }: SizingInspectorPro
         </div>
 
         <div>
+          <div className="text-yellow-300 font-semibold">Spine Area:</div>
+          <div>top: {data.spineArea.top}px</div>
+          <div>height: {data.spineArea.height}px</div>
+          <div>bottom: {data.spineArea.bottom}px</div>
+        </div>
+
+        <div>
           <div className="text-yellow-300 font-semibold">Anchors (norm 0-1):</div>
           {data.anchorsNorm.map(anchor => (
             <div key={anchor.id}>
@@ -213,6 +264,17 @@ export function SizingInspector({ figureRef, imgRef, scale }: SizingInspectorPro
           }}
         />
         
+        {/* Spine area outline */}
+        <div
+          className="absolute border-2 border-green-500"
+          style={{
+            left: data.figure.x,
+            top: data.figure.y + data.spineArea.top,
+            width: data.figure.w,
+            height: data.spineArea.height
+          }}
+        />
+        
         {/* Centerline */}
         <div
           className="absolute border-l-2 border-yellow-500"
@@ -223,16 +285,26 @@ export function SizingInspector({ figureRef, imgRef, scale }: SizingInspectorPro
           }}
         />
         
-        {/* Chakra anchor markers */}
+        {/* Chakra anchor markers with labels */}
         {data.anchorsPx.map(anchor => (
-          <div
-            key={anchor.id}
-            className="absolute w-2 h-2 bg-cyan-400 rounded-full transform -translate-x-1 -translate-y-1"
-            style={{
-              left: anchor.x,
-              top: anchor.y
-            }}
-          />
+          <div key={anchor.id}>
+            <div
+              className="absolute w-3 h-3 bg-cyan-400 rounded-full transform -translate-x-1 -translate-y-1 border border-white"
+              style={{
+                left: anchor.x,
+                top: anchor.y
+              }}
+            />
+            <div
+              className="absolute text-xs bg-black/80 text-white px-1 rounded transform -translate-x-1/2"
+              style={{
+                left: anchor.x,
+                top: anchor.y + 8
+              }}
+            >
+              {anchor.id}
+            </div>
+          </div>
         ))}
       </div>
     </div>
