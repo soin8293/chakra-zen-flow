@@ -5,6 +5,90 @@ import { Article } from "@/types/chakra";
 export const miniArticles: Article[] = [
   // ========== BREATHING & BREATH WORK ==========
   {
+    id: 'diaphragmatic-breathing',
+    title: 'Diaphragmatic Breathing Technique',
+    category: 'techniques',
+    content: [
+      {
+        id: 'diaphragm-explained',
+        title: 'Understanding Your Diaphragm',
+        content: 'The diaphragm is a dome-shaped muscle that sits below your lungs and is your primary breathing muscle. When you breathe in, the diaphragm contracts and moves downward, creating space for your lungs to expand. This deep, full breathing activates your parasympathetic nervous system, which triggers relaxation and reduces stress hormones like cortisol.',
+        hyperlinks: [
+          { text: 'parasympathetic nervous system', targetId: 'nervous-system', type: 'mini-article' },
+          { text: 'stress hormones', targetId: 'stress-relief-basics', type: 'mini-article' }
+        ]
+      }
+    ],
+    readTime: 2,
+    difficulty: 'beginner',
+    relatedTopics: ['breathing', 'anatomy', 'relaxation'],
+    tags: ['breathing', 'diaphragm', 'technique', 'anatomy'],
+    lastUpdated: '2024-01-15'
+  },
+  {
+    id: 'stress-relief-basics',
+    title: 'Understanding Stress Relief',
+    category: 'core-concepts',
+    content: [
+      {
+        id: 'relaxation-response',
+        title: 'Your Body\'s Natural Relaxation Response',
+        content: 'The relaxation response is your body\'s built-in antidote to stress. When activated through deep breathing, meditation, or gentle movement, it slows your heart rate, lowers blood pressure, and reduces stress hormones like cortisol and adrenaline. This response helps restore balance to your nervous system and promotes healing and recovery.',
+        hyperlinks: [
+          { text: 'nervous system', targetId: 'nervous-system', type: 'mini-article' },
+          { text: 'meditation', targetId: 'meditation-basics', type: 'mini-article' }
+        ]
+      }
+    ],
+    readTime: 2,
+    difficulty: 'beginner',
+    relatedTopics: ['stress', 'relaxation', 'health'],
+    tags: ['stress', 'relaxation', 'health', 'wellbeing'],
+    lastUpdated: '2024-01-15'
+  },
+  {
+    id: 'intention-setting',
+    title: 'The Art of Setting Intentions',
+    category: 'practices',
+    content: [
+      {
+        id: 'intention-vs-goal',
+        title: 'Intentions vs Goals',
+        content: 'An intention is different from a goal. While goals focus on specific outcomes, intentions focus on how you want to be and feel. Intentions guide your energy and attention toward qualities like compassion, presence, or peace. They create a foundation for mindful living and help align your actions with your values.',
+        hyperlinks: [
+          { text: 'mindful living', targetId: 'mindfulness-basics', type: 'mini-article' },
+          { text: 'values', targetId: 'personal-values', type: 'mini-article' }
+        ]
+      }
+    ],
+    readTime: 2,
+    difficulty: 'beginner',
+    relatedTopics: ['intentions', 'mindfulness', 'personal-growth'],
+    tags: ['intentions', 'goals', 'mindfulness', 'values'],
+    lastUpdated: '2024-01-15'
+  },
+  {
+    id: 'present-moment',
+    title: 'Living in the Present Moment',
+    category: 'core-concepts',
+    content: [
+      {
+        id: 'present-awareness',
+        title: 'The Power of Now',
+        content: 'The present moment is the only time that truly exists - the past is memory and the future is imagination. When you bring your full attention to what\'s happening right now, you connect with a sense of aliveness and peace. Present moment awareness reduces anxiety (which often comes from worrying about the future) and depression (which often comes from dwelling on the past).',
+        hyperlinks: [
+          { text: 'anxiety', targetId: 'anxiety-management', type: 'mini-article' },
+          { text: 'mindfulness practice', targetId: 'mindfulness-basics', type: 'mini-article' }
+        ]
+      }
+    ],
+    readTime: 2,
+    difficulty: 'beginner',
+    relatedTopics: ['mindfulness', 'presence', 'mental-health'],
+    tags: ['present', 'mindfulness', 'awareness', 'now'],
+    lastUpdated: '2024-01-15'
+  },
+  {
     id: 'breath-basics',
     title: 'Deep Breathing Fundamentals',
     category: 'techniques',

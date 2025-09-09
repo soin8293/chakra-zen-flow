@@ -3,8 +3,9 @@ import { articles } from '@/data/articles';
 import { Button } from './ui/button';
 import { Badge } from './ui/badge';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from './ui/dialog';
-import { BookOpen, Bookmark, BookmarkCheck, ExternalLink } from 'lucide-react';
+import { BookOpen, Bookmark, BookmarkCheck, ExternalLink, Clock, Target } from 'lucide-react';
 import { useBookmarks } from '@/hooks/useBookmarks';
+import { HyperlinkPreview } from './ui/hyperlink-preview';
 
 interface MiniArticleModalProps {
   miniArticle: MiniArticle;

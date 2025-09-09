@@ -8,6 +8,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "./ui/tabs";
 import { Input } from "./ui/input";
 import { ArrowLeft, ChevronRight, Search, BookmarkIcon, Star, Clock, TrendingUp } from "lucide-react";
 import { useBookmarks } from "@/hooks/useBookmarks";
+import { MiniArticleCard } from "./ui/mini-article-card";
 
 interface ChakraInfoPageProps {
   onBack: () => void;
@@ -20,7 +21,7 @@ interface ChakraInfoPageProps {
 export function ChakraInfoPage({ onBack, onChakraSelect, onArticleSelect, onBookmarksClick, initialSearchTag }: ChakraInfoPageProps) {
   const [searchQuery, setSearchQuery] = useState('');
   const [activeCategory, setActiveCategory] = useState<ArticleCategory | 'all'>('all');
-  const { totalBookmarks } = useBookmarks();
+  const { totalBookmarks, isBookmarked, addBookmark, removeBookmark } = useBookmarks();
 
   // Set initial search tag when provided
   useEffect(() => {
@@ -221,40 +222,13 @@ export function ChakraInfoPage({ onBack, onChakraSelect, onArticleSelect, onBook
           <div className="space-y-6">
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {filteredArticles.map(article => (
-                <Card 
+                <MiniArticleCard
                   key={article.id}
-                  className="p-4 hover:bg-muted/50 transition-colors cursor-pointer group"
-                  onClick={() => onArticleSelect(article.id)}
-                >
-                  <div className="flex items-start justify-between mb-2">
-                    <Badge variant="outline" className="text-xs">
-                      {categoryDisplayNames[article.category]}
-                    </Badge>
-                    <ChevronRight className="h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors" />
-                  </div>
-                  <h3 className="font-medium text-card-foreground group-hover:text-primary transition-colors mb-2">
-                    {article.title}
-                  </h3>
-                  <div className="flex items-center gap-2 text-xs text-muted-foreground mb-2">
-                    <Clock className="h-3 w-3" />
-                    {article.readTime} min
-                    <Badge className={getDifficultyColor(article.difficulty)} variant="outline">
-                      {article.difficulty}
-                    </Badge>
-                  </div>
-                  <div className="flex flex-wrap gap-1">
-                    {article.tags.slice(0, 3).map(tag => (
-                      <Badge 
-                        key={tag} 
-                        variant="outline" 
-                        className="text-xs cursor-pointer hover:bg-primary/10 hover:border-primary/30 transition-colors"
-                        onClick={(e) => handleTagClick(tag, e)}
-                      >
-                        #{tag}
-                      </Badge>
-                    ))}
-                  </div>
-                </Card>
+                  article={article}
+                  isBookmarked={isBookmarked(article.id)}
+                  onRead={onArticleSelect}
+                  onBookmark={(id) => isBookmarked(id) ? removeBookmark(id) : addBookmark(id, 'to-read')}
+                />
               ))}
             </div>
 
